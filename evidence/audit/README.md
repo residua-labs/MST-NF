@@ -1,0 +1,3 @@
+# Independent review of the claims
+
+Round 1 (`REFEREE_DELTA_round1_40_overclaims.md`): 288 entries, 248 OK, 40 OVERCLAIM (24 wordings), 0 OPEN. All 24 wordings were reworded to the size of their theorems (traceability clause removed; sufficiency stated as the FDT iff; "exhibited one is a named residue" replaced; uniqueness restated with surjectivity; 3-form iff with its hypotheses; Gödel/antifiat/weak-horn glosses restated; appositive dropped; coverage sentence restated), and the gate-miss sentences were brought into the registry. Round 2 (`REFEREE_DELTA_round2.md`): 299 entries, 299 OK, 0 OVERCLAIM, 0 OPEN.

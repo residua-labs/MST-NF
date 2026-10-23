@@ -1,0 +1,1 @@
+Await|open hypotheses without a covering producer|open=[claim:C01, thm:MSTNFCompletenessRepresentationMWE.completeness_theorem]|halted=[]|closed_count=78

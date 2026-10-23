@@ -1,0 +1,8 @@
+MST-NF
+Copyright 2026 Residua Labs contributors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It depends on, but does not include, Mathlib
+(https://github.com/leanprover-community/mathlib4), licensed under the
+Apache License, Version 2.0.

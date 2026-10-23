@@ -1,0 +1,104 @@
+open Lean Meta Elab
+
+-- Obligation-graph extractor (adapted from cc-riskexplorer extract/Graph.lean): theory theorems -> Prop hypotheses -> producer theorems.
+-- "theory" = any module outside Init/Std/Lean/Mathlib/Batteries/... . Seeds come from $SEEDS (comma-separated), output to $GRAPH_OUT.
+
+partial def stripForalls : Expr → Array Expr × Expr
+  | .forallE _ d b _ => let (bs, r) := stripForalls b; (#[d] ++ bs, r)
+  | e => (#[], e)
+
+def libPrefixes : List String := ["Init","Std","Lean","Mathlib","Batteries","Aesop","Qq","Plausible","ProofWidgets","ImportGraph","LeanSearchClient","Cli"]
+
+def isTheoryConst (env : Environment) (n : Name) : Bool :=
+  match env.getModuleIdxFor? n with
+  | some i => let m := (env.header.moduleNames[i.toNat]!).toString
+              !(libPrefixes.any fun p => m == p || m.startsWith (p ++ "."))
+  | none => false
+
+def concHead (t : Expr) : Name × Bool × Array Expr :=
+  let (bs, body) := stripForalls t
+  let neg := body.isAppOf ``Not ∨ body.isAppOf ``False
+  let body' := if body.isAppOf ``Not then body.appArg! else body
+  let body' := if body.isAppOf ``False then (if bs.size > 0 then bs.back! else body) else body'
+  (body'.getAppFn.constName?.getD .anonymous, neg, body'.getAppArgs)
+
+def isPropPred (env : Environment) (n : Name) : Bool :=
+  match env.find? n with
+  | some ci => (stripForalls ci.type).2 == .sort .zero
+  | none => false
+
+structure ThmInfo where
+  name : Name
+  head : Name
+  neg : Bool
+  generic : Bool
+  domClass : String
+  hyps : Array Name
+  dropped : Array Name
+  deriving Inhabited
+
+def thmInfo (env : Environment) (n : Name) : Option ThmInfo := do
+  let ci ← env.find? n
+  guard (ci matches .thmInfo _)
+  let (bs, _body) := stripForalls ci.type
+  let (h, neg, args) := concHead ci.type
+  let cls := bs.map fun b =>
+    let (_, bbody) := stripForalls b
+    let isForall := b.isForall
+    match bbody.getAppFn.constName? with
+    | some c =>
+      if isPropPred env c then (if isTheoryConst env c && !isForall then (1, c) else (2, c))
+      else (0, c)
+    | none => if bbody.isSort then (0, .anonymous) else (2, .anonymous)
+  let hyps := (cls.filter (·.1 == 1)).map (·.2)
+  let dropped := (cls.filter (·.1 == 2)).map (·.2)
+  let generic := args.any fun a => a.hasLooseBVars
+  let a0 := args[0]?.getD (.sort .zero)
+  let domClass := if a0.isBVar then "var" else if a0.hasLooseBVars then "image" else "pin"
+  pure { name := n, head := h, neg, generic, domClass, hyps, dropped }
+
+#eval show MetaM Unit from do
+  let env ← getEnv
+  let seedsStr := (← IO.getEnv "SEEDS").getD ""
+  let outPath := (← IO.getEnv "GRAPH_OUT").getD "graph.json"
+  let seeds : List Name := (seedsStr.splitOn ",").filter (· != "") |>.map String.toName
+  let mut idx : Std.HashMap Name (Array ThmInfo) := {}
+  let mut total := 0
+  for (n, ci) in env.constants.map₁.toList do
+    if ci matches .thmInfo _ then
+      if isTheoryConst env n && !n.isInternal then
+        total := total + 1
+        match thmInfo env n with
+        | some ti => idx := idx.insert ti.head ((idx.getD ti.head #[]).push ti)
+        | none => pure ()
+  IO.println s!"theory theorems: {total}, heads: {idx.size}"
+  let mut nodes : Array Json := #[]
+  let mut seen : Std.HashSet Name := {}
+  let mut todoH : Array Name := #[]
+  let mut thmOut : Array Json := #[]
+  let mut seenT : Std.HashSet Name := {}
+  for s in seeds do
+    match thmInfo env s with
+    | some ti =>
+      seenT := seenT.insert s
+      thmOut := thmOut.push (Json.mkObj [("name", s.toString), ("head", ti.head.toString), ("generic", ti.generic), ("domClass", ti.domClass), ("neg", ti.neg), ("hyps", toJson (ti.hyps.map Name.toString)), ("dropped", toJson (ti.dropped.map Name.toString)), ("type", (← ppExpr ((env.find? s).get!.type)).pretty.take 600), ("seed", true)])
+      todoH := todoH ++ ti.hyps
+    | none => IO.println s!"seed missing or not a theorem: {s}"
+  let mut fuel := 4000
+  while todoH.size > 0 && fuel > 0 do
+    fuel := fuel - 1
+    let h := todoH.back!
+    todoH := todoH.pop
+    if seen.contains h then continue
+    seen := seen.insert h
+    let prods := (idx.getD h #[])
+    let mut pj : Array Json := #[]
+    for p in prods do
+      if !seenT.contains p.name then
+        seenT := seenT.insert p.name
+        thmOut := thmOut.push (Json.mkObj [("name", p.name.toString), ("head", p.head.toString), ("generic", p.generic), ("domClass", p.domClass), ("neg", p.neg), ("hyps", toJson (p.hyps.map Name.toString)), ("dropped", toJson (p.dropped.map Name.toString)), ("type", (← ppExpr ((env.find? p.name).get!.type)).pretty.take 400)])
+        if !p.neg then todoH := todoH ++ p.hyps
+      pj := pj.push (toJson p.name.toString)
+    nodes := nodes.push (Json.mkObj [("hyp", h.toString), ("producers", Json.arr pj)])
+  IO.FS.writeFile outPath (Json.mkObj [("hyps", Json.arr nodes), ("thms", Json.arr thmOut)]).compress
+  IO.println s!"nodes {nodes.size} thms {thmOut.size} fuelLeft {fuel}"

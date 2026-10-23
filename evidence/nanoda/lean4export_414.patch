@@ -1,0 +1,38 @@
+diff --git a/Export.lean b/Export.lean
+index 7a73832..a6ba8fa 100644
+--- a/Export.lean
++++ b/Export.lean
+@@ -11,12 +11,12 @@ structure Context where
+   env : Environment
+ 
+ structure State where
+-  visitedNames : HashMap Name Nat := .insert {} .anonymous 0
+-  visitedLevels : HashMap Level Nat := .insert {} .zero 0
+-  visitedExprs : HashMap Expr Nat := {}
+-  visitedRecRules : HashMap RecursorRule Nat := {}
++  visitedNames : Std.HashMap Name Nat := .insert {} .anonymous 0
++  visitedLevels : Std.HashMap Level Nat := .insert {} .zero 0
++  visitedExprs : Std.HashMap Expr Nat := {}
++  visitedRecRules : Std.HashMap RecursorRule Nat := {}
+   visitedConstants : NameHashSet := {}
+-  noMDataExprs : HashMap Expr Expr := {}
++  noMDataExprs : Std.HashMap Expr Expr := {}
+   exportUnsafe : Bool := false
+ 
+ abbrev M := ReaderT Context <| StateT State IO
+@@ -27,7 +27,7 @@ def M.run (env : Environment) (act : M α) : IO α :=
+       act
+ 
+ @[inline]
+-def getIdx [Hashable α] [BEq α] (x : α) (getM : State → HashMap α Nat) (setM : State → HashMap α Nat → State) (rec : M String) : M Nat := do
++def getIdx [Hashable α] [BEq α] (x : α) (getM : State → Std.HashMap α Nat) (setM : State → Std.HashMap α Nat → State) (rec : M String) : M Nat := do
+   let m ← getM <$> get
+   if let some idx := m[x]? then
+     return idx
+diff --git a/lean-toolchain b/lean-toolchain
+index 1efd365..1e70935 100644
+--- a/lean-toolchain
++++ b/lean-toolchain
+@@ -1 +1 @@
+-leanprover/lean4:v4.21.0-rc3
++leanprover/lean4:v4.14.0

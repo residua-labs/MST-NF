@@ -1,0 +1,55 @@
+'MSTNFObject.exact_iff_empty_residues' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFObject.exact_iff_sound_and_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFExecutionNoFifthRoleMWE.CoreExecutionProfile.noIndependentFifth_for_coreProfile' does not depend on any axioms
+'MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_allRolesRepresented' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_of_modelingCompleteness' does not depend on any axioms
+'MSTNFCanonicalDecompositionMWE.canonical_is_coarsest' does not depend on any axioms
+'MSTNFCanonicalDecompositionMWE.kernel_exact_iso' depends on axioms: [Classical.choice]
+'MSTNFCanonicalDecompositionMWE.agree_iff_same_canonical' depends on axioms: [Quot.sound]
+'MSTNFCompletenessRepresentationMWE.completeness_theorem' does not depend on any axioms
+'MSTNecessityExecModelMWE.sameClass_sameOutcome' does not depend on any axioms
+'MSTMinimalityRoleBasisMWE.fused_roles_lose_independent_diagnostics' does not depend on any axioms
+'MSTMinimalityRoleBasisMWE.noninjective_simulation_requires_role_fusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MSTMinimalityRoleBasisMWE.standard_basis_is_minimal_independent_diagnostic_basis' does not depend on any axioms
+'MSTNecessityRoleAblationMWE.deleting_each_role_breaks_semantics' depends on axioms: [propext]
+'MSTNecessityExecModelMWE.execModel_with_all_roles_has_mstnf_profile' does not depend on any axioms
+'MSTNoFifthRoleIntegrationMWE.extended_basis_complete' does not depend on any axioms
+'MSTNFQuotientBeforeExecutionNFMWE.sameClass_sameOutcome' does not depend on any axioms
+'MSTNFQuotientBeforeExecutionNFMWE.mstnf_backend_le_classic' depends on axioms: [propext]
+'MSTNFConcreteAbstractEquivMWE.v_concrete_eq_abstract_on_all_fixtures' does not depend on any axioms
+'MSTNFConcreteAbstractEquivMWE.core_concrete_eq_abstract_on_all_fixtures' does not depend on any axioms
+'MSTNFConcreteAbstractEquivMWE.residue_concrete_eq_abstract_on_all_fixtures' does not depend on any axioms
+'MSTNFPredBridge.exact_agrees' depends on axioms: [propext, Quot.sound]
+'MSTNFCompletenessRepresentationMWE.canonical_decomposition_faithful' does not depend on any axioms
+'MSTNFCompletenessRepresentationMWE.residue_totality' depends on axioms: [propext]
+'MSTNFCompletenessRepresentationMWE.admitted_rejected_partition' depends on axioms: [propext]
+'MSTNFCompletenessRepresentationMWE.minimal_complete_basis' does not depend on any axioms
+'MSTNFCanonicalDecompositionMWE.kernel_exact_unique_up_to_map' depends on axioms: [propext]
+'MSTNoFifthRoleIntegrationMWE.profileWithFifth_iff_profile' does not depend on any axioms
+'MSTNoFifthRoleIntegrationMWE.no_independent_deletion_countermodel_for_dependent_fifth' does not depend on any axioms
+'MSTNF3Form4FormEquivMWE.toExecModel_fromExecModel' depends on axioms: [Quot.sound]
+'MSTNF3Form4FormEquivMWE.hasMSTNFProfile_iff_3form_section' depends on axioms: [Quot.sound]
+'MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_admissible' does not depend on any axioms
+'MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_sigma' does not depend on any axioms
+'MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_rho' does not depend on any axioms
+'MSTNF3FormOmegaForcedProbeMWE.tag_is_omega_forced' depends on axioms: [propext, Quot.sound]
+'MSTNF3FormOmegaForcedProbeMWE.two_Lambdas_same_tag_distinct_witnesses' depends on axioms: [Quot.sound]
+'MSTNFT1BridgeClosure.T1_closure' depends on axioms: [propext, Quot.sound]
+'MSTNFT1BridgeClosure.T1_parametric_in_framework' depends on axioms: [propext, Quot.sound]
+'MSTNFT1BridgeClosure.antiFiatChain_each_detects_prior_fiat' depends on axioms: [propext, Quot.sound]
+'MSTNFResidueAbsorptionWellFounded.godelStep_no_terminal' depends on axioms: [propext, Quot.sound]
+'MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'MSTNFProfileDichotomyMWE.input_dichotomy' does not depend on any axioms
+'MSTNFProfileDichotomyMWE.representative_only_if_admitted' does not depend on any axioms

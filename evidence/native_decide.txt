@@ -1,0 +1,2 @@
+No theorem in scope uses native_decide (scripts/AxiomAudit.lean reports native_decide_theorems=0, see axiom_audit.txt).
+The development source of MSTNFConcreteAbstractEquivMWE originally used native_decide for three bridge theorems; the development repository now uses decide.

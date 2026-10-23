@@ -1,0 +1,4550 @@
+{
+ "schema": "mstnf-claims/1",
+ "definitions": [
+  {
+   "id": "D:quotientFactorization",
+   "name": "MSTNecessityExecModelMWE.quotientFactorization",
+   "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+   "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
+   "kind": "definition",
+   "anchors": []
+  },
+  {
+   "id": "D:admissibilitySound",
+   "name": "MSTNecessityExecModelMWE.admissibilitySound",
+   "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+   "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
+   "kind": "definition",
+   "anchors": [
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "The object",
+     "text": "| a | `admissibilitySound` | if a class has a representative, it is admissible |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "对象",
+     "text": "| a | `admissibilitySound` | 如果一个类有代表元，它就是被接受的 |"
+    }
+   ]
+  },
+  {
+   "id": "D:residueTotality",
+   "name": "MSTNecessityExecModelMWE.residueTotality",
+   "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+   "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
+   "kind": "definition",
+   "anchors": [
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "The object",
+     "text": "| ρ | `residueTotality` | every active non-admissible class has a residue (`rho c ≠ none`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "对象",
+     "text": "| ρ | `residueTotality` | 每个活跃的未被接受的类都有残差（`rho c ≠ none`） |"
+    }
+   ]
+  },
+  {
+   "id": "D:representativePrecision",
+   "name": "MSTNecessityExecModelMWE.representativePrecision",
+   "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+   "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
+   "kind": "definition",
+   "anchors": [
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "The object",
+     "text": "| σ | `representativePrecision` | every active admissible class has a representative (`sigma c ≠ none`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "对象",
+     "text": "| σ | `representativePrecision` | 每个活跃的被接受的类都有代表元（`sigma c ≠ none`） |"
+    }
+   ]
+  },
+  {
+   "id": "D:hasMSTNFProfile",
+   "name": "MSTNecessityExecModelMWE.hasMSTNFProfile",
+   "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+   "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
+   "kind": "definition",
+   "anchors": []
+  }
+ ],
+ "hash": "Hfull (hash of the theorem type Expr: universe params by position, mdata erased, binder names/infos ignored, de Bruijn indices); see scripts/ClaimsCheck.lean",
+ "claims": [
+  {
+   "id": "C01",
+   "kind": "theorem",
+   "title": "Completeness: faithful decomposition of every decision function",
+   "theorems": [
+    {
+     "name": "MSTNFCompletenessRepresentationMWE.completeness_theorem",
+     "module": "MSTNF.algorithms.MSTNFCompletenessRepresentationMWE",
+     "statement_hash": "7d13ed574c1364c7abdf7e085c52afbb",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFCompletenessRepresentationMWE.canonical_decomposition_faithful",
+     "module": "MSTNF.algorithms.MSTNFCompletenessRepresentationMWE",
+     "statement_hash": "6ff552cdfeb13cbba7b092bfceed9611",
+     "axioms": []
+    }
+   ],
+   "scope_note": "decision functions C : E → Option X; constructed from C (rfl)",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "**the four roles suffice** to represent any decision function `C : E → Option X` (`completeness_theorem`), and, inside the admissible role language, a candidate fifth role factors through the four-role profile unless an explicit diagnostic witness for it is exhibited (`roleRepresentation_iff_noDiagnostic`);"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "The Lean development defines the obligations of the four roles (`ExecModel`, `hasMSTNFProfile`) and proves the statements listed under *Intents*: every decision function has a four-part decomposition (`completeness_theorem`); no role is redundant (`deleting_each_role_breaks_semantics`); the roles are minimal as an independent diagnostic basis (`standard_basis_is_minimal_independent_diagnostic_basis`); two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); and a core object is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `completeness_theorem` — every decision function `C : E → Option X` has a faithful (q, a, σ) decomposition (by construction) | `MSTNF/algorithms/MSTNFCompletenessRepresentationMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `canonical_decomposition_faithful` — `C e = σ (q e)` for the canonical decomposition (by `rfl`) | `MSTNF/algorithms/MSTNFCompletenessRepresentationMWE.lean` | none |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "**四个角色足够**表示任何决策函数 `C : E → Option X`（`completeness_theorem`），并且在可容许角色语言之内，一个候选的第五角色都能通过四角色 profile 分解，除非给出它的显式诊断见证（`roleRepresentation_iff_noDiagnostic`）；"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Completeness** | Every `C` has a faithful (q, a, σ, ρ) decomposition, constructed from `C` (the proofs are `rfl`: `q := C`, `σ := id`). Every input is admitted or rejected, exclusively (`canonicalA (q e) = !ρ e`), and ρ holds on every refused input. Here ρ is a Boolean refusal indicator; typed residues belong to `ExecModel`. | `completeness_theorem`, `canonical_decomposition_faithful`, `residue_totality`, `admitted_rejected_partition` (`MSTNFCompletenessRepresentationMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Sufficiency** | In FDT form: a candidate role factors through the four-role profile **iff** it has no explicit diagnostic witness, i.e. no two objects with the same profile that it separates. A fifth role therefore cannot be asserted; it has to be exhibited, and an exhibited one is an explicit diagnostic witness (two objects with the same profile that the candidate separates), which is not a residue in the sense of `rho c ≠ none`. This holds inside the admissible role language of the module (its scope sentence). For the core execution language every role is represented (`noIndependentFifth_for_coreProfile`, a closed instance whose four roles are the four constructors and that holds by definition). Together with `completeness_theorem` (every decision function factors through q/a/σ/ρ), this is the sufficiency result. | `roleRepresentation_iff_noDiagnostic`, `noIndependentFifth_iff_noExplicitDiagnosticWitness`, `noIndependentFifth_iff_allRolesRepresented` (generic), `noIndependentFifth_for_coreProfile` (`MSTNFExecutionNoFifthRoleMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **完备性（Completeness）** | 每个 `C` 都有忠实的 (q, a, σ, ρ) 分解，由 `C` 构造得到（证明是 `rfl`：`q := C`，`σ := id`）。每个输入要么被接受要么被拒绝，二者互斥（`canonicalA (q e) = !ρ e`），并且 ρ 在每个被拒绝的输入上成立。这里的 ρ 是布尔的拒绝指示；有类型的残差属于 `ExecModel`。 | `completeness_theorem`、`canonical_decomposition_faithful`、`residue_totality`、`admitted_rejected_partition`（`MSTNFCompletenessRepresentationMWE`） |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **充分性（Sufficiency）** | FDT 形式：一个候选角色能通过四角色 profile 分解，**当且仅当**它没有显式诊断见证，即不存在两个 profile 相同、而它能区分的对象。所以第五个角色不能凭空宣称，必须被给出；被给出的那个，是一个显式诊断见证（两个 profile 相同、而候选角色能区分的对象），它不是 `rho c ≠ none` 意义上的残差。这在该模块的可容许角色语言之内成立（模块自己的范围语句）。对核心执行语言，每个角色都被表示（`noIndependentFifth_for_coreProfile`，一个封闭的实例：四个角色就是四个构造子，按定义成立）。与 `completeness_theorem`（每个决策函数都通过 q/a/σ/ρ 分解）一起，这就是充分性的结果。 | `roleRepresentation_iff_noDiagnostic`、`noIndependentFifth_iff_noExplicitDiagnosticWitness`、`noIndependentFifth_iff_allRolesRepresented`（泛型）、`noIndependentFifth_for_coreProfile`（`MSTNFExecutionNoFifthRoleMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C02",
+   "kind": "theorem",
+   "title": "Completeness: admitted xor rejected; rho holds on refusals",
+   "theorems": [
+    {
+     "name": "MSTNFCompletenessRepresentationMWE.admitted_rejected_partition",
+     "module": "MSTNF.algorithms.MSTNFCompletenessRepresentationMWE",
+     "statement_hash": "a6dfc74716db47ba9a3ffe965a761280",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFCompletenessRepresentationMWE.residue_totality",
+     "module": "MSTNF.algorithms.MSTNFCompletenessRepresentationMWE",
+     "statement_hash": "6908341370b9cedc6f358089787f225c",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "rho is a Boolean refusal indicator, not a typed residue",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `admitted_rejected_partition` — admitted xor rejected: `a (q e) = !ρ e` | `MSTNF/algorithms/MSTNFCompletenessRepresentationMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `residue_totality` — `C e = none` implies the refusal indicator ρ holds at `e` | `MSTNF/algorithms/MSTNFCompletenessRepresentationMWE.lean` | propext |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Completeness** | Every `C` has a faithful (q, a, σ, ρ) decomposition, constructed from `C` (the proofs are `rfl`: `q := C`, `σ := id`). Every input is admitted or rejected, exclusively (`canonicalA (q e) = !ρ e`), and ρ holds on every refused input. Here ρ is a Boolean refusal indicator; typed residues belong to `ExecModel`. | `completeness_theorem`, `canonical_decomposition_faithful`, `residue_totality`, `admitted_rejected_partition` (`MSTNFCompletenessRepresentationMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **完备性（Completeness）** | 每个 `C` 都有忠实的 (q, a, σ, ρ) 分解，由 `C` 构造得到（证明是 `rfl`：`q := C`，`σ := id`）。每个输入要么被接受要么被拒绝，二者互斥（`canonicalA (q e) = !ρ e`），并且 ρ 在每个被拒绝的输入上成立。这里的 ρ 是布尔的拒绝指示；有类型的残差属于 `ExecModel`。 | `completeness_theorem`、`canonical_decomposition_faithful`、`residue_totality`、`admitted_rejected_partition`（`MSTNFCompletenessRepresentationMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C03",
+   "kind": "theorem",
+   "title": "Sufficiency, FDT form",
+   "theorems": [
+    {
+     "name": "MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic",
+     "module": "MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE",
+     "statement_hash": "f770a3909c37574c7177c740258c9bdf",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness",
+     "module": "MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE",
+     "statement_hash": "544ca690bd898220bf3f3702300bf422",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_allRolesRepresented",
+     "module": "MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE",
+     "statement_hash": "01a19867104968048bb3aebc2877c4e9",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "inside the admissible role language of the module",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "**the four roles suffice** to represent any decision function `C : E → Option X` (`completeness_theorem`), and, inside the admissible role language, a candidate fifth role factors through the four-role profile unless an explicit diagnostic witness for it is exhibited (`roleRepresentation_iff_noDiagnostic`);"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `roleRepresentation_iff_noDiagnostic` — a candidate role factors through the profile iff it has no explicit diagnostic witness | `MSTNF/algorithms/MSTNFExecutionNoFifthRoleMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `noIndependentFifth_iff_noExplicitDiagnosticWitness` — no independent fifth role iff no explicit diagnostic witness | `MSTNF/algorithms/MSTNFExecutionNoFifthRoleMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `noIndependentFifth_iff_allRolesRepresented` — no independent fifth role iff every role is represented | `MSTNF/algorithms/MSTNFExecutionNoFifthRoleMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "**四个角色足够**表示任何决策函数 `C : E → Option X`（`completeness_theorem`），并且在可容许角色语言之内，一个候选的第五角色都能通过四角色 profile 分解，除非给出它的显式诊断见证（`roleRepresentation_iff_noDiagnostic`）；"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Sufficiency** | In FDT form: a candidate role factors through the four-role profile **iff** it has no explicit diagnostic witness, i.e. no two objects with the same profile that it separates. A fifth role therefore cannot be asserted; it has to be exhibited, and an exhibited one is an explicit diagnostic witness (two objects with the same profile that the candidate separates), which is not a residue in the sense of `rho c ≠ none`. This holds inside the admissible role language of the module (its scope sentence). For the core execution language every role is represented (`noIndependentFifth_for_coreProfile`, a closed instance whose four roles are the four constructors and that holds by definition). Together with `completeness_theorem` (every decision function factors through q/a/σ/ρ), this is the sufficiency result. | `roleRepresentation_iff_noDiagnostic`, `noIndependentFifth_iff_noExplicitDiagnosticWitness`, `noIndependentFifth_iff_allRolesRepresented` (generic), `noIndependentFifth_for_coreProfile` (`MSTNFExecutionNoFifthRoleMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **充分性（Sufficiency）** | FDT 形式：一个候选角色能通过四角色 profile 分解，**当且仅当**它没有显式诊断见证，即不存在两个 profile 相同、而它能区分的对象。所以第五个角色不能凭空宣称，必须被给出；被给出的那个，是一个显式诊断见证（两个 profile 相同、而候选角色能区分的对象），它不是 `rho c ≠ none` 意义上的残差。这在该模块的可容许角色语言之内成立（模块自己的范围语句）。对核心执行语言，每个角色都被表示（`noIndependentFifth_for_coreProfile`，一个封闭的实例：四个角色就是四个构造子，按定义成立）。与 `completeness_theorem`（每个决策函数都通过 q/a/σ/ρ 分解）一起，这就是充分性的结果。 | `roleRepresentation_iff_noDiagnostic`、`noIndependentFifth_iff_noExplicitDiagnosticWitness`、`noIndependentFifth_iff_allRolesRepresented`（泛型）、`noIndependentFifth_for_coreProfile`（`MSTNFExecutionNoFifthRoleMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C04",
+   "kind": "theorem",
+   "title": "Sufficiency: core execution roles represented",
+   "theorems": [
+    {
+     "name": "MSTNFExecutionNoFifthRoleMWE.CoreExecutionProfile.noIndependentFifth_for_coreProfile",
+     "module": "MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE",
+     "statement_hash": "f98c8497a6d1f83e4cb4e61401e5bebf",
+     "axioms": []
+    }
+   ],
+   "scope_note": "closed instance: four constructors, holds by definition",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `noIndependentFifth_for_coreProfile` — closed instance: the core execution roles are represented (holds by definition) | `MSTNF/algorithms/MSTNFExecutionNoFifthRoleMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "What this does NOT claim",
+     "text": "Its closed instance (`noIndependentFifth_for_coreProfile`) holds by definition, and `MSTNoFifthRoleIntegrationMWE` covers only candidates the profile already entails."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "本仓库不宣称什么",
+     "text": "它的封闭实例（`noIndependentFifth_for_coreProfile`）按定义成立，`MSTNoFifthRoleIntegrationMWE` 只覆盖 profile 已经蕴含的候选。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Sufficiency** | In FDT form: a candidate role factors through the four-role profile **iff** it has no explicit diagnostic witness, i.e. no two objects with the same profile that it separates. A fifth role therefore cannot be asserted; it has to be exhibited, and an exhibited one is an explicit diagnostic witness (two objects with the same profile that the candidate separates), which is not a residue in the sense of `rho c ≠ none`. This holds inside the admissible role language of the module (its scope sentence). For the core execution language every role is represented (`noIndependentFifth_for_coreProfile`, a closed instance whose four roles are the four constructors and that holds by definition). Together with `completeness_theorem` (every decision function factors through q/a/σ/ρ), this is the sufficiency result. | `roleRepresentation_iff_noDiagnostic`, `noIndependentFifth_iff_noExplicitDiagnosticWitness`, `noIndependentFifth_iff_allRolesRepresented` (generic), `noIndependentFifth_for_coreProfile` (`MSTNFExecutionNoFifthRoleMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **充分性（Sufficiency）** | FDT 形式：一个候选角色能通过四角色 profile 分解，**当且仅当**它没有显式诊断见证，即不存在两个 profile 相同、而它能区分的对象。所以第五个角色不能凭空宣称，必须被给出；被给出的那个，是一个显式诊断见证（两个 profile 相同、而候选角色能区分的对象），它不是 `rho c ≠ none` 意义上的残差。这在该模块的可容许角色语言之内成立（模块自己的范围语句）。对核心执行语言，每个角色都被表示（`noIndependentFifth_for_coreProfile`，一个封闭的实例：四个角色就是四个构造子，按定义成立）。与 `completeness_theorem`（每个决策函数都通过 q/a/σ/ρ 分解）一起，这就是充分性的结果。 | `roleRepresentation_iff_noDiagnostic`、`noIndependentFifth_iff_noExplicitDiagnosticWitness`、`noIndependentFifth_iff_allRolesRepresented`（泛型）、`noIndependentFifth_for_coreProfile`（`MSTNFExecutionNoFifthRoleMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C05",
+   "kind": "theorem",
+   "title": "Dependent fifth-role candidates change nothing",
+   "theorems": [
+    {
+     "name": "MSTNoFifthRoleIntegrationMWE.profileWithFifth_iff_profile",
+     "module": "MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE",
+     "statement_hash": "34e4a331bfa20847ebd8f9708423f556",
+     "axioms": []
+    },
+    {
+     "name": "MSTNoFifthRoleIntegrationMWE.no_independent_deletion_countermodel_for_dependent_fifth",
+     "module": "MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE",
+     "statement_hash": "1adbb240397d2289781d9a794884d5f0",
+     "axioms": []
+    },
+    {
+     "name": "MSTNoFifthRoleIntegrationMWE.extended_basis_complete",
+     "module": "MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE",
+     "statement_hash": "6abc6eec05ff3e980b224ea71c5a8879",
+     "axioms": []
+    }
+   ],
+   "scope_note": "only candidates entailed by the profile; bookkeeping by unfolding",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `profileWithFifth_iff_profile` — adding a dependent fifth role does not change the profile | `MSTNF/algorithms/MSTNoFifthRoleIntegrationMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `no_independent_deletion_countermodel_for_dependent_fifth` — a dependent fifth role has no deletion countermodel | `MSTNF/algorithms/MSTNoFifthRoleIntegrationMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `extended_basis_complete` — the basis extended by a dependent fifth role is complete | `MSTNF/algorithms/MSTNoFifthRoleIntegrationMWE.lean` | none |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C06",
+   "kind": "theorem",
+   "title": "The four role properties give the profile",
+   "theorems": [
+    {
+     "name": "MSTNecessityExecModelMWE.execModel_with_all_roles_has_mstnf_profile",
+     "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+     "statement_hash": "6cf4504916c8a11b24a84d72b589346d",
+     "axioms": []
+    }
+   ],
+   "scope_note": "the profile is defined as their conjunction",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `execModel_with_all_roles_has_mstnf_profile` — the four role properties give the MST-NF execution profile | `MSTNF/algorithms/MSTNecessityExecModelMWE.lean` | none |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C07",
+   "kind": "theorem",
+   "title": "Necessity by ablation",
+   "theorems": [
+    {
+     "name": "MSTNecessityRoleAblationMWE.deleting_each_role_breaks_semantics",
+     "module": "MSTNF.algorithms.MSTNecessityRoleAblationMWE",
+     "statement_hash": "5c34730fe33763220a721f9010b356d2",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "existence of a countermodel per role",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "**none is redundant**: for each role there is a model where the other three hold and it fails (`deleting_each_role_breaks_semantics`);"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "The Lean development defines the obligations of the four roles (`ExecModel`, `hasMSTNFProfile`) and proves the statements listed under *Intents*: every decision function has a four-part decomposition (`completeness_theorem`); no role is redundant (`deleting_each_role_breaks_semantics`); the roles are minimal as an independent diagnostic basis (`standard_basis_is_minimal_independent_diagnostic_basis`); two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); and a core object is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `deleting_each_role_breaks_semantics` — for each role, a model satisfying the other three and failing it | `MSTNF/algorithms/MSTNecessityRoleAblationMWE.lean` | propext |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "**没有哪一个是多余的**：对每个角色，都存在一个模型，其余三个成立而它不成立（`deleting_each_role_breaks_semantics`）；"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Necessity** | For each role there is an `ExecModel` in which the other three role properties hold and that role's property fails. (In some of the countermodels one of the other three holds because its hypothesis is empty; the statement is the existence of the countermodel.) | `deleting_each_role_breaks_semantics` (`MSTNecessityRoleAblationMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "**Minimality is not \"fewest components\".** None of the four obligations can be dropped and each can fail while the other three hold (`deleting_each_role_breaks_semantics`); merged roles cannot both be independently diagnosed (`fused_roles_lose_independent_diagnostics`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **必要性（Necessity）** | 对每个角色，都存在一个 `ExecModel`，其余三个角色性质成立，而该角色的性质不成立。（在部分反模型里，其余三个之一成立是因为它的假设为空；陈述的是反模型的存在。） | `deleting_each_role_breaks_semantics`（`MSTNecessityRoleAblationMWE`） |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "** 四条义务一个都不能丢，并且每一条都可以在其余三条成立时失败（`deleting_each_role_breaks_semantics`）；合并的角色不能同时被独立诊断（`fused_roles_lose_independent_diagnostics`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C08",
+   "kind": "theorem",
+   "title": "Minimality as an independent diagnostic basis",
+   "theorems": [
+    {
+     "name": "MSTMinimalityRoleBasisMWE.standard_basis_is_minimal_independent_diagnostic_basis",
+     "module": "MSTNF.algorithms.MSTMinimalityRoleBasisMWE",
+     "statement_hash": "059618146f125bcd8f748ceb54a09229",
+     "axioms": []
+    },
+    {
+     "name": "MSTMinimalityRoleBasisMWE.fused_roles_lose_independent_diagnostics",
+     "module": "MSTNF.algorithms.MSTMinimalityRoleBasisMWE",
+     "statement_hash": "cb38d4309e81ff9ba95c1555b3282da0",
+     "axioms": []
+    },
+    {
+     "name": "MSTMinimalityRoleBasisMWE.noninjective_simulation_requires_role_fusion",
+     "module": "MSTNF.algorithms.MSTMinimalityRoleBasisMWE",
+     "statement_hash": "8d485c302129175bea17aa976cc600f1",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "diagnostic capacity, not encoding; the complete-B hypothesis in the signature is unused",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why a normal form, and not a design",
+     "text": "What the theory proves is about independent diagnosis: merged roles can no longer both be independently diagnosed (`fused_roles_lose_independent_diagnostics`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "The Lean development defines the obligations of the four roles (`ExecModel`, `hasMSTNFProfile`) and proves the statements listed under *Intents*: every decision function has a four-part decomposition (`completeness_theorem`); no role is redundant (`deleting_each_role_breaks_semantics`); the roles are minimal as an independent diagnostic basis (`standard_basis_is_minimal_independent_diagnostic_basis`); two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); and a core object is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `standard_basis_is_minimal_independent_diagnostic_basis` — a basis diagnosing all four roles independently has at least four role positions | `MSTNF/algorithms/MSTMinimalityRoleBasisMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `fused_roles_lose_independent_diagnostics` — two merged roles cannot both be independently diagnosed | `MSTNF/algorithms/MSTMinimalityRoleBasisMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `noninjective_simulation_requires_role_fusion` — a non-injective simulation fuses two roles | `MSTNF/algorithms/MSTMinimalityRoleBasisMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么是范式，而不是设计",
+     "text": "理论证明的是关于独立诊断的事：合并后的角色不能再同时被独立诊断（`fused_roles_lose_independent_diagnostics`）。"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Minimality** | Two merged roles cannot both be independently diagnosed, so a basis that diagnoses all four independently has at least four role positions. This is minimality of diagnostic capacity, not of an encoding. The theorem's signature carries a `complete B` hypothesis that the proof does not use; the load-bearing hypothesis is independent diagnosability. | `standard_basis_is_minimal_independent_diagnostic_basis`, `fused_roles_lose_independent_diagnostics` (`MSTMinimalityRoleBasisMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "That does not contradict the minimality result (`standard_basis_is_minimal_independent_diagnostic_basis`), which is about independent diagnostics."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "**Minimality is not \"fewest components\".** None of the four obligations can be dropped and each can fail while the other three hold (`deleting_each_role_breaks_semantics`); merged roles cannot both be independently diagnosed (`fused_roles_lose_independent_diagnostics`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **最小性（Minimality）** | 被合并的两个角色不能同时被独立诊断，所以能独立诊断全部四个角色的基，至少有四个角色位置。这是诊断能力的最小性，不是编码的最小性。该定理的签名里带有一个 `complete B` 假设，证明并未使用它；起承重作用的假设是可独立诊断性。 | `standard_basis_is_minimal_independent_diagnostic_basis`、`fused_roles_lose_independent_diagnostics`（`MSTMinimalityRoleBasisMWE`） |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "这与最小性结果（`standard_basis_is_minimal_independent_diagnostic_basis`）并不矛盾，后者讲的是独立诊断。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "** 四条义务一个都不能丢，并且每一条都可以在其余三条成立时失败（`deleting_each_role_breaks_semantics`）；合并的角色不能同时被独立诊断（`fused_roles_lose_independent_diagnostics`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C09",
+   "kind": "theorem",
+   "title": "Uniqueness: kernel-exact quotients identify the same inputs",
+   "theorems": [
+    {
+     "name": "MSTNFCanonicalDecompositionMWE.kernel_exact_unique_up_to_map",
+     "module": "MSTNF.algorithms.MSTNFCanonicalDecompositionMWE",
+     "statement_hash": "2bf7e9ba09bdd489fd7215c73015b4c8",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "for a given C",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `kernel_exact_unique_up_to_map` — kernel-exact quotients identify the same inputs | `MSTNF/algorithms/MSTNFCanonicalDecompositionMWE.lean` | propext |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Uniqueness** | Any two kernel-exact decompositions identify the same inputs, and (when onto) are isomorphic. A valid decomposition never merges inputs `C` separates, so the canonical one is the coarsest. Two decision functions agree on every input iff their canonical forms are equal (a function-extensionality statement). | `kernel_exact_unique_up_to_map`, `kernel_exact_iso`, `canonical_is_coarsest`, `agree_iff_same_canonical` (`MSTNFCanonicalDecompositionMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **唯一性（Uniqueness）** | 任何两个 kernel-exact 的分解，识别的是同一批输入，并且（在满射时）同构。合法分解从不合并 `C` 区分开的输入，所以规范分解是最粗的。两个决策函数在每个输入上一致，当且仅当它们的规范形式相等（这是一个函数外延性的陈述）。 | `kernel_exact_unique_up_to_map`、`kernel_exact_iso`、`canonical_is_coarsest`、`agree_iff_same_canonical`（`MSTNFCanonicalDecompositionMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C10",
+   "kind": "theorem",
+   "title": "Uniqueness: isomorphism of kernel-exact surjective quotients",
+   "theorems": [
+    {
+     "name": "MSTNFCanonicalDecompositionMWE.kernel_exact_iso",
+     "module": "MSTNF.algorithms.MSTNFCanonicalDecompositionMWE",
+     "statement_hash": "524ec6b4303403080809f66bca74c1b5",
+     "axioms": [
+      "Classical.choice"
+     ]
+    }
+   ],
+   "scope_note": "needs surjectivity; uses Classical.choice",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "**the decomposition is unique up to isomorphism among kernel-exact surjective quotients** (`kernel_exact_iso`), and coarsest among valid ones (`canonical_is_coarsest`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "The Lean development defines the obligations of the four roles (`ExecModel`, `hasMSTNFProfile`) and proves the statements listed under *Intents*: every decision function has a four-part decomposition (`completeness_theorem`); no role is redundant (`deleting_each_role_breaks_semantics`); the roles are minimal as an independent diagnostic basis (`standard_basis_is_minimal_independent_diagnostic_basis`); two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); and a core object is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `kernel_exact_iso` — two kernel-exact surjective quotients are isomorphic | `MSTNF/algorithms/MSTNFCanonicalDecompositionMWE.lean` | Classical.choice |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "两个 kernel-exact 且满射的商，**在同构意义下是同一个**（`kernel_exact_iso`），并且在所有合法分解中最粗（`canonical_is_coarsest`）。"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Uniqueness** | Any two kernel-exact decompositions identify the same inputs, and (when onto) are isomorphic. A valid decomposition never merges inputs `C` separates, so the canonical one is the coarsest. Two decision functions agree on every input iff their canonical forms are equal (a function-extensionality statement). | `kernel_exact_unique_up_to_map`, `kernel_exact_iso`, `canonical_is_coarsest`, `agree_iff_same_canonical` (`MSTNFCanonicalDecompositionMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "\"Unique\" in the table means: any two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); whether MST-NF is the unique structure the founding requirement forces is a separate question, listed as open at the end."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **唯一性（Uniqueness）** | 任何两个 kernel-exact 的分解，识别的是同一批输入，并且（在满射时）同构。合法分解从不合并 `C` 区分开的输入，所以规范分解是最粗的。两个决策函数在每个输入上一致，当且仅当它们的规范形式相等（这是一个函数外延性的陈述）。 | `kernel_exact_unique_up_to_map`、`kernel_exact_iso`、`canonical_is_coarsest`、`agree_iff_same_canonical`（`MSTNFCanonicalDecompositionMWE`） |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "表中的\"唯一\"指的是：任何两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；MST-NF 是否是奠基要求所逼出的唯一结构，是另一个问题，列在最后的未决项里。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C11",
+   "kind": "theorem",
+   "title": "Canonical decomposition is the coarsest valid one",
+   "theorems": [
+    {
+     "name": "MSTNFCanonicalDecompositionMWE.canonical_is_coarsest",
+     "module": "MSTNF.algorithms.MSTNFCanonicalDecompositionMWE",
+     "statement_hash": "7d52fb7d618336cd016997f436381ad2",
+     "axioms": []
+    }
+   ],
+   "scope_note": "valid = sigma∘q = C",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "**the decomposition is unique up to isomorphism among kernel-exact surjective quotients** (`kernel_exact_iso`), and coarsest among valid ones (`canonical_is_coarsest`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `canonical_is_coarsest` — a valid decomposition never merges inputs the function separates | `MSTNF/algorithms/MSTNFCanonicalDecompositionMWE.lean` | none |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "两个 kernel-exact 且满射的商，**在同构意义下是同一个**（`kernel_exact_iso`），并且在所有合法分解中最粗（`canonical_is_coarsest`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Uniqueness** | Any two kernel-exact decompositions identify the same inputs, and (when onto) are isomorphic. A valid decomposition never merges inputs `C` separates, so the canonical one is the coarsest. Two decision functions agree on every input iff their canonical forms are equal (a function-extensionality statement). | `kernel_exact_unique_up_to_map`, `kernel_exact_iso`, `canonical_is_coarsest`, `agree_iff_same_canonical` (`MSTNFCanonicalDecompositionMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **唯一性（Uniqueness）** | 任何两个 kernel-exact 的分解，识别的是同一批输入，并且（在满射时）同构。合法分解从不合并 `C` 区分开的输入，所以规范分解是最粗的。两个决策函数在每个输入上一致，当且仅当它们的规范形式相等（这是一个函数外延性的陈述）。 | `kernel_exact_unique_up_to_map`、`kernel_exact_iso`、`canonical_is_coarsest`、`agree_iff_same_canonical`（`MSTNFCanonicalDecompositionMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C12",
+   "kind": "theorem",
+   "title": "Functions agree iff canonical forms are equal",
+   "theorems": [
+    {
+     "name": "MSTNFCanonicalDecompositionMWE.agree_iff_same_canonical",
+     "module": "MSTNF.algorithms.MSTNFCanonicalDecompositionMWE",
+     "statement_hash": "b7b64347055f7117f83816ae2b49a16a",
+     "axioms": [
+      "Quot.sound"
+     ]
+    }
+   ],
+   "scope_note": "function extensionality",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `agree_iff_same_canonical` — functions agree on every input iff their canonical forms are equal | `MSTNF/algorithms/MSTNFCanonicalDecompositionMWE.lean` | Quot.sound |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "| **Uniqueness** | Any two kernel-exact decompositions identify the same inputs, and (when onto) are isomorphic. A valid decomposition never merges inputs `C` separates, so the canonical one is the coarsest. Two decision functions agree on every input iff their canonical forms are equal (a function-extensionality statement). | `kernel_exact_unique_up_to_map`, `kernel_exact_iso`, `canonical_is_coarsest`, `agree_iff_same_canonical` (`MSTNFCanonicalDecompositionMWE`) |"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "| **唯一性（Uniqueness）** | 任何两个 kernel-exact 的分解，识别的是同一批输入，并且（在满射时）同构。合法分解从不合并 `C` 区分开的输入，所以规范分解是最粗的。两个决策函数在每个输入上一致，当且仅当它们的规范形式相等（这是一个函数外延性的陈述）。 | `kernel_exact_unique_up_to_map`、`kernel_exact_iso`、`canonical_is_coarsest`、`agree_iff_same_canonical`（`MSTNFCanonicalDecompositionMWE`） |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C13",
+   "kind": "theorem",
+   "title": "Same class, same outcome",
+   "theorems": [
+    {
+     "name": "MSTNecessityExecModelMWE.sameClass_sameOutcome",
+     "module": "MSTNF.algorithms.MSTNecessityExecModelMWE",
+     "statement_hash": "d5c072e477271d28a6ecacded205da20",
+     "axioms": []
+    }
+   ],
+   "scope_note": "hypothesis quotientFactorization",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `sameClass_sameOutcome` — given `quotientFactorization`, same class implies same outcome | `MSTNF/algorithms/MSTNecessityExecModelMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "What this does NOT claim",
+     "text": "**Conditional and model-specific statements.** `sameClass_sameOutcome` needs `quotientFactorization`; the exactness theorem is about `CoreObject`, the completeness statements about decision functions `C : E → Option X`, and the profile statements about `ExecModel`."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "本仓库不宣称什么",
+     "text": "**`sameClass_sameOutcome` 需要 `quotientFactorization`；exactness 定理针对 `CoreObject`，完备性陈述针对决策函数 `C : E → Option X`，profile 陈述针对 `ExecModel`。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "**Behaviour factors through identity.** For an `ExecModel` satisfying `quotientFactorization`, inputs in the same class get the same outcome (`sameClass_sameOutcome`)."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Then `sameClass_sameOutcome` applies."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "** 对满足 `quotientFactorization` 的 `ExecModel`，同一个类里的输入得到相同的结果（`sameClass_sameOutcome`）。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "之后 `sameClass_sameOutcome` 适用。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C14",
+   "kind": "theorem",
+   "title": "Exactness has a closed form",
+   "theorems": [
+    {
+     "name": "MSTNFObject.exact_iff_empty_residues",
+     "module": "MSTNF.core.MSTNFObjectMWE",
+     "statement_hash": "df1410f542a0f8ae498252cf87c99768",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "about CoreObject, not ExecModel; uses Classical.choice",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why",
+     "text": "For a core object, \"is it correct?\" has a closed form: it is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "The Lean development defines the obligations of the four roles (`ExecModel`, `hasMSTNFProfile`) and proves the statements listed under *Intents*: every decision function has a four-part decomposition (`completeness_theorem`); no role is redundant (`deleting_each_role_breaks_semantics`); the roles are minimal as an independent diagnostic basis (`standard_basis_is_minimal_independent_diagnostic_basis`); two kernel-exact surjective quotients are isomorphic (`kernel_exact_iso`); and a core object is exact if and only if its two residues are empty (`exact_iff_empty_residues`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `exact_iff_empty_residues` — a core object is exact iff its soundness and completeness residues are empty | `MSTNF/core/MSTNFObjectMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么",
+     "text": "对一个 core object，\"它对不对\"有封闭形式：当且仅当它的两类残差都为空，它才是 exact 的（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "**Correctness has a closed form.** A `CoreObject` is exact if and only if its soundness residue and its completeness residue are both empty (`exact_iff_empty_residues`; it uses `Classical.choice`)."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "`exact_iff_empty_residues` is stated for the separate `CoreObject` structure; there is no general map from an `ExecModel` to a `CoreObject` here."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "**正确性有封闭形式：**一个 `CoreObject` 是 exact 的，当且仅当它的可靠性残差与完备性残差都为空（`exact_iff_empty_residues`；它用到了 `Classical.choice`）。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "`exact_iff_empty_residues` 针对单独的 `CoreObject` 结构；这里没有从 `ExecModel` 到 `CoreObject` 的通用映射。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C15",
+   "kind": "theorem",
+   "title": "Predicate form agrees with set form",
+   "theorems": [
+    {
+     "name": "MSTNFPredBridge.exact_agrees",
+     "module": "MSTNF.core.MSTNFPredBridgeMWE",
+     "statement_hash": "206cc2c510398774b9255b771ad0bc4e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "the authorization bridge, exactness clause",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `exact_agrees` — predicate-form exactness agrees with the set form | `MSTNF/core/MSTNFPredBridgeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "It has zero imports, it is the predicate form of the core object, and its faithfulness to the set form is established by the equivalence theorems of `MSTNFPredBridgeMWE` (for exactness, `exact_agrees`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "它零导入，是 core object 的谓词形式，它对集合形式的忠实性由 `MSTNFPredBridgeMWE` 的等价定理确立（exactness 部分见 `exact_agrees`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C16",
+   "kind": "theorem",
+   "title": "Completeness half of minimal_complete_basis",
+   "theorems": [
+    {
+     "name": "MSTNFCompletenessRepresentationMWE.minimal_complete_basis",
+     "module": "MSTNF.algorithms.MSTNFCompletenessRepresentationMWE",
+     "statement_hash": "71ee9f24da913633d76d54001ec6ac52",
+     "axioms": []
+    }
+   ],
+   "scope_note": "the minimality half is the proposition True and is not cited",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `minimal_complete_basis` — completeness half only; its minimality half is the proposition `True` | `MSTNF/algorithms/MSTNFCompletenessRepresentationMWE.lean` | none |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Why it is a normal form: the mathematics",
+     "text": "`minimal_complete_basis` packages completeness; its minimality half is the proposition `True`, a cross-reference, so it is not cited as a proof of minimality."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么它是范式：数学",
+     "text": "`minimal_complete_basis` 打包的是完备性；它的最小性一半是命题 `True`，只是一个交叉引用，所以不把它当作最小性的证明来引用。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C17",
+   "kind": "theorem",
+   "title": "Per-input dichotomy under the profile",
+   "theorems": [
+    {
+     "name": "MSTNFProfileDichotomyMWE.input_dichotomy",
+     "module": "MSTNF.algorithms.MSTNFProfileDichotomyMWE",
+     "statement_hash": "e6604b9df7b062c269310b0c77d231cb",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFProfileDichotomyMWE.representative_only_if_admitted",
+     "module": "MSTNF.algorithms.MSTNFProfileDichotomyMWE",
+     "statement_hash": "52e3946791199511b0aaa86451838ac2",
+     "axioms": []
+    }
+   ],
+   "scope_note": "class level; says nothing about evalRaw or AtMostOneAdmit",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "MST-NF",
+     "text": "In an MST-NF model, every input falls in a class that is either admitted, with a representative, or refused, with a named residue, so no refusal is without a reason (`input_dichotomy`).**"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why for agents, by agents",
+     "text": "In an MST-NF model, a representative exists only for an admitted class (`representative_only_if_admitted`), and every active class that is not admitted carries a named residue (`input_dichotomy`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why for agents, by agents",
+     "text": "Used that way, an agent can still be wrong; what the model gives is that every refusal in it carries a residue (`input_dichotomy`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `input_dichotomy` — under the profile, each input's class is admitted with a representative, or refused with a residue and no representative | `MSTNF/algorithms/MSTNFProfileDichotomyMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `representative_only_if_admitted` — under the profile, an input's class has a representative only if it is admitted | `MSTNF/algorithms/MSTNFProfileDichotomyMWE.lean` | none |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "MST-NF",
+     "text": "在 MST-NF 模型里，每个输入所属的类，要么被接受并带有代表元（representative），要么被拒绝并带有具名的残差（residue），所以没有哪一次拒绝是没有理由的（`input_dichotomy`）。"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么是 for agents, by agents",
+     "text": "在 MST-NF 模型里，只有被接受的类才有代表元（`representative_only_if_admitted`），每一个活跃（active）但未被接受的类都带有具名残差（`input_dichotomy`）。"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么是 for agents, by agents",
+     "text": "这样使用时，agent 依然可能出错；模型提供的是：其中每一次拒绝都带有残差（`input_dichotomy`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "MST-NF: rationale, results and scope",
+     "text": "In an MST-NF model, every input falls in a class that is either admitted, with a representative, or refused, with a named residue, so no refusal is without a reason (`input_dichotomy`).**"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "For agents",
+     "text": "What this repository establishes is the class-level structure of the profile (`input_dichotomy`), which is what makes them checkable."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "For agents",
+     "text": "An agent built as an instance can still be wrong; the model gives only that its refusals carry residues (`input_dichotomy`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "MST-NF：理由、结果与范围",
+     "text": "在 MST-NF 模型里，每个输入所属的类，要么被接受并带有代表元，要么被拒绝并带有具名的残差，所以没有哪一次拒绝是没有理由的（`input_dichotomy`）。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "面向 agents",
+     "text": "本仓库确立的，是 profile 在类层面的结构（`input_dichotomy`），正是它让这些立场可以被检查。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "面向 agents",
+     "text": "作为实例构建的 agent 依然可能出错；模型只提供：它的拒绝都带有残差（`input_dichotomy`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C18",
+   "kind": "theorem",
+   "title": "3-form: three obligations hold by typing",
+   "theorems": [
+    {
+     "name": "MSTNF3FormMWE.admissibilitySound_derived",
+     "module": "MSTNF.algorithms.MSTNF3FormMWE",
+     "statement_hash": "b31b6a2300d271a068bb434ecaa5f54e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNF3FormMWE.residueTotality_derived",
+     "module": "MSTNF.algorithms.MSTNF3FormMWE",
+     "statement_hash": "3c6b7c44ab0b89b35b36daf9a0b53f5b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNF3FormMWE.representativePrecision_derived",
+     "module": "MSTNF.algorithms.MSTNF3FormMWE",
+     "statement_hash": "fde7e93ddd5809b9f0f70bbf23e148fe",
+     "axioms": []
+    }
+   ],
+   "scope_note": "ExecModel3",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `admissibilitySound_derived` — in the 3-form, `admissibilitySound` holds by typing | `MSTNF/algorithms/MSTNF3FormMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `residueTotality_derived` — in the 3-form, `residueTotality` holds by typing | `MSTNF/algorithms/MSTNF3FormMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `representativePrecision_derived` — in the 3-form, `representativePrecision` holds by typing | `MSTNF/algorithms/MSTNF3FormMWE.lean` | none |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "**In the 3-form, three of the four obligations hold by typing.** `admissibilitySound_derived`, `residueTotality_derived` and `representativePrecision_derived` are case splits on `Lambda`; the 3-form profile `hasMSTNFProfile_3form` is only `quotientFactorization3`."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "A system that violates those three cannot be written as an `ExecModel3` (`admissibilitySound_derived`, `residueTotality_derived`, `representativePrecision_derived`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "**在 3-form 里，四条义务中有三条由类型保证：**`admissibilitySound_derived`、`residueTotality_derived`、`representativePrecision_derived` 是对 `Lambda` 的分情况讨论；3-form 的 profile `hasMSTNFProfile_3form` 只是 `quotientFactorization3`。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "违反这三条的系统，无法写成 `ExecModel3`（`admissibilitySound_derived`、`residueTotality_derived`、`representativePrecision_derived`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C19",
+   "kind": "theorem",
+   "title": "3-form/4-form: forgetful map and section",
+   "theorems": [
+    {
+     "name": "MSTNF3Form4FormEquivMWE.toExecModel_fromExecModel",
+     "module": "MSTNF.algorithms.MSTNF3Form4FormEquivMWE",
+     "statement_hash": "9cac78c8cba5e3f66317594b9e477d10",
+     "axioms": [
+      "Quot.sound"
+     ]
+    },
+    {
+     "name": "MSTNF3Form4FormEquivMWE.hasMSTNFProfile_iff_3form_section",
+     "module": "MSTNF.algorithms.MSTNF3Form4FormEquivMWE",
+     "statement_hash": "6472a7a6ef1256b79e2ef27778404bdd",
+     "axioms": [
+      "Quot.sound"
+     ]
+    },
+    {
+     "name": "MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_admissible",
+     "module": "MSTNF.algorithms.MSTNF3Form4FormEquivMWE",
+     "statement_hash": "a2c77964f663300e634d8a6a75a23898",
+     "axioms": []
+    },
+    {
+     "name": "MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_sigma",
+     "module": "MSTNF.algorithms.MSTNF3Form4FormEquivMWE",
+     "statement_hash": "945fe0a9dafb8a2a33fd787f014e21c5",
+     "axioms": []
+    },
+    {
+     "name": "MSTNF3Form4FormEquivMWE.fromExecModel_toExecModel_rho",
+     "module": "MSTNF.algorithms.MSTNF3Form4FormEquivMWE",
+     "statement_hash": "4055b94cbd43f139540691895e685fa3",
+     "axioms": []
+    }
+   ],
+   "scope_note": "existential section, operational round trip; no theorem states non-injectivity",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `toExecModel_fromExecModel` — `toExecModel ∘ fromExecModel = id` on profile models (all classes active, λ-partitioned) | `MSTNF/algorithms/MSTNF3Form4FormEquivMWE.lean` | Quot.sound |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `hasMSTNFProfile_iff_3form_section` — under all classes active and lambdaPartition, a 4-form has the profile iff it is the projection of a 3-form with its profile | `MSTNF/algorithms/MSTNF3Form4FormEquivMWE.lean` | Quot.sound |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `fromExecModel_toExecModel_admissible` — operational round trip on `admissible` | `MSTNF/algorithms/MSTNF3Form4FormEquivMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `fromExecModel_toExecModel_sigma` — operational round trip on `sigma` | `MSTNF/algorithms/MSTNF3Form4FormEquivMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `fromExecModel_toExecModel_rho` — operational round trip on `rho` | `MSTNF/algorithms/MSTNF3Form4FormEquivMWE.lean` | none |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "`toExecModel_fromExecModel` (`toExecModel ∘ fromExecModel = id`), `hasMSTNFProfile_iff_3form_section` (under all classes active and `lambdaPartition`, a 4-form has the profile iff it is `toExecModel M3` for some 3-form with its profile) and `fromExecModel_toExecModel_admissible/sigma/rho` (operational round trip, pointwise on the three projections) are proved."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "已证明：`toExecModel_fromExecModel`（`toExecModel ∘ fromExecModel = id`）、`hasMSTNFProfile_iff_3form_section`（在所有类活跃且满足 `lambdaPartition` 时，一个 4-form 具有 profile，当且仅当它是某个具有其 profile 的 3-form 的 `toExecModel`），以及 `fromExecModel_toExecModel_admissible/sigma/rho`（操作意义上的往返，在三个投影上逐点成立）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C20",
+   "kind": "theorem",
+   "title": "Admission tag forced at the Boolean level",
+   "theorems": [
+    {
+     "name": "MSTNF3FormOmegaForcedProbeMWE.tag_is_omega_forced",
+     "module": "MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE",
+     "statement_hash": "3552ac329a0b853f3d0c6d1cf98ebcd7",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "uniqueness of the Boolean classifier of the admission fibre",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `tag_is_omega_forced` — a Boolean classifier with the same true-fibre as `admissible` equals `admissible` | `MSTNF/algorithms/MSTNF3FormOmegaForcedProbeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "**The admission tag is forced; the merged classifier is not.** `tag_is_omega_forced` shows that any Boolean classifier with the same true-fibre as `admissible` equals `admissible` (uniqueness of the classifying map of the admission subobject at the Boolean level, by cases)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "** `tag_is_omega_forced` 表明，任何与 `admissible` 具有相同真纤维的布尔分类器都等于 `admissible`（在布尔层面，准入子对象的分类映射是唯一的，按情况证明）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C21",
+   "kind": "theorem",
+   "title": "The merged classifier is not determined by the tag",
+   "theorems": [
+    {
+     "name": "MSTNF3FormOmegaForcedProbeMWE.two_Lambdas_same_tag_distinct_witnesses",
+     "module": "MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE",
+     "statement_hash": "db03a66b7004ba212a7d1a125a7f5894",
+     "axioms": [
+      "Quot.sound"
+     ]
+    }
+   ],
+   "scope_note": "one example pair",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `two_Lambdas_same_tag_distinct_witnesses` — two 3-forms with the same `admissible` and different `sigma true` | `MSTNF/algorithms/MSTNF3FormOmegaForcedProbeMWE.lean` | Quot.sound |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+     "text": "`two_Lambdas_same_tag_distinct_witnesses` gives two `ExecModel3` with the same `admissible` and different `sigma true` (`MSTNF3FormOmegaForcedProbeMWE`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+     "text": "`two_Lambdas_same_tag_distinct_witnesses` 给出两个 `ExecModel3`，`admissible` 相同、`sigma true` 不同（`MSTNF3FormOmegaForcedProbeMWE`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C22",
+   "kind": "theorem",
+   "title": "Goedel-wall model: no GodelFramework reaches a terminal basis",
+   "theorems": [
+    {
+     "name": "MSTNFResidueAbsorptionWellFounded.godelStep_no_terminal",
+     "module": "MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE",
+     "statement_hash": "de6f4e3d263fe35a2348b46e1af2d332",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded",
+     "module": "MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE",
+     "statement_hash": "6ff4a30f7ab8c11c6a8e6bcdc2ee932b",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFT1BridgeClosure.T1_parametric_in_framework",
+     "module": "MSTNF.algorithms.MSTNFT1BridgeClosureMWE",
+     "statement_hash": "73b819c181fd54f55d21e1536f191ffc",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFT1BridgeClosure.T1_closure",
+     "module": "MSTNF.algorithms.MSTNFT1BridgeClosureMWE",
+     "statement_hash": "6afb87eb2808a2d3bcbabcebba4cb8eb",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFT1BridgeClosure.antiFiatChain_each_detects_prior_fiat",
+     "module": "MSTNF.algorithms.MSTNFT1BridgeClosureMWE",
+     "statement_hash": "e15067ba2a9fefdb9ccc6d6717b3fc5e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "abstract model; godel2 is a field; flip_not_wellFounded uses Classical.choice",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Why for agents, by agents",
+     "text": "For the second there is a formal statement about an abstract model: no `GodelFramework` reaches a terminal basis (`T1_parametric_in_framework`)."
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `godelStep_no_terminal` — no `GodelFramework` is terminal (`¬ InBasis godelStep F`) | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `godelStep_flip_not_wellFounded` — the successor relation is not well-founded | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | Classical.choice, Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `T1_parametric_in_framework` — no `GodelFramework` reaches a terminal basis | `MSTNF/algorithms/MSTNFT1BridgeClosureMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `T1_closure` — conjunction of the Gödel-wall facts for the model | `MSTNF/algorithms/MSTNFT1BridgeClosureMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `antiFiatChain_each_detects_prior_fiat` — the next level's fiat is not in the previous level's detected list (decide on concrete data) | `MSTNF/algorithms/MSTNFT1BridgeClosureMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "为什么是 for agents, by agents",
+     "text": "对于后者，有一个关于抽象模型的形式陈述：没有任何 `GodelFramework` 能到达终止基（`T1_parametric_in_framework`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "What the Gödel wall model proves",
+     "text": "The theorems: `godelStep_no_terminal` (`¬ InBasis godelStep F`: no framework is terminal; the reason is that `godelSuccessor F` is a successor, which is the separate statement `godelStep_has_successor`), `godelStep_flip_not_wellFounded` (`¬ WellFounded (flip godelStep)`; uses `Classical.choice`), `T1_parametric_in_framework` (`∀ F, ¬ ReachesBasis godelStep F`) and `T1_closure` (a conjunction of: every level of an earlier toy ladder has a successor; the concrete facts `42 ∉ [40]`, `49 ∉ [40, 42]`, `52 ∉ [40, 42, 49]`; and `T1_parametric_in_framework`; axioms `propext`, `Quot.sound`)."
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "What is new, what is not, and what is open",
+     "text": "the Gödel-wall model: no `GodelFramework` reaches a terminal basis (`T1_parametric_in_framework`), with Gödel's theorem entering as a field;"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "哥德尔墙模型证明了什么",
+     "text": "定理有：`godelStep_no_terminal`（`¬ InBasis godelStep F`：没有框架是终止的；原因是 `godelSuccessor F` 是一个后继，这是另一条陈述 `godelStep_has_successor`）、`godelStep_flip_not_wellFounded`（`¬ WellFounded (flip godelStep)`；用到了 `Classical.choice`）、`T1_parametric_in_framework`（`∀ F, ¬ ReachesBasis godelStep F`）和 `T1_closure`（一个合取：早先玩具阶梯的每一层都有后继；具体事实 `42 ∉ [40]`、`49 ∉ [40, 42]`、`52 ∉ [40, 42, 49]`；以及 `T1_parametric_in_framework`；公理 `propext`、`Quot.sound`）。"
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "什么是新的，什么不是，什么是未决的",
+     "text": "哥德尔墙模型：没有 `GodelFramework` 能到达终止基（`T1_parametric_in_framework`），哥德尔定理以字段的形式进入；"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C23",
+   "kind": "theorem",
+   "title": "Goedel-wall model: the weak-framework case",
+   "theorems": [
+    {
+     "name": "MSTNFResidueAbsorptionWellFounded.weakStep_wellFounded",
+     "module": "MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE",
+     "statement_hash": "51d7faf078fb2d3544f0ac883a0ce391",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFResidueAbsorptionWellFounded.weak_horn_redescriptive_but_nonuniversal",
+     "module": "MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE",
+     "statement_hash": "3568dcf88449d8bb654c4a9c7ffde5a1",
+     "axioms": []
+    }
+   ],
+   "scope_note": "step relation constantly False",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `weakStep_wellFounded` — the weak-framework step relation is well-founded (it is constantly false) | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `weak_horn_redescriptive_but_nonuniversal` — for the constantly-False step relation: all residues represented and the flipped step is well-founded (non-universality is a comment, not a theorem) | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | none |"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "What the Gödel wall model proves",
+     "text": "The case of a framework too weak for Gödel's theorem is modelled by `WeakFramework` with a step relation that is constantly `False` (`weakStep_wellFounded`, `weak_horn_redescriptive_but_nonuniversal`); that a weak framework cannot encode its own self-application is a comment, not a theorem."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "哥德尔墙模型证明了什么",
+     "text": "对\"弱到哥德尔定理不适用的框架\"这一情形，用 `WeakFramework` 建模，其步关系恒为 `False`（`weakStep_wellFounded`、`weak_horn_redescriptive_but_nonuniversal`）；弱框架无法编码自身的自应用，这是注释，不是定理。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C24",
+   "kind": "theorem",
+   "title": "Quotient-before-execution counting bound",
+   "theorems": [
+    {
+     "name": "MSTNFQuotientBeforeExecutionNFMWE.mstnf_backend_le_classic",
+     "module": "MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE",
+     "statement_hash": "fa500f38b8eb7f4655b7ac5cae1f6a43",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "a length inequality",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `mstnf_backend_le_classic` — QBE counting bound: attempts after quotienting ≤ attempts without | `MSTNF/algorithms/MSTNFQuotientBeforeExecutionNFMWE.lean` | propext |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C25",
+   "kind": "theorem",
+   "title": "Concrete mirrors equal abstract definitions on fixtures",
+   "theorems": [
+    {
+     "name": "MSTNFConcreteAbstractEquivMWE.v_concrete_eq_abstract_on_all_fixtures",
+     "module": "MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE",
+     "statement_hash": "ec142b47178b59865bd4b34de4db75a3",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFConcreteAbstractEquivMWE.core_concrete_eq_abstract_on_all_fixtures",
+     "module": "MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE",
+     "statement_hash": "bc939f3bfd49e158917489a21c07e455",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFConcreteAbstractEquivMWE.residue_concrete_eq_abstract_on_all_fixtures",
+     "module": "MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE",
+     "statement_hash": "d788f987710fb7badc60b5a70acdeaf9",
+     "axioms": []
+    }
+   ],
+   "scope_note": "finite fixtures",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `v_concrete_eq_abstract_on_all_fixtures` — V bridge: concrete mirror equals abstract definition on all fixtures | `MSTNF/algorithms/MSTNFConcreteAbstractEquivMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `core_concrete_eq_abstract_on_all_fixtures` — core bridge on all fixtures | `MSTNF/algorithms/MSTNFConcreteAbstractEquivMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `residue_concrete_eq_abstract_on_all_fixtures` — residue bridge on all fixtures | `MSTNF/algorithms/MSTNFConcreteAbstractEquivMWE.lean` | none |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  }
+ ],
+ "other_property_sentences": [
+  {
+   "id": "N0001",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "anchor_text": "So a system modelled this way can be unfolded into the same four parts and checked part by part, which is the project's practice, not a theorem here."
+  },
+  {
+   "id": "H0002",
+   "kind": "hedged",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "anchor_text": "The project's notes describe each step of the development as forced because the previous one fell short of that requirement, and the same rule applied every time: find the residue, demand a witness, absorb it by a theorem if possible, and otherwise name it and open the smallest new layer."
+  },
+  {
+   "id": "N0003",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "anchor_text": "The notes describe the historical derivation as carried out under human guidance, with AI agents working as implementers and reviewers; none of this history is a theorem of this repository, and the source repositories are not published."
+  },
+  {
+   "id": "N0004",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "anchor_text": "honesty and recursive completeness (a refused input gets a named residue, never silently dropped) correspond to `ρ`."
+  },
+  {
+   "id": "N0005",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "anchor_text": "Taking the four-role form as the normal form, because it keeps acceptance and refusal symmetric, is a design decision supported by that result, not a separate theorem."
+  },
+  {
+   "id": "N0006",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why for agents, by agents",
+   "anchor_text": "Two research positions sit next to this and are not theorems of this repository: that insight comes from reclassifying what is already known, which in MST-NF terms is residue absorption; and that, applied to its own process, the theory never closes."
+  },
+  {
+   "id": "N0007",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why for agents, by agents",
+   "anchor_text": "Gödel's second incompleteness theorem enters only as a field of that structure (`godel2`); it is not re-proved here."
+  },
+  {
+   "id": "E0008",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "anchor_text": "Each statement named above resolves to a Lean 4 theorem in this repository (`evidence/claims_check.txt`); axioms and scope are under *Intents* and *What this does NOT claim*."
+  },
+  {
+   "id": "P0009",
+   "kind": "pointer",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "anchor_text": "The full argument, with every theorem named and the questions a skeptic would ask, is in [`docs/RATIONALE.md`](docs/RATIONALE.md)."
+  },
+  {
+   "id": "H0010",
+   "kind": "hedged",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "anchor_text": "whether the requirement is minimal;"
+  },
+  {
+   "id": "N0011",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "The theory in one paragraph",
+   "anchor_text": "Everything is machine-checked against Lean 4.14.0 and Mathlib v4.14.0; this README states what that does and does not establish, and raw evidence is in [`evidence/`](evidence/)."
+  },
+  {
+   "id": "E0012",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "anchor_text": "27 modules (counts of theorems and definitions: `evidence/axiom_audit.txt`):"
+  },
+  {
+   "id": "N0013",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "anchor_text": "| `MSTNF/algorithms/` | the execution model and role ablation, the diagnostic-basis modules, the no-fifth-role modules, the canonical decomposition, quotient-before-execution (QBE), partition and residue-typology modules, `runNF`, the per-input dichotomy, the 3-form modules (`MSTNF3Form*`) and the Gödel-wall model (`MSTNFResidueAbsorptionWellFoundedMWE`, `MSTNFT1BridgeClosureMWE`) |"
+  },
+  {
+   "id": "P0014",
+   "kind": "pointer",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "anchor_text": "The questions a skeptic would ask, with the exact scope of each answer, are in [`docs/RATIONALE.md`](docs/RATIONALE.md)."
+  },
+  {
+   "id": "E0015",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Intents",
+   "anchor_text": "Generated from `evidence/CLAIMS.json`: every row is a claim that resolves to a theorem in this repository, with its statement hash and axioms checked by `scripts/ClaimsCheck.lean`."
+  },
+  {
+   "id": "E0016",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "**Axiom profile** (`scripts/AxiomAudit.lean` over all 525 theorems, `evidence/axiom_audit.txt`): no user `axiom` declaration, no `sorry`, no `native_decide` (`Lean.ofReduceBool`); 399 theorems use no axiom, 63 use `propext`, 30 use `propext` and `Quot.sound`, 6 use `Quot.sound`, and **27 use `Classical.choice`** (22 with `propext` and `Quot.sound`, 4 alone, 1 with `Quot.sound`) (`evidence/axiom_audit.txt`)."
+  },
+  {
+   "id": "E0017",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "The development source of `MSTNFConcreteAbstractEquivMWE` originally used `native_decide` for three bridge theorems; the development repository now uses `decide`, so the kernel checks them, statements unchanged (`evidence/native_decide.txt`)."
+  },
+  {
+   "id": "E0018",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "**Nanoda** (`nanoda_lib` `v0.3.2`, commit `66cca78`), an independent Rust implementation of the kernel, checks an export of the 1077 theorem and definition constants of the 27 modules and all their dependencies: **`Checked 3908 declarations with no errors`**, with only `propext`, `Classical.choice`, `Quot.sound` permitted (`evidence/nanoda/`)."
+  },
+  {
+   "id": "E0019",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "**Claims gate** (`evidence/CLAIMS.json`, `evidence/rcc/claims_*`): the registry lists the property sentences of the README and `docs/RATIONALE.md` (English and Chinese) with the theorem each cites, and the checker confirms that every cited theorem exists here with the recorded statement hash and allowed axioms."
+  },
+  {
+   "id": "E0020",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "It does not check that a sentence says no more than its theorem; that review is in `evidence/audit/`."
+  },
+  {
+   "id": "E0021",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "An independent review of each claim against its theorem is recorded in `evidence/audit/`."
+  },
+  {
+   "id": "E0022",
+   "kind": "evidence",
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "anchor_text": "**RCC closure verdicts on the intents** (`evidence/rcc/`): the intents were also run through the RCC executable over the obligation graph *intent theorem → hypotheses → producers*."
+  },
+  {
+   "id": "N0023",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**Not a claim that Lean 4.14.0, Mathlib, or the kernel are correct.** Nanoda re-checks the kernel's judgments with a second implementation; both implement the same type theory, and neither checks that a statement says what its prose says."
+  },
+  {
+   "id": "N0024",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "The claims gate checks that each property sentence names theorems whose statements are pinned; it does not replace reading them."
+  },
+  {
+   "id": "N0025",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**Sufficiency is bounded.** The no-fifth-role statement holds inside the admissible role language of its module."
+  },
+  {
+   "id": "N0026",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "Neither proves that no future theory could add an independent dimension."
+  },
+  {
+   "id": "N0027",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**Minimality is relative.** It is minimality of independent diagnostic capacity, not of an arbitrary encoding."
+  },
+  {
+   "id": "N0028",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "The theorem's signature carries a `complete B` hypothesis that its proof does not use."
+  },
+  {
+   "id": "N0029",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**The profile is not a safety guarantee.** `hasMSTNFProfile` does not imply at most one admitted raw input per class (`AtMostOneAdmit`, a separate condition), and it does not tie a system's outputs to representatives or residues."
+  },
+  {
+   "id": "N0030",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**The Gödel-wall result is about an abstract model.** Gödel's theorem enters as the field `godel2` of `GodelFramework` and is not re-proved; the form quantified over every self-application operator is not claimed; the weak-framework case is a constantly-false step relation."
+  },
+  {
+   "id": "N0031",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**Fixtures are finite.** The conformance and concrete↔abstract theorems check only finite fixtures."
+  },
+  {
+   "id": "N0032",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "They do not say a runtime implementation is correct."
+  },
+  {
+   "id": "N0033",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**The RCC verdicts are consistency evidence, not independent proof.** The extractor and instance data were produced by the same party as the theory; reproducing them needs the RCC library, which this repository does not contain."
+  },
+  {
+   "id": "N0034",
+   "kind": "nonclaim",
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "anchor_text": "**History and research positions are not theorems.** The origin story, the hallucination taxonomy, reclassification as convergence, the claim that the form lets any system be unfolded into four parts with one proof shape, and the statements about Residua are the project's, and none is checked here."
+  },
+  {
+   "id": "N0035",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "anchor_text": "| **ρ** | 被拒绝时，具体原因是什么？ | 输入被悄悄丢掉；报错只有\"出了点问题\" |"
+  },
+  {
+   "id": "N0036",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "anchor_text": "所以，按这种方式建模的系统，可以展开成同样的四个部分，逐个检查；这是项目的实践，不是本仓库里的定理。"
+  },
+  {
+   "id": "N0037",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "anchor_text": "项目笔记把开发的每一步都描述为\"因为上一步达不到这条要求而被逼出来\"，并且每一次用的都是同一条规则：找到残差，要求见证，能用定理吸收就吸收，否则给它命名，并开出最小的新层。"
+  },
+  {
+   "id": "N0038",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "anchor_text": "笔记把这段历史上的推导描述为在人的引导下进行，AI agents 担任实现者和评审者；这段历史没有一条是本仓库的定理，其源仓库也未公开。"
+  },
+  {
+   "id": "N0039",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "anchor_text": "诚实与递归完备（被拒绝的输入有具名残差，绝不悄悄丢掉）对应 `ρ`。"
+  },
+  {
+   "id": "N0040",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "anchor_text": "把四角色形式当作范式，是因为它让接受与拒绝保持对称；这是由该结果支持的设计决定，而不是一条单独的定理。"
+  },
+  {
+   "id": "N0041",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是 for agents, by agents",
+   "anchor_text": "旁边还有两个研究立场，它们不是本仓库的定理：洞见来自对已知信息的重分类，用 MST-NF 的话说，重分类就是残差吸收；以及，把该理论用在它自己的过程上，它永不封闭。"
+  },
+  {
+   "id": "N0042",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是 for agents, by agents",
+   "anchor_text": "哥德尔第二不完备定理只是以该结构的一个字段（`godel2`）进入，本仓库并没有重新证明它。"
+  },
+  {
+   "id": "E0043",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "anchor_text": "上文点名的每一条陈述，都对应本仓库里的一条 Lean 4 定理（`evidence/claims_check.txt`）；公理和适用范围见 *Intents* 和 *What this does NOT claim*。"
+  },
+  {
+   "id": "P0044",
+   "kind": "pointer",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "anchor_text": "完整的论证、每一条定理名，以及怀疑者会问的问题，见 [`docs/RATIONALE.md`](docs/RATIONALE.md)（中文：[`docs/RATIONALE.zh-CN.md`](docs/RATIONALE.zh-CN.md)）。"
+  },
+  {
+   "id": "H0045",
+   "kind": "hedged",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "anchor_text": "这条要求本身是否最小；"
+  },
+  {
+   "id": "H0046",
+   "kind": "hedged",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "anchor_text": "MST-NF 是否是它唯一能逼出的结构。"
+  },
+  {
+   "id": "N0047",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "一段话说明理论",
+   "anchor_text": "全部内容都针对 Lean 4.14.0 与 Mathlib v4.14.0 做了机器检查；本 README 说明这一点确立了什么、没有确立什么；原始证据见 [`evidence/`](evidence/)。"
+  },
+  {
+   "id": "N0048",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "仓库内容、Intents、清单与许可",
+   "anchor_text": "\"仓库内容\"、\"Intents\"（定理表）、\"来源\"、\"清单\"和\"许可\"这几节只提供英文版，见 [README.md](README.md)。"
+  },
+  {
+   "id": "E0049",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "**公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 525 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；399 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，6 条使用 `Quot.sound`，**27 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，4 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。"
+  },
+  {
+   "id": "E0050",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "`MSTNFConcreteAbstractEquivMWE` 的开发源码最初对三条桥接定理使用 `native_decide`；开发仓库现已改用 `decide`，因此由内核检查，陈述不变（`evidence/native_decide.txt`）。"
+  },
+  {
+   "id": "E0051",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "**Nanoda**（`nanoda_lib` `v0.3.2`，提交 `66cca78`）是独立的 Rust 内核实现，它检查这 27 个模块的 1077 个定理和定义常量及其全部依赖的导出：**`Checked 3908 declarations with no errors`**（无错误），只允许 `propext`、`Classical.choice`、`Quot.sound`（`evidence/nanoda/`）。"
+  },
+  {
+   "id": "E0052",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "**断言闸门**（`evidence/CLAIMS.json`，`evidence/rcc/claims_*`）：注册表列出 README 与 `docs/RATIONALE.md`（英文和中文）中陈述性质的句子及其引用的定理；检查程序确认每条被引用的定理都存在于本仓库，且陈述哈希与允许的公理与记录一致。"
+  },
+  {
+   "id": "E0053",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "它不检查句子是否不超出其定理；那一评审记录在 `evidence/audit/`。"
+  },
+  {
+   "id": "E0054",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "对每条断言与其定理的独立评审记录在 `evidence/audit/`。"
+  },
+  {
+   "id": "E0055",
+   "kind": "evidence",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "anchor_text": "**对 intents 的 RCC 闭合判定**（`evidence/rcc/`）：这些 intents 还在\"intent 定理 → 假设 → 生产者\"的义务图上运行过 RCC 可执行程序。"
+  },
+  {
+   "id": "N0056",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**不宣称 Lean 4.14.0、Mathlib 或内核是正确的。"
+  },
+  {
+   "id": "N0057",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "断言闸门只检查每个陈述性质的句子点名了陈述已被固定的定理；它不能代替人去读这些定理。"
+  },
+  {
+   "id": "N0058",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**充分性是有边界的。"
+  },
+  {
+   "id": "N0059",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "两者都不证明将来不会有理论加入一个独立维度。"
+  },
+  {
+   "id": "N0060",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**最小性是相对的。"
+  },
+  {
+   "id": "N0061",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**它是独立诊断能力的最小性，不是任意编码的最小性。"
+  },
+  {
+   "id": "N0062",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "该定理的签名里有一个 `complete B` 假设，证明并没有使用它。"
+  },
+  {
+   "id": "N0063",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**profile 不是安全性保证。"
+  },
+  {
+   "id": "N0064",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**`hasMSTNFProfile` 并不蕴含每个类至多有一个原始输入被接受（`AtMostOneAdmit`，一个单独的条件），也不把系统的输出与代表元或残差绑定。"
+  },
+  {
+   "id": "N0065",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**哥德尔定理以 `GodelFramework` 的字段 `godel2` 进入，没有被重新证明；对每个自应用算子都成立的形式不作宣称；弱框架的情形是一个恒为假的步关系。"
+  },
+  {
+   "id": "N0066",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**conformance 和 concrete↔abstract 定理检查的是有限 fixture，并不说明某个运行时实现是正确的。"
+  },
+  {
+   "id": "N0067",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**RCC 判定是一致性证据，不是独立证明。"
+  },
+  {
+   "id": "N0068",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**历史与研究立场不是定理。"
+  },
+  {
+   "id": "N0069",
+   "kind": "nonclaim",
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "anchor_text": "**起源故事、幻觉分类、\"重分类即收敛\"、\"这个形式让任何系统都能展开成四个部分并用同一种证明形状\"的说法，以及关于 Residua 的陈述，都是项目自己的，这里没有一条被检查。"
+  },
+  {
+   "id": "P0070",
+   "kind": "pointer",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "MST-NF: rationale, results and scope",
+   "anchor_text": "The detailed companion to the [README](../README.md): the object, the proved properties, the 3-form question, the Gödel-wall model, related structures, how to instantiate it, and where it came from."
+  },
+  {
+   "id": "P0071",
+   "kind": "pointer",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "MST-NF: rationale, results and scope",
+   "anchor_text": "Every theorem named here is in this repository; see *Intents* in the README for axioms."
+  },
+  {
+   "id": "N0072",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "MST-NF: rationale, results and scope",
+   "anchor_text": "Statements that are not theorems (history, research positions, analogies) are marked as such."
+  },
+  {
+   "id": "D0073",
+   "kind": "definition",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "| a | `admissibilitySound` | if a class has a representative, it is admissible |"
+  },
+  {
+   "id": "D0074",
+   "kind": "definition",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "| σ | `representativePrecision` | every active admissible class has a representative (`sigma c ≠ none`) |"
+  },
+  {
+   "id": "D0075",
+   "kind": "definition",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "| ρ | `residueTotality` | every active non-admissible class has a residue (`rho c ≠ none`) |"
+  },
+  {
+   "id": "N0076",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "The Lean files carry the tags R1, R2, Φ2b and Φ5; the mapping is the project's, not something proved here."
+  },
+  {
+   "id": "N0077",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "For every input, whose class is active: either its class is admissible and has a representative, or it is not admissible, has no representative, and has a residue."
+  },
+  {
+   "id": "N0078",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "`sigma` is a function, so a class has one value, but nothing in the profile says which value; \"canonical\" is not a property the profile imposes."
+  },
+  {
+   "id": "N0079",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "The profile does **not** say that at most one raw input per class is admitted; that separate safety condition (`AtMostOneAdmit`) is not one of the four roles."
+  },
+  {
+   "id": "N0080",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "anchor_text": "And `evalRaw` is only required to factor through classes: the model does not require an input's outcome to be a representative or a refusal, so tying outputs to `σ`/`ρ` is the instance's own obligation."
+  },
+  {
+   "id": "N0081",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "anchor_text": "In general usage a normal form is a canonical representation; this repository does not claim that notion beyond the theorems listed below."
+  },
+  {
+   "id": "E0082",
+   "kind": "evidence",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "anchor_text": "MST-NF has the five properties in the table below, each tied to the listed theorems (`evidence/CLAIMS.json`)."
+  },
+  {
+   "id": "N0083",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "anchor_text": "That the form lets one unfold a system into four parts with one proof shape is the project's practice, not a theorem here; conjunctive normal form in logic plays a similar role (an analogy only)."
+  },
+  {
+   "id": "N0084",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "anchor_text": "The module's comments explain why a strict inverse is not available (several 3-forms differing in `IsRep`/`IsResidue` project to the same 4-form); no theorem states non-injectivity, and an earlier \"bijection\" wording is withdrawn in the module (`MSTNF3Form4FormEquivMWE`)."
+  },
+  {
+   "id": "N0085",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "anchor_text": "So uniqueness of the tag does not determine the merged classifier."
+  },
+  {
+   "id": "N0086",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "anchor_text": "That the four-role form, keeping acceptance (σ) and refusal (ρ) symmetric and separately checkable, is *the* normal form is a design decision of the theory, supported by points 1–4, not a separate theorem."
+  },
+  {
+   "id": "N0087",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "That coincidence is not established for the four-role object by theorems in this repository; here it is reported as the record's claim, and what follows from it is that the object level is regarded as redescription, not new mathematics."
+  },
+  {
+   "id": "N0088",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "At the meta level the record argues that applying MST-NF to its own residue-absorption process cannot reach a terminal basis, because a framework expressive enough to encode its own soundness cannot prove it (Gödel's second incompleteness theorem), so \"this framework is sound\" is always a residue outside it."
+  },
+  {
+   "id": "N0089",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "What is in this repository is an abstract model of that argument, not Gödel's theorem:"
+  },
+  {
+   "id": "N0090",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "`godel2` is a field: it is where Gödel's theorem would be applied in a concrete framework; it is not proved here."
+  },
+  {
+   "id": "N0091",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "The numbers 40, 42, 49 and 52 label levels of the project's anti-fiat ladder; that every such level is the previous level's self-soundness fiat is an empirical observation recorded in the module, not a theorem."
+  },
+  {
+   "id": "N0092",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "anchor_text": "The proofs use no provability predicate or representability hypothesis, so this is a structural model of the regress; justifying `godel2` for a real framework needs the real theorem."
+  },
+  {
+   "id": "C0093",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "anchor_text": "No theorem relates MST-NF to the following; these are comparisons in prose, from the project's schema analysis."
+  },
+  {
+   "id": "C0094",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "anchor_text": "There is no admission predicate and no residue: the classifier is a total function into representatives."
+  },
+  {
+   "id": "C0095",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "anchor_text": "This repository proves nothing about trace congruences or independence relations."
+  },
+  {
+   "id": "C0096",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "anchor_text": "The two vocabularies overlap in the words, not in a proved correspondence."
+  },
+  {
+   "id": "C0097",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "anchor_text": "This repository proves nothing relating the construction to any refinement-type system."
+  },
+  {
+   "id": "N0098",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "anchor_text": "None of it is a theorem of this repository, and the source repositories are not published."
+  },
+  {
+   "id": "N0099",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "anchor_text": "It started from one requirement, given by the project owner when building a description language for market narratives: the description must be objective, precise and honest; it must be pure reasoning, and statistical correctness, even 99.99%, is not accepted; it must be recursively complete; and whatever lies outside it is explicitly where a human decision begins."
+  },
+  {
+   "id": "H0100",
+   "kind": "hedged",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "anchor_text": "The notes extract six founding principles (classification precedes inference; a minimal admissible world; structure is prior to dynamics; canonical selection is unique or absent; residue is a structured measure of deviation; completeness is the termination of residue pressure) and one growth rule:"
+  },
+  {
+   "id": "N0101",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "anchor_text": "The chain they describe ends in a residue-exhaustion normal form with a staged structure and seven structured residues; the four-role formulation proved here is the execution-profile statement of the same line, and it is not claimed to be the direct output of that derivation."
+  },
+  {
+   "id": "N0102",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "anchor_text": "These are research positions, not theorems of this repository."
+  },
+  {
+   "id": "N0103",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "anchor_text": "The project's classification theory distinguishes three cases for a determinate output: **Type 1**, evidence insufficiency (a unique answer exists, the evidence is missing); **Type 2**, structural plurality (several answers are valid, which is not a failure); **Type 3**, unsupported canonicalization (a determinate output where the structure does not warrant one), which is what is called hallucination in language models."
+  },
+  {
+   "id": "N0104",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "anchor_text": "The MST-NF obligations constrain the class level: a representative exists only for an admitted class (`admissibilitySound`), and every active class that is not admitted has a named residue (`residueTotality`)."
+  },
+  {
+   "id": "N0105",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "anchor_text": "They do not by themselves constrain what a system outputs on an input (`evalRaw` only has to factor through classes), and whether the admission test admits only classes that warrant a unique reading is the instance's own obligation, stated as its `a` and checked against its residues."
+  },
+  {
+   "id": "N0106",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "anchor_text": "This is an operational definition, not a result proved here."
+  },
+  {
+   "id": "H0107",
+   "kind": "hedged",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "anchor_text": "whether those requirements are themselves minimal;"
+  },
+  {
+   "id": "H0108",
+   "kind": "hedged",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "anchor_text": "whether MST-NF is the unique structure satisfying them."
+  },
+  {
+   "id": "N0109",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "anchor_text": "The exact theorem statements, their axioms and their scope are under *Intents*; the non-claims are under *What this does NOT claim*."
+  },
+  {
+   "id": "P0110",
+   "kind": "pointer",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "anchor_text": "这是 [README](../README.zh-CN.md) 的详细配套文档：对象、已证明的性质、3-form 问题、哥德尔墙模型、相关结构、如何实例化，以及它的来历。"
+  },
+  {
+   "id": "P0111",
+   "kind": "pointer",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "anchor_text": "这里点名的每一条定理都在本仓库中；公理见 README 的 *Intents*。"
+  },
+  {
+   "id": "N0112",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "anchor_text": "不是定理的陈述（历史、研究立场、类比）都有明确标注。"
+  },
+  {
+   "id": "D0113",
+   "kind": "definition",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "| a | `admissibilitySound` | 如果一个类有代表元，它就是被接受的 |"
+  },
+  {
+   "id": "D0114",
+   "kind": "definition",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "| σ | `representativePrecision` | 每个活跃的被接受的类都有代表元（`sigma c ≠ none`） |"
+  },
+  {
+   "id": "D0115",
+   "kind": "definition",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "| ρ | `residueTotality` | 每个活跃的未被接受的类都有残差（`rho c ≠ none`） |"
+  },
+  {
+   "id": "N0116",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "Lean 文件里带有的标记是 R1、R2、Φ2b 和 Φ5；这个对应关系是项目的，不是这里证明的。"
+  },
+  {
+   "id": "N0117",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "对每个输入（它的类是活跃的）：要么它的类是被接受的并且有代表元，要么它不被接受、没有代表元、并且有残差。"
+  },
+  {
+   "id": "N0118",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "`sigma` 是函数，所以一个类只有一个值，但 profile 没有说是哪个值；\"规范\"不是 profile 强加的性质。"
+  },
+  {
+   "id": "N0119",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "anchor_text": "profile **不**说每个类至多有一个原始输入被接受；那个单独的安全条件（`AtMostOneAdmit`）不属于四个角色。"
+  },
+  {
+   "id": "N0120",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "anchor_text": "一般意义上，范式是一种规范表示；本仓库对这一概念的断言，不超出下面所列的定理。"
+  },
+  {
+   "id": "E0121",
+   "kind": "evidence",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "anchor_text": "MST-NF 有下表中的五个性质，每个都对应所列的定理（`evidence/CLAIMS.json`）。"
+  },
+  {
+   "id": "N0122",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "anchor_text": "至于这个形式可以让人把系统展开成四个部分、并用同一种证明形状，那是项目的实践，不是这里的定理；逻辑里的合取范式扮演类似的角色（仅是类比）。"
+  },
+  {
+   "id": "N0123",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "anchor_text": "**最小性不是\"组件数最少\"。"
+  },
+  {
+   "id": "N0124",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "anchor_text": "模块的注释解释了为什么没有严格逆（多个在 `IsRep`/`IsResidue` 上不同的 3-form 投影到同一个 4-form）；没有定理陈述\"非单射\"，模块里也撤回了较早的\"双射\"说法（`MSTNF3Form4FormEquivMWE`）。"
+  },
+  {
+   "id": "N0125",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "anchor_text": "**准入标签是被强制的；合并后的分类器不是。"
+  },
+  {
+   "id": "N0126",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "anchor_text": "所以标签的唯一性并不决定合并后的分类器。"
+  },
+  {
+   "id": "N0127",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "anchor_text": "四角色形式让接受（σ）与拒绝（ρ）保持对称且可以分别检查，把它当作*那个*范式，是理论的一个设计决定，由第 1–4 点支持，而不是一条单独的定理。"
+  },
+  {
+   "id": "N0128",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "对四角色对象而言，这种一致并没有在本仓库里被定理确立；这里只是把它作为该记录的主张来报告，由此得到的是：对象层被视为重新描述，而不是新数学。"
+  },
+  {
+   "id": "N0129",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "在元层，记录论证：把 MST-NF 应用到它自己的残差吸收过程上，不可能到达终止基，因为一个足够有表达力、能编码自身可靠性的框架无法证明它（哥德尔第二不完备定理），所以\"这个框架是可靠的\"永远是它之外的一个残差。"
+  },
+  {
+   "id": "N0130",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "本仓库里有的是这一论证的一个抽象模型，不是哥德尔定理本身："
+  },
+  {
+   "id": "N0131",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "`godel2` 是一个字段：在具体框架里，哥德尔定理会在这里被应用；它没有在这里被证明。"
+  },
+  {
+   "id": "N0132",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "数字 40、42、49、52 标记项目的 anti-fiat 阶梯的层；\"每一层都是上一层的自身可靠性 fiat\"是模块里记录的经验观察，不是定理。"
+  },
+  {
+   "id": "N0133",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "anchor_text": "这些证明没有使用可证性谓词或可表示性假设，所以这是对该回归的结构性模型；要为真实框架论证 `godel2`，需要真正的定理。"
+  },
+  {
+   "id": "C0134",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "没有任何定理把 MST-NF 与下列结构联系起来；以下是来自项目 schema 分析的散文式比较。"
+  },
+  {
+   "id": "C0135",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "** 迹幺半群用一个独立性关系对字做商，所以它的类扮演 `q` 的角色，每个类取一个代表元（例如字典序范式）扮演 `σ` 的角色。"
+  },
+  {
+   "id": "C0136",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "它没有准入谓词，也没有残差：分类器是一个到代表元的全函数。"
+  },
+  {
+   "id": "C0137",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "本仓库对迹同余或独立性关系没有证明任何东西。"
+  },
+  {
+   "id": "C0138",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "两套词汇只在用词上重叠，没有被证明的对应。"
+  },
+  {
+   "id": "C0139",
+   "kind": "comparison",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "anchor_text": "本仓库没有证明这一构造与任何精化类型系统的关系。"
+  },
+  {
+   "id": "N0140",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "anchor_text": "以下历史来自项目自己的笔记；其中没有一条是本仓库的定理，源仓库也未公开。"
+  },
+  {
+   "id": "N0141",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "anchor_text": "它起源于项目所有者在构建一门市场叙述描述语言时给出的一条要求：描述必须客观、精准、诚实；必须是纯推理，统计上的正确，哪怕是 99.99%，也不接受；必须递归完备；超出它的部分，必须明确标出：这里开始由人来决定。"
+  },
+  {
+   "id": "N0142",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "anchor_text": "笔记从中提取了六条奠基原则（分类先于推断；最小可容许世界；结构先于动力学；规范选择要么唯一要么不存在；残差是偏差的结构化度量；完备性是残差压力的终止），以及一条生长规则："
+  },
+  {
+   "id": "N0143",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "anchor_text": "笔记描述的链条终止于一个残差穷尽的范式，带有分阶段的结构和七个结构化残差；本仓库证明的四角色形式，是同一条路线的执行 profile 陈述，并不声称它是那段推导的直接产物。"
+  },
+  {
+   "id": "N0144",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "anchor_text": "以下是研究立场，不是本仓库的定理。"
+  },
+  {
+   "id": "N0145",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "anchor_text": "项目的分类理论对\"一个确定的输出\"区分三种情形：**Type 1**，证据不足（存在唯一答案，但证据缺失）；**Type 2**，结构性多元（有多个有效答案，这并不是失败）；**Type 3**，无依据的规范化（在结构不支持的地方给出确定输出），也就是语言模型里所说的幻觉。"
+  },
+  {
+   "id": "N0146",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "anchor_text": "MST-NF 的义务约束的是类这一层：只有被接受的类才有代表元（`admissibilitySound`），每个活跃但未被接受的类都有具名残差（`residueTotality`）。"
+  },
+  {
+   "id": "N0147",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "anchor_text": "它们本身并不约束系统在某个输入上输出什么（`evalRaw` 只需要通过类分解），而准入测试是否只接受那些有依据得到唯一读法的类，是具体实例自己的义务，体现为它的 `a`，并对照它的残差来检查。"
+  },
+  {
+   "id": "N0148",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "anchor_text": "这是一个操作性定义，不是这里证明的结果。"
+  },
+  {
+   "id": "N0149",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "anchor_text": "**不是新的：**商以及可靠性/完备性的词汇有悠久的历史，并且按项目记录，对象层的分层与经典结构一致；本仓库不宣称在对象层有新数学。"
+  },
+  {
+   "id": "H0150",
+   "kind": "hedged",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "anchor_text": "这些要求本身是否最小；"
+  },
+  {
+   "id": "H0151",
+   "kind": "hedged",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "anchor_text": "MST-NF 是否是满足它们的唯一结构。"
+  },
+  {
+   "id": "N0152",
+   "kind": "nonclaim",
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "anchor_text": "确切的定理陈述、公理和范围见 *Intents*；未作的宣称见 *What this does NOT claim*。"
+  }
+ ],
+ "rationale_sentences": [
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "MST-NF",
+   "text": "English · [中文](README.zh-CN.md)"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "MST-NF",
+   "text": "**A normal form for systems that decide."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "MST-NF",
+   "text": "*MST-NF: Minimal Structure Theory (Normal Form).* Lean 4 (v4.14.0, Mathlib v4.14.0); see *Trust boundary*."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "Every system that takes inputs and decides answers four questions, usually without saying so."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "This is true of a compiler, a package manager, a CI gate, a proof checker, and an AI agent."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "| **q** | When are two inputs the same thing? | stale caches, dependency hell, \"works on my machine\" |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "| **a** | What is allowed in? | rules scattered across `if` statements that nobody can state in full |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "| **σ** | What is the canonical form of an admitted input? | many spellings of one thing; comparison and deduplication break |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "| **ρ** | If an input is refused, why exactly? | inputs dropped silently; \"something went wrong\" |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "The worst of these failures is the silent one: a system that produces a confident answer where nothing warrants one."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "In a language model this is called hallucination."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "In any system it is a decision that cannot be checked."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "MST-NF makes the four answers explicit as four roles."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "For precise models of a decision system, the following hold:"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why",
+   "text": "Conjunctive normal form plays a similar role in logic (an analogy only)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "MST-NF was not designed top-down."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "In the project's history it started from one requirement, given by the project owner when building a description language for market narratives (the abbreviation MST historically referred to Market Structure Theory):"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "the description must be objective, precise and honest;"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "it must be pure reasoning, with no statistical tolerance (even 99.99% is not accepted);"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "it must be recursively complete;"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "anything outside it must be named as the point where human judgment begins."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "Bridging the result to other domains showed that it was not specific to markets."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "The four roles correspond, in the project's mapping, to parts of that requirement:"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "the quotient `q` and admission `a` correspond to the functional roles \"distinguish\" and \"constrain\";"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "precision (an admitted input gets a representative) corresponds to `σ`;"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why a normal form, and not a design",
+   "text": "`σ` and `ρ` can be merged into one \"outcome\" role as an encoding."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why for agents, by agents",
+   "text": "**By agents:** AI agents took part in developing and formalising the theory, under human guidance and adversarial review (see above)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why for agents, by agents",
+   "text": "**For agents:** a decision is useful to others only if it can be checked."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Why for agents, by agents",
+   "text": "Whether an agent's actual outputs are tied to them is the instance's own obligation: the model requires only that outcomes depend on the class (`quotientFactorization`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "text": "Three questions about the founding requirement itself remain open, and are not claimed:"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "text": "whether an automated run from the requirement alone reproduces the same normal form;"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "text": "whether MST-NF is the only structure it forces."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is proved, and where to read more",
+   "text": "---"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "The theory in one paragraph",
+   "text": "MST-NF describes a decision system by four structural roles: a quotient **q**, an admissibility predicate **a**, a representative choice **σ** and a typed residue **ρ**."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "| `MSTNF/l1/`, `MSTNF/methodology/` | the generic residue skeleton and residue-exhaustion schema (set level) |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "| `MSTNF/core/` | the MST-NF core object (set form, `CoreObject`, `Sound/Complete/Exact`) and the **authorization bridge** relating the predicate form to the set form |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "| `MSTNFDefsPred/` | the zero-import, Mathlib-free predicate form of the core object (a vendorable projection; its faithfulness is certified by the bridge) |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "| `MSTNF/algorithms/*Conformance*`, `MSTNFConcreteAbstractEquivMWE` | the Lean side of executed conformance: concrete finite fixtures and bridges between a computable Boolean mirror and the abstract definitions |"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "Why the conformance modules are here: `MSTNFConcreteAbstractEquivMWE` imports `MSTNFVSoundnessConformanceMWE` and `MSTNFKernelConformanceMWE`."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "They are included for that reason only."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "No other conformance module, no CRT/IET seam module, no application and no archived pre-NF module is included, because nothing in the modules above imports them."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "Module names follow the directory layout (`MSTNF.algorithms.*`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What is in the repository",
+   "text": "Lean namespaces are the original ones."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Intents",
+   "text": "Source: `evidence/intent_axioms.txt` (`lake env lean scripts/PrintAxioms.lean`) and `evidence/claims_check.txt`."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "**Toolchain:** `leanprover/lean4:v4.14.0` and Mathlib `v4.14.0` (rev `4bbdccd9c5f862bf90ff12f0a9e2c8be032b9a84`, pinned in `lake-manifest.json`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "`MSTNFDefsPred` imports nothing."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "**`native_decide`:** none in this repository."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "**Kernel re-checks** (`evidence/`):"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "`lean4checker` (tag `v4.14.0`, commit `bee437b`) replays every constant of each of the 27 modules into a fresh environment with the Lean kernel: **27/27 pass** (`evidence/kernel_replay_per_module.txt`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "`--fresh` replays (all imported constants, Mathlib included, into an empty environment) of `MSTNFConcreteAbstractEquivMWE`, `MSTNFT1BridgeClosureMWE`, `MSTNF3Form4FormEquivMWE` exit 0."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "The `--fresh` replay of `MSTNF3FormOmegaForcedProbeMWE` (which imports all of `Mathlib.Tactic`) aborts with a kernel deterministic timeout, a resource limit and not a type error; the per-module replay and the Nanoda check of that module pass."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "This uses the *same* kernel; it detects environment tampering and non-replayable declarations, it is not a second kernel."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "The exporter is `lean4export` (format 2.0.0) with a small patch (qualifying `HashMap`) to compile on Lean 4.14.0."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "Negative control: the earlier version of `MSTNFConcreteAbstractEquivMWE` (with `native_decide`) is rejected by both tools (`lean4checker`: `unknown declaration …_nativeDecide_1`; Nanoda: `unpermitted axiom \"Lean.ofReduceBool\"`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "The RCC executable returns **Closed** on the claims graph."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "Non-vacuity reading (a producer showing the hypothesis is satisfiable): **11/11 Closed**."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Trust boundary",
+   "text": "Strict reading (a producer must be generic): **7 Closed, 4 Await**."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "text": "**The export is of the 1077 constants of this repository and their dependencies**, produced by an exporter patched to run on Lean 4.14.0; a defect in exporter or checker is outside what is verified here."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "text": "This repository gives no single map between these three models."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "text": "The Python and OCaml adapters named in some module comments are not part of this repository."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "text": "**Applications are out of scope** (market-structure, Chanlun, DeFi, CRT/IET seam modules, auto-growth) as are earlier pre-NF formulations."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "What this does NOT claim",
+   "text": "**`closure_claim = 0`.** Nothing here says MST-NF, or any system built on it, is closed."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Reproduce",
+   "text": "(On some macOS versions the compiled `lake exe cache get` / `lean4checker` binaries abort in `dyld`; run them interpreted, e.g."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Reproduce",
+   "text": "`lake env lean --run lean4checker/Main.lean <module>`.)"
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Provenance",
+   "text": "Sources are the development repository at the commits recorded in `provenance/SOURCE.md`, with the blob of every source file."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Provenance",
+   "text": "Published files equal their sources byte for byte except for rewritten `import` lines (`import X` becomes `import MSTNF.X`)."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Provenance",
+   "text": "Nothing is edited at publication time: comment scrubs and the `native_decide` to `decide` change were made in the development repository before publication."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "Manifest",
+   "text": "`MANIFEST.sha256` lists `sha256  path` for every file in the repository except itself."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "License",
+   "text": "Apache-2.0."
+  },
+  {
+   "file": "README.md",
+   "lang": "en",
+   "section": "License",
+   "text": "See `LICENSE` and `NOTICE`."
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF",
+   "text": "[English](README.md) · **中文**"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF",
+   "text": "**一个\"做决定的系统\"的范式。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF",
+   "text": "**"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF",
+   "text": "*MST-NF：Minimal Structure Theory (Normal Form)。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF",
+   "text": "* Lean 4（v4.14.0，Mathlib v4.14.0）；见*信任边界*。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "任何接收输入、做出决定的系统，都在暗中回答四个问题，比如编译器、包管理器、CI 门禁、证明检查器，以及 AI agent。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "| **q** | 两个输入什么时候算\"同一个东西\"？ | 缓存失效、依赖地狱、\"在我机器上能跑\" |"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "| **a** | 什么可以进来？ | 规则散落在各处的 `if` 里，没有人能完整说清楚 |"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "| **σ** | 被接受的输入，它的规范形式是什么？ | 同一个东西有多种写法，比较和去重出错 |"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "其中最糟的是悄无声息的那种：系统在没有任何依据的地方，给出一个笃定的答案。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "在语言模型里，这叫幻觉；在任何系统里，这都是一个无法被检查的决定。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "MST-NF 把这四个答案显式化为四个角色。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "针对\"决策系统\"的几个精确模型，下列各项成立："
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么",
+   "text": "合取范式在逻辑里扮演类似的角色（仅是类比）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "MST-NF 不是自上而下设计出来的。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "在项目的历史里，它起源于项目所有者在构建一门市场叙述描述语言时给出的一条要求（缩写 MST 在历史上指 Market Structure Theory，市场结构理论）："
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "描述必须客观、精准、诚实；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "必须是纯推理，不容许任何统计上的容差（哪怕是 99.99% 也不接受）；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "必须递归完备；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "超出它的部分，必须明确标出：这里开始由人来判断。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "把结果和其他领域搭桥时，发现它并不只关乎市场。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "在项目自己的对应关系里，四个角色对应那条要求的各个部分："
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "商 `q` 与准入 `a`，对应功能角色\"区分\"（distinguish）与\"约束\"（constrain）；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "精准（被接受的输入有代表元）对应 `σ`；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是范式，而不是设计",
+   "text": "作为一种编码，`σ` 和 `ρ` 可以合并成一个\"结果\"角色。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是 for agents, by agents",
+   "text": "**By agents：**AI agents 在人的引导和对抗评审下，参与了这个理论的开发和形式化（见上文）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是 for agents, by agents",
+   "text": "**For agents：**一个决定，只有能被检查，对别人才有用。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么是 for agents, by agents",
+   "text": "agent 的实际输出是否与它们绑定，是具体实例自己的义务：模型只要求结果取决于类（`quotientFactorization`）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "text": "关于那条最初的要求本身，有三个问题仍未解决，本仓库不作宣称："
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "text": "只从这条要求出发，自动化地重跑一遍，能否得到同一个范式；"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "证明了什么，详情在哪里",
+   "text": "---"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "一段话说明理论",
+   "text": "MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓词 **a**、代表元选择 **σ** 和有类型的残差 **ρ**。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "仓库内容、Intents、清单与许可",
+   "text": "其余各节的中文翻译如下。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "**工具链：**`leanprover/lean4:v4.14.0` 与 Mathlib `v4.14.0`（rev `4bbdccd9c5f862bf90ff12f0a9e2c8be032b9a84`，固定在 `lake-manifest.json` 中）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "`MSTNFDefsPred` 不导入任何东西。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "**`native_decide`：**本仓库中没有。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "**内核复核**（`evidence/`）："
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "`lean4checker`（标签 `v4.14.0`，提交 `bee437b`）把这 27 个模块的每个常量重放到全新环境中，使用 Lean 内核：**27/27 通过**（`evidence/kernel_replay_per_module.txt`）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "对 `MSTNFConcreteAbstractEquivMWE`、`MSTNFT1BridgeClosureMWE`、`MSTNF3Form4FormEquivMWE` 的 `--fresh` 重放（把它导入的全部常量，包括 Mathlib，重放到空环境中）退出码为 0。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "对 `MSTNF3FormOmegaForcedProbeMWE`（它导入整个 `Mathlib.Tactic`）的 `--fresh` 重放因内核确定性超时（kernel deterministic timeout）而中止；这是资源上限，不是类型错误，对该模块的逐模块重放与 Nanoda 检查均通过。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "它使用的是*同一个*内核；它能发现环境篡改和不可重放的声明，但它不是第二个内核。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "导出器是 `lean4export`（格式 2.0.0），带一个小补丁（限定 `HashMap`）以便在 Lean 4.14.0 上编译。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "反例对照：较早版本的 `MSTNFConcreteAbstractEquivMWE`（含 `native_decide`）被两个工具拒绝（`lean4checker`：`unknown declaration …_nativeDecide_1`；Nanoda：`unpermitted axiom \"Lean.ofReduceBool\"`）。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "RCC 可执行程序对该断言图的结果是 **Closed**。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "非空洞读法（存在一个生产者表明假设可满足）：**11/11 Closed**。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "信任边界",
+   "text": "严格读法（生产者必须是泛型的）：**7 个 Closed，4 个 Await**。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**Nanoda 用第二个实现复核了内核的判定；两者实现的是同一套类型论，也都不检查一个陈述是否表达了它的文字描述。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**导出范围**是本仓库的 1077 个常量及其依赖，由一个为在 Lean 4.14.0 上运行而打过补丁的导出器生成；导出器或检查器自身的缺陷不在这里验证的范围内。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**无第五角色的陈述，在其模块的可容许角色语言之内成立。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**有条件的、针对特定模型的陈述。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "本仓库没有给出这三个模型之间的单一映射。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**哥德尔墙结果针对的是抽象模型。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**fixture 是有限的。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "一些模块注释中提到的 Python 与 OCaml 适配器不属于本仓库。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**提取器与实例数据由与该理论相同的一方产生；复现它们需要 RCC 库，本仓库不含它。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**应用不在范围内**（市场结构、缠论、DeFi、CRT/IET 接缝模块、自动生长），较早的 pre-NF 表述也不在范围内。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**`closure_claim = 0`。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "本仓库不宣称什么",
+   "text": "**这里没有任何内容说 MST-NF 或基于它构建的任何系统是\"闭合的\"。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "复现",
+   "text": "（在某些 macOS 版本上，编译好的 `lake exe cache get` / `lean4checker` 二进制会在 `dyld` 中中止；可以解释执行，例如 `lake env lean --run lean4checker/Main.lean <模块>`。"
+  },
+  {
+   "file": "README.zh-CN.md",
+   "lang": "zh",
+   "section": "复现",
+   "text": "）"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "MST-NF: rationale, results and scope",
+   "text": "English · [中文](RATIONALE.zh-CN.md)"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "MST-NF: rationale, results and scope",
+   "text": "**A normal form for systems that decide."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "Any system that takes inputs and decides answers four questions, usually without saying so."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "Examples are a compiler, a package manager, a CI gate, a proof checker, and an agent's action policy."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "| **q** | When are two inputs the same thing? | wrong caches after a rename, dependency hell, \"works on my machine\" |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "| **a** | What is allowed in? | admission rules scattered across `if` statements that nobody can state in full |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "| **σ** | What is the canonical form of an admitted input? | many spellings of one thing; comparison and deduplication break |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "| **ρ** | When an input is refused, what exactly is the reason? | inputs dropped or approximated silently; \"something went wrong\" |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The four questions",
+   "text": "MST-NF makes the four answers explicit as four roles and relates them as shown below."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "text": "In Lean the four roles are fields of one structure, `ExecModel` (`MSTNF/algorithms/MSTNecessityExecModelMWE`), exactly as declared:"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "text": "(`activeClass c` means some raw input `r` has `q r = c`.) Each role carries one obligation; their conjunction is `hasMSTNFProfile`."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "text": "| q | `quotientFactorization` | `evalRaw r = evalClass (q r)`: what the system does on an input depends only on its class |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "text": "The project's mapping from its founding requirement to these obligations (recorded in a bridge note that is not included here) is: `q` ← the functional role \"distinguish\" (R1); `a` ← \"constrain\" (R2) and admissibility (Φ2a); `σ` ← \"generate\" (R3) and element-level precision (Φ2b); `ρ` ← honesty (Φ3) and recursive completeness (Φ5)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "The object",
+   "text": "What the profile gives, and does not give."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "text": "The properties are stated over three related models: the decision function `C : E → Option X` (`none` = refused), `ExecModel`, and `CoreObject`."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "text": "The repository does not give one map between the three."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "text": "`MSTNoFifthRoleIntegrationMWE` covers only *dependent* candidates (entailed by the profile, so they have no deletion countermodel and adding them to the basis changes nothing)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "text": "It is bookkeeping by unfolding the definition, not an independence result."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Why it is a normal form: the mathematics",
+   "text": "Two consequences carry the practical weight:"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "text": "They can be packed into one sum-typed classifier `Lambda : (c : Class) → {r // IsRep c r} ⊕ {e // IsResidue c e}`, the \"3-form\" `ExecModel3` (`MSTNF3FormMWE`)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "text": "The modules establish the following:"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "text": "Packing two roles into one type is a re-encoding, which the theory does not rule out."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "\"If four is minimal, why can σ and ρ be merged?\"",
+   "text": "**The 3-form and the 4-form are related by a forgetful map and a section.** `toExecModel` forgets the `IsRep`/`IsResidue` witnesses; `fromExecModel` fills them with trivial witnesses and needs the profile, all classes active, and a partition condition."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "The project's research record separates two levels."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "At the object level the canonical strata coincide, per that record, with classical structures (an orthogonal factorization system for quotient canonicality, a subobject classifier for admission, a join-semilattice for the choice space)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "Its mechanical validation on a corpus (the record gives q matched on 94 of 105 specifications and σ on 71 of 71, at the tested sizes) checks an independently written Lean belief function against the spec's own gate using `native_decide`, i.e."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "Lean against the spec, not the spec against a real protocol."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "The corpus modules are not part of this repository."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "`godelSuccessor F` adds the fiat to `detected` and picks a fresh number as the next fiat, discharged by arithmetic (`fresh_not_in`)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What the Gödel wall model proves",
+   "text": "The form quantified over every self-application operator needs Reynolds parametricity, which Lean 4 core lacks; it is a named boundary and is not claimed."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "**Mazurkiewicz traces.** A trace monoid quotients words by an independence relation, so its classes play the role of `q`, and a representative per class (a normal form such as the lexicographic one) plays the role of `σ`."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "The MST-NF extension in the project's analysis is that the classifier's codomain is a sum, representative or residue, so failure is classified rather than absent."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "**Abstract interpretation and Galois connections.** In abstract interpretation, the words soundness and completeness refer to an abstraction relative to a concrete semantics, expressed through an abstraction map and a concretisation map forming a Galois connection."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "In the `CoreObject`, `Sound` is `Fix ⊆ Adm` and `Complete` is `Adm ⊆ Fix` for the set of fixed points of a relation `D`; there is no abstraction map, no concretisation map and no insertion."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "**Refinement types.** A refinement type is a base type with a predicate, and an operation is partial on the refined subset."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "The 3-form's `Sum {r // IsRep c r} {e // IsResidue c e}` uses subtypes in the same way, so the 4-form can look like \"refinement type plus partial functions\"."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Related structures",
+   "text": "In the 3-form the classifier is a total function into a sum and does not restrict a domain, which the project's analysis takes as the point of difference."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "To model a component as an `ExecModel`:"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "Name its raw inputs, its classes and `q`."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "Name the admission test, the representative function `sigma` and the residue function `rho` (a closed vocabulary of residues is good practice; the structure does not require it)."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "Discharge the four obligations above."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "Downstream runtimes that keep a no-Mathlib boundary can vendor `MSTNFDefsPred/` instead of the full theory."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "The table below is illustrative; only the abstract theory is formalized here."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "| compiler | the program's meaning | the supported language fragment | the intermediate representation | unsupported construct, type error |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "| package manager | content hash | repository policy | lock file | version conflict, rejected package |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "| code merge | patch content | CI and review | merged tree | the specific rule that refused it |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "| proof checker | the statement | kernel acceptance | the checked derivation | the specific kernel refusal |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Using it",
+   "text": "| agent action policy | the requested action | the policy ceiling | the normalised action | the denied permission |"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "text": "History from the project's own notes."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "text": "MST-NF was not designed top-down."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "text": "They describe the historical derivation as carried out under human guidance, with AI agents as implementers and reviewers (an author-is-not-the-verifier loop with Lean as the evaluator), and fourteen rounds of adversarial review for the paper."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "Where it came from",
+   "text": "The abbreviation MST historically referred to Market Structure Theory, the domain where the mechanism was first studied; MST-NF reads Minimal Structure Theory (Normal Form), the name of the theory."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "text": "On how agents improve, the same research line describes closed-world intelligence as reclassification-driven convergence: improving structure from fixed information by repeatedly reclassifying it under fixed principles until it stabilises; in MST-NF terms, reclassification is residue absorption."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "For agents",
+   "text": "The Residua project describes its components as MST-NF instances; that is a statement about Residua and is not checked in this repository."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "**Not new:** quotients and soundness/completeness vocabulary have long histories, and the object-level strata coincide, per the project's record, with classical structures; this repository does not claim new mathematics at the object level."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "The `CoreObject` states that monotonicity, idempotence, totality and fixedness are not assumed, so the object is not presented as a closure operator."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "**Established here:**"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "the four-role `ExecModel` with its obligations, and the statements in the table above, each with its stated scope;"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "the use of the theory as the generating structure of a working system is the project's claim and is not checked here."
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "**Open, and not claimed:**"
+  },
+  {
+   "file": "docs/RATIONALE.md",
+   "lang": "en",
+   "section": "What is new, what is not, and what is open",
+   "text": "whether a fresh automated run, given only the founding requirements, reproduces the same normal form;"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "text": "[English](RATIONALE.md) · **中文**"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "text": "**一个\"做决定的系统\"的范式。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "MST-NF：理由、结果与范围",
+   "text": "**"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "任何接收输入、做出决定的系统，都在暗中回答四个问题，比如编译器、包管理器、CI 门禁、证明检查器，以及 agent 的行动策略。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "| **q** | 两个输入什么时候算\"同一个东西\"？ | 重命名后缓存出错、依赖地狱、\"在我机器上能跑\" |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "| **a** | 什么可以进来？ | 准入规则散落在各处的 `if` 里，没有人能完整说清楚 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "| **σ** | 被接受的输入，它的规范形式是什么？ | 同一个东西有多种写法，比较和去重出错 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "| **ρ** | 被拒绝时，具体原因是什么？ | 输入被悄悄丢掉或被近似；\"出了点问题\" |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "四个问题",
+   "text": "MST-NF 把这四个答案显式化为四个角色，并如下所示地把它们联系起来。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "在 Lean 里，四个角色是同一个结构 `ExecModel`（`MSTNF/algorithms/MSTNecessityExecModelMWE`）的字段，和声明完全一致："
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "（`activeClass c` 表示存在某个原始输入 `r` 使得 `q r = c`。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "）每个角色带一条义务；它们的合取就是 `hasMSTNFProfile`。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "| q | `quotientFactorization` | `evalRaw r = evalClass (q r)`：系统在一个输入上做什么，只取决于它的类 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "项目从它的奠基要求到这些义务的对应关系（记录在一份本仓库未包含的桥接笔记里）是：`q` ← 功能角色\"区分\"（R1）；`a` ← \"约束\"（R2）与可容许性（Φ2a）；`σ` ← \"生成\"（R3）与元素级精准（Φ2b）；`ρ` ← 诚实（Φ3）与递归完备（Φ5）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "profile 给了什么，没给什么。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "对象",
+   "text": "另外，`evalRaw` 只被要求通过类分解：模型并不要求一个输入的结果是代表元或拒绝，所以把输出与 `σ`/`ρ` 绑定，是具体实例自己的义务。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "这些性质是针对三个相关的模型陈述的：决策函数 `C : E → Option X`（`none` = 拒绝）、`ExecModel` 和 `CoreObject`。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "本仓库没有给出这三者之间的统一映射。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "`MSTNoFifthRoleIntegrationMWE` 只覆盖*依赖的*候选（被 profile 蕴含，所以没有删除反模型，把它们加进基也不改变任何东西）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "它是展开定义得到的簿记，不是独立性结果。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "两个后果承载了实际的分量："
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "为什么它是范式：数学",
+   "text": "**行为通过身份分解。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "text": "它们可以被打包成一个带和类型的分类器 `Lambda : (c : Class) → {r // IsRep c r} ⊕ {e // IsResidue c e}`，即\"3-form\" `ExecModel3`（`MSTNF3FormMWE`）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "text": "模块确立了："
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "text": "把两个角色打包进一个类型是重新编码，理论并不排除这一点。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "text": "**3-form 与 4-form 之间是遗忘映射加截面。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "\"如果四个是最小的，为什么 σ 和 ρ 可以合并？\"",
+   "text": "** `toExecModel` 遗忘 `IsRep`/`IsResidue` 见证；`fromExecModel` 用平凡见证填充它们，并需要 profile、所有类活跃、以及一个划分条件。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "项目的研究记录区分两个层面。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "在对象层，规范分层与一些经典结构一致（按该记录：商的规范性对应正交分解系统，准入对应子对象分类子，选择空间对应连接半格）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "它在语料上的机械验证（记录给出 q 在 105 个规格中匹配 94 个，σ 在 71 个中匹配 71 个，在被测试的规模上）是用 `native_decide` 把一个独立编写的 Lean belief 函数与规格自己的门禁对照检查，即 Lean 对照规格，而不是规格对照真实协议。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "语料模块不属于本仓库。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "`godelSuccessor F` 把 fiat 加进 `detected`，并选一个新的数作为下一个 fiat，由算术得到（`fresh_not_in`）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "哥德尔墙模型证明了什么",
+   "text": "对每个自应用算子都成立的形式需要 Reynolds 参数性，而 Lean 4 core 没有它；这是一个被命名的边界，不作宣称。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "**Mazurkiewicz 迹。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "项目分析里 MST-NF 的扩展在于分类器的值域是和类型，要么是代表元，要么是残差，于是失败被分类而不是缺席。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "**抽象解释与 Galois 连接。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "** 在抽象解释里，\"可靠性与完备性\"这两个词指的是抽象相对于具体语义的关系，通过构成 Galois 连接的抽象映射与具体化映射来表达。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "在 `CoreObject` 里，`Sound` 是 `Fix ⊆ Adm`，`Complete` 是 `Adm ⊆ Fix`，其中 `Fix` 是关系 `D` 的不动点集；这里没有抽象映射，没有具体化映射，也没有 Galois 插入。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "**精化类型（refinement types）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "** 精化类型是带谓词的基类型，运算在被精化的子集上是部分的。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "3-form 的 `Sum {r // IsRep c r} {e // IsResidue c e}` 以同样的方式使用子类型，所以 4-form 看上去像\"精化类型加部分函数\"。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "相关结构",
+   "text": "在 3-form 里，分类器是到和类型的全函数，不限制定义域，项目分析把这当作区别所在。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "把一个组件建模为 `ExecModel`："
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "命名它的原始输入、类和 `q`。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "命名准入测试、代表元函数 `sigma` 和残差函数 `rho`（残差词表是封闭的是好的实践；结构本身并不要求）。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "满足上面的四条义务。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "要保持\"无 Mathlib\"边界的下游运行时，可以只引入 `MSTNFDefsPred/` 而不引入整个理论。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "下表只是示意；本仓库只形式化了抽象理论。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "| 编译器 | 程序的含义 | 支持的语言子集 | 中间表示 | 不支持的构造、类型错误 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "| 包管理器 | 内容哈希 | 仓库策略 | 锁文件 | 版本冲突、被拒绝的包 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "| 代码合并 | patch 内容 | CI 与评审 | 合并后的树 | 拒绝它的具体规则 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "| 证明检查器 | 命题 | 内核接受 | 被检查的推导 | 具体的内核拒绝 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "如何使用",
+   "text": "| agent 行动策略 | 被请求的动作 | 策略上限 | 规范化后的动作 | 被拒绝的权限 |"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "text": "MST-NF 不是自上而下设计出来的。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "text": "笔记把历史上的推导描述为在人的引导下进行，AI agents 担任实现者和评审者（作者不是验证者的循环，以 Lean 为评价器），论文经历了十四轮对抗评审。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "它的来历",
+   "text": "缩写 MST 在历史上指 Market Structure Theory（市场结构理论），也就是机制最初被研究的领域；MST-NF 读作 Minimal Structure Theory (Normal Form)，这是该理论的名称。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "text": "关于 agent 如何进步，同一条研究路线把封闭世界的智能描述为\"由重分类驱动的收敛\"：在固定原则下对固定信息反复重分类，直到稳定，从而改进结构；用 MST-NF 的话说，重分类就是残差吸收。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "面向 agents",
+   "text": "Residua 项目把自己的组件描述为 MST-NF 实例；这是关于 Residua 的陈述，在本仓库中没有被检查。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "`CoreObject` 明确说单调性、幂等性、全性和不动性都不被假设，所以这个对象不被表述为闭包算子。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "**本仓库确立的：**"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "带有义务的四角色 `ExecModel`，以及上表中的各陈述，各自带有其范围；"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "把该理论用作一个运行中系统的生成结构，是项目的主张，这里没有检查。"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "**未决，不作宣称：**"
+  },
+  {
+   "file": "docs/RATIONALE.zh-CN.md",
+   "lang": "zh",
+   "section": "什么是新的，什么不是，什么是未决的",
+   "text": "只从奠基要求出发，自动化地重跑一遍，能否得到同一个范式；"
+  }
+ ],
+ "gate": {
+  "errors": [],
+  "unit_kinds": {
+   "rationale": 255,
+   "theorem": 121,
+   "nonclaim": 99,
+   "hedged": 9,
+   "evidence": 20,
+   "pointer": 7,
+   "definition": 6,
+   "comparison": 11
+  }
+ }
+}

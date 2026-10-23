@@ -1,0 +1,6 @@
+Earlier version of MSTNFConcreteAbstractEquivMWE (with native_decide), exported with the same exporter and checked with the same Nanoda configuration:
+
+thread 'main' panicked at src/parser.rs:487:13:
+export file declares unpermitted axiom "Lean.ofReduceBool"
+
+lean4checker on the same version: uncaught exception: (kernel) unknown declaration 'MSTNFConcreteAbstractEquivMWE.v_concrete_eq_abstract_on_all_fixtures._nativeDecide_1'

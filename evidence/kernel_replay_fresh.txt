@@ -1,0 +1,4 @@
+MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE --fresh exit=0 
+MSTNF.algorithms.MSTNFT1BridgeClosureMWE --fresh exit=0 
+MSTNF.algorithms.MSTNF3Form4FormEquivMWE --fresh exit=0 
+MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE --fresh exit=1 uncaught exception: (kernel) deterministic timeout 

@@ -1,0 +1,21 @@
+# The claims gate (for reuse: Residua's public README next)
+
+Goal: no sentence in a public README may state a property unless the property resolves mechanically to a sealed theorem. The referee's overclaims become impossible to ship, not merely fixed once.
+
+## Parts
+1. **Claims source** (`claims_src.py`, outside the repo): theorems grouped into claims (`C01…`), each with a one-line gist and a scope note; cited definitions (`D:…`). One theorem belongs to exactly one claim.
+2. **Resolver** (`scripts/ClaimsCheck.lean`, in the repo): for every cited theorem, check that it exists, is a theorem, lives in a shipped module, has the recorded **statement hash** and exactly the recorded axioms, all within `{propext, Classical.choice, Quot.sound}`. The statement hash is `Hfull` of the development's statement-fidelity tool (hash of the type `Expr`: universe parameters by position, metadata erased, binder names/infos ignored, de Bruijn indices). Definitions are checked for existence and type hash. Mode `EMIT` prints hash/module/axioms for new entries.
+3. **Sentence gate** (`claims_gate.py`, outside the repo): splits each document into units (sentences, list items, table rows; code blocks and table headers skipped). A unit is *property-bearing* if it matches a lexicon (EN: prove/proof/theorem/machine-checked/minimal/unique/complete/sufficient/necessary/coarsest/exact/forced/guarantee/correct, and quantifier + admitted/refused/residue/representative/reason; ZH: 证明/定理/最小/唯一/完备/充分/必要/最粗/…) after removing identifiers in backticks and a short exemption list (e.g. "recursively complete", "proof checker", "soundness and completeness" as vocabulary). Every property-bearing unit must resolve to one of: **theorem** (it names a claimed theorem), **definition**, **evidence** (it names an evidence file/script that exists), **nonclaim** (it contains a negation or limit marker), **hedged** (it carries an explicit hedge: project's notes, analogy, open question, "not a theorem"), **comparison** (prose in the Related structures section) or **pointer** (navigation). Anything else fails as UNCOVERED. Units with no property word are `rationale` and, by construction, contain none.
+4. **Parity**: a theorem claim anchored in a paired section of the English files must also appear in the Chinese files, and conversely (EN/ZH share claim ids).
+5. **Registry** (`evidence/CLAIMS.json`): theorem claims (theorems, hashes, axioms, scope note, anchors), definitions, the other property sentences by kind, the rationale sentences, the gate result.
+6. **RCC frontier**: the claims graph (root "documents publishable" → claim nodes → theorem nodes; plus coverage, parity and definitions nodes) is run through the RCC executable (`ResiduaRCCFormalCore` `normalize`). It is `Closed` only if every node has a covering producer. A negative control (one tampered hash) gives `Await`.
+7. **Independent review**: a second model reads each registry entry and judges whether the sentence says no more than its theorem.
+
+## Properties and limits
+* A sentence cannot name a theorem that does not exist, or whose statement has changed, without the gate failing (hash). A new theorem-backed sentence needs a registry entry; a sentence with a property word and no backing fails.
+* The gate checks naming, not meaning: whether the sentence says *no more than* the named theorem is the reviewer's job. The gate makes that review finite (one entry per sentence) and keeps it attached to a pinned statement.
+* The lexicon and the classification rules are heuristics; a positive claim containing a negation word can be classified `nonclaim`. The reviewer is asked to look at every `nonclaim` and `hedged` entry for that reason.
+* The first run found real gaps: a headline sentence ("no refusal is without a reason") that had no theorem behind it (a theorem, `input_dichotomy`, was added), and ~80 sentences that asserted properties without naming one.
+
+## To adopt for another README
+Write the claims source (theorems per claim), run `EMIT` to fill hashes, run the gate on the documents, fix every UNCOVERED by naming a theorem, adding a hedge/limit, or deleting the property word; generate `CLAIMS.json`; run `ClaimsCheck`, the RCC claims graph, and the reviewer.
