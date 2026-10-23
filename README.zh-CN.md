@@ -1,4 +1,4 @@
-# MST-NF
+# MST-NF：Minimal Structure Theory Normal Form（最小结构理论范式）
 
 [English](README.md) · **中文**
 
