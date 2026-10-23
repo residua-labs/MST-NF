@@ -1,4 +1,4 @@
-# MST-NF
+# MST-NF: Minimal Structure Theory Normal Form
 
 English · [中文](README.zh-CN.md)
 
