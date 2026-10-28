@@ -31,6 +31,9 @@ Development repository: `main` at `4e403756c6` plus the commit `8202c4925b` that
 | `lean/core/MSTNFPredBridgeMWE.lean` | `31ca236b29b4f66c4e9749a016bb93fd176c7692` | `MSTNF/core/MSTNFPredBridgeMWE.lean` |
 | `lean/l1/MSTGenericResidueSkeletonsMWE.lean` | `4fff92215f3be03b76a68459506dfed5ef6b5361` | `MSTNF/l1/MSTGenericResidueSkeletonsMWE.lean` |
 | `lean/methodology/GenericResidueExhaustionSchemaMWE.lean` | `3001fe7e19bf0c8358bd83f1381122747e23344e` | `MSTNF/methodology/GenericResidueExhaustionSchemaMWE.lean` |
+| `lean/fdt/CRTScopedFinalNoFourthComplete.lean` | `d0aeb1a005dbc0f0fd4ee13a4276eff0b2ef32d4` | `MSTNF/methodology/MSTNFFDTFactorsThroughMWE.lean` |
 
 The set of modules is the import closure of the intent modules listed in the README, plus the predicate-form pair and the five modules cited by the rationale (the 3-form question and the Gödel-wall result).
 Published files equal the source byte for byte except for rewritten `import` lines (`import X` becomes `import MSTNF.X`; the predicate form is imported as `MSTNFDefsPred.MSTNFDefsPredMWE`). Comment scrubs and the `native_decide` to `decide` change were made in the development repository before publication; nothing is edited at publication time.
+
+`MSTNF/methodology/MSTNFFDTFactorsThroughMWE.lean` is not an import-rewrite: its definitions and theorem statements are ported verbatim from the workbench FDT module at the blob above (read at its commit; the workbench is an archive), and its proofs are new — a reduction to Mathlib's `Function.FactorsThrough` / `Function.factorsThrough_iff`. The published file was authored directly in this repository.

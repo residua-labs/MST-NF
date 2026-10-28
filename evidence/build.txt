@@ -1,31 +1,10 @@
 # lake build (default targets MSTNFDefsPred + MSTNF); Lean 4.14.0, Mathlib v4.14.0
 # raw exit: exit=0
-# started 2026-10-23T11:33:15Z  ended 2026-10-23T11:33:39Z
-✔ [2/2532] Built MSTNFDefsPred.MSTNFDefsPredMWE
-✔ [2506/2532] Built MSTNF.algorithms.MSTNFStructuralAdvantageMWE
-✔ [2507/2532] Built MSTNF.algorithms.MSTNFVSoundnessConformanceMWE
-✔ [2508/2532] Built MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE
-✔ [2509/2532] Built MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE
-✔ [2510/2532] Built MSTNF.algorithms.MSTNecessityExecModelMWE
-ℹ [2511/2532] Built MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
-✔ [2512/2532] Built MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE
-✔ [2513/2532] Built MSTNF.algorithms.MSTNFKernelConformanceMWE
-✔ [2514/2532] Built MSTNF.algorithms.MSTNF3FormMWE
-ℹ [2515/2532] Built MSTNF.algorithms.MSTNFProfileDichotomyMWE
-ℹ [2516/2532] Built MSTNF.algorithms.MSTNFT1BridgeClosureMWE
-⚠ [2517/2532] Built MSTNF.algorithms.MSTNFCompletenessRepresentationMWE
-✔ [2518/2532] Built MSTNF.algorithms.MSTNFResidueTypologyMWE
-✔ [2519/2532] Built MSTNF.algorithms.MSTNecessityRoleAblationMWE
-✔ [2520/2532] Built MSTNF.algorithms.MSTNF3Form4FormEquivMWE
-✔ [2521/2532] Built MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE
-✔ [2522/2532] Built MSTNF.algorithms.MSTMinimalityRoleBasisMWE
-✔ [2523/2532] Built MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE
-⚠ [2524/2532] Built MSTNF.algorithms.MSTNFCanonicalDecompositionMWE
-✔ [2525/2532] Built MSTNF.algorithms.MSTNFRunNFAbstractMWE
-✔ [2526/2532] Built MSTNF.algorithms.MSTNFPartitionCompletenessMWE
-✔ [2527/2532] Built MSTNF.l1.MSTGenericResidueSkeletonsMWE
-ℹ [2528/2532] Built MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE
-✔ [2529/2532] Built MSTNF.methodology.GenericResidueExhaustionSchemaMWE
-✔ [2530/2532] Built MSTNF.core.MSTNFObjectMWE
-✔ [2531/2532] Built MSTNF.core.MSTNFPredBridgeMWE
+# started 2026-10-28T00:52:14Z  ended 2026-10-28T01:08:10Z
+✔ [2527/2533] Built MSTNF.l1.MSTGenericResidueSkeletonsMWE
+ℹ [2528/2533] Built MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE
+✔ [2529/2533] Built MSTNF.methodology.MSTNFFDTFactorsThroughMWE
+✔ [2530/2533] Built MSTNF.methodology.GenericResidueExhaustionSchemaMWE
+✔ [2531/2533] Built MSTNF.core.MSTNFObjectMWE
+✔ [2532/2533] Built MSTNF.core.MSTNFPredBridgeMWE
 Build completed successfully.

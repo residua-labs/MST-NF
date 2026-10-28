@@ -25,3 +25,4 @@ MSTNF.core.MSTNFObjectMWE
 MSTNF.core.MSTNFPredBridgeMWE
 MSTNF.l1.MSTGenericResidueSkeletonsMWE
 MSTNF.methodology.GenericResidueExhaustionSchemaMWE
+MSTNF.methodology.MSTNFFDTFactorsThroughMWE
