@@ -1,0 +1,102 @@
+=== FDT retrieval measurement — raw evidence (2026-10-28, cc item 20261028T001007Z) ===
+
+# FDT retrieval measurement (2026-10-28, cc item 20261028T001007Z)
+
+Question (Klaus): "一个 agent，怎么可以通过查询已有文明知识，而避免自己重头手写一个"
+— how much does the ABSTRACTION step matter when retrieving the known answer
+(Mathlib `Function.FactorsThrough` / `factorsThrough_iff`) for the FDT?
+
+Needle: `Function.FactorsThrough (g : α → γ) (f : α → β) : Prop := ∀ ⦃a b⦄, f a = f b → g a = g b`
+        `Function.factorsThrough_iff (g) [Nonempty γ] : g.FactorsThrough f ↔ ∃ e, g = e ∘ f`
+        (Mathlib.Logic.Function.Basic, v4.14.0 — the repo's pinned Mathlib)
+
+## Matrix: tool × (original, abstracted) → found? rank? time?
+
+| tool | query side | query | found | rank | time |
+|---|---|---|---|---|---|
+| `exact?` | original | constructive engine goal (CRT defs opaque) | NO | — | ~1s net (4.63s incl. import) |
+| `exact?` | original | main iff goal (CRT defs opaque) | NO | — | ~1s net (4.57s) |
+| `apply?` | original | constructive engine goal | NO ("didn't find any relevant lemmas") | — | ~1s net (4.52s) |
+| `exact?` | abstracted | UNFOLDED iff `(∀ ⦃a b⦄, f a = f b → g a = g b) ↔ ∃ e, g = e ∘ f` | NO | — | ~1s net (4.67s) |
+| `exact?` | abstracted | one-direction `h : ∀ ⦃a b⦄, … → ∃ e, g = e ∘ f` | YES | 1: `(Function.factorsThrough_iff g).mp h` | ~3s net (6.60s) |
+| `exact?` | abstracted | FOLDED iff `g.FactorsThrough f ↔ ∃ e, g = e ∘ f` | YES | 1: `factorsThrough_iff g` | ~1s net (4.28s) |
+| Loogle (mirror) | original | name substring `"profile"` | NO (15 Lean-profiler internals) | — | 1.19s |
+| Loogle | original | name substring `"diagnostic"` | NO (190 Lean.Kernel.Diagnostics) | — | 1.83s |
+| Loogle | original | name substring `"NoIndependentFourth"` | NO (0 results) | — | 0.85s |
+| Loogle | original | fiber-pair type pattern `?f ?a = ?f ?b → (?g ?a ?c ↔ ?g ?b ?c)` | NO (200 entries, none FT) | — | 7.28s |
+| Loogle | abstracted | type pattern `?f ?a = ?f ?b → ?g ?a = ?g ?b` | NO | — | 21.12s |
+| Loogle | abstracted | conclusion `|- ∀ ⦃a b⦄, ?f a = ?f b → ?g a = ?g b` | NO | — | 23.03s |
+| Loogle | abstracted | name substring `"factorsThrough"` | YES | def 1, factorsThrough_iff 6 (of 49) | 1.15s |
+| Loogle | post-hoc | constant `Function.FactorsThrough` | YES | def 1 (of 35) | 1.09s |
+| LeanSearch | original | NL "representable by a classifier on observation profiles iff no witness distinguishes equal profiles" | NO (top-10 = CategoryTheory.Classifier noise) | — | 0.39s |
+| LeanSearch | original | NL "no ambiguity on pairs with equal observation profiles iff representable…" | NO | — | 0.29s |
+| LeanSearch | abstracted | NL "a function factors through another if they agree on fibers" | YES | def 1, factorsThrough_iff 2 | 0.31s |
+| LeanSearch | abstracted | NL keyword-free "if f a = f b implies g a = g b then there exists e with g = e ∘ f" | YES | factorsThrough_iff 1, def 2 | 0.30s |
+| Moogle | — | — | TOOL DOWN: TLS cert expired + API 404 `DEPLOYMENT_NOT_FOUND` (Vercel) | — | — |
+
+## Read-off (the answer to the question)
+
+1. **Nothing retrieves from the original vocabulary.** exact?/apply? cannot see through
+   the CRT defs (opaque to unification); Loogle name searches hit unrelated Lean
+   internals; LeanSearch's semantic search returns CategoryTheory noise. 0/7 probes.
+2. **The abstraction step is the entire cost.** After replacing
+   profile→`f`, sem→`g` (with the State×State pairing my §5 PairSem does),
+   LeanSearch finds the needle at rank 1-2 in ~0.3s — even keyword-free
+   (the semantic engine generalizes the phrasing). Loogle also works but needs
+   either the name (`"factorsThrough"`: def 1 / iff 6) or Mathlib's own folded
+   shape for exact?.
+3. **exact? has a definitional blind spot**: the UNFOLDED iff misses while the
+   one-direction (hypothesis-position) and folded forms hit — the def must sit
+   where unification elaborates it, i.e. the user must state the goal in (or
+   argument-wise into) Mathlib's vocabulary.
+4. **The pairing gap is real**: the FDT's two-argument fiber shape
+   (`?f ?a = ?f ?b → (?g ?a ?c ↔ ?g ?b ?c)`) has NO Loogle hit (200 entries, none
+   FactorsThrough) — one must first see that State×State pairing turns it into
+   Mathlib's one-argument form. That recognition is not provided by any tool
+   measured; it is the agent's contribution.
+5. **Tool availability notes**: loogle.net DNS-dead from the probe box; the
+   official mirror loogle.lean-lang.org serves the UI but its JSON `/api` 404s
+   (measurement done on the server-rendered HTML). Moogle's backend is gone
+   (expired cert + Vercel DEPLOYMENT_NOT_FOUND). LeanSearch (leansearch.net,
+   POST /search {"query":[...],"num_results":N}) was the only semantic engine up.
+
+Environment: MST-NF repo clone, Lean 4.14.0, Mathlib v4.14.0 (pinned manifest),
+`lake env lean RP0*.lean` from repo root; import baseline 8.06s cold / ~3-4s warm.
+
+=== RAW: lean probe outputs (lake env lean, repo root, Lean 4.14.0 + pinned Mathlib) ===
+--- RP00_baseline.lean : real 8.06
+
+--- RP01_orig_exact.lean : real 4.63
+RP01_orig_exact.lean:135:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.
+
+--- RP02_orig_iff_exact.lean : real 4.57
+RP02_orig_iff_exact.lean:135:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.
+
+--- RP03_orig_apply.lean : real 4.52
+RP03_orig_apply.lean:135:2: error: apply? didn't find any relevant lemmas
+
+--- RP04_abs_folded.lean : real 4.67
+RP04_abs_folded.lean:10:2: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.
+
+--- RP05_abs_folded_sanity.lean : real 4.28
+Try this: exact factorsThrough_iff g
+
+--- RP06_abs_dir.lean : real 6.60
+Try this: exact (Function.factorsThrough_iff g).mp h
+
+=== RAW: leansearch.net responses (POST /search, num_results=10; files raw_LS-*.json hold full JSON) ===
+--- raw_LS-A1-abs-nl.json
+top-10: ['Function.FactorsThrough', 'Function.factorsThrough_iff', 'Function.FactorsThrough.extend_apply', 'CategoryTheory.Subobject.factorThru.congr_simp', 'Function.FactorsThrough.comp_left', 'Function.FactorsThrough.extend_comp', 'Function.Fiber.map_eq_image', 'Function.FactorsThrough.rfl', 'Measurable.factorsThrough', 'factorsThrough_of_pullbackCondition']
+--- raw_LS-A2-abs-nl-nokw.json
+top-10: ['Function.factorsThrough_iff', 'Function.FactorsThrough', 'Set.EqOn.comp_eq', 'Function.FactorsThrough.extend_comp', 'Set.EqOn.comp_right', 'Function.FactorsThrough.comp_left', 'Function.Coequalizer.desc', 'Function.extend_comp', 'Set.EqOn.cancel_left', 'Equiv.comp_symm_eq']
+--- raw_LS-O1-orig-nl.json
+top-10: ['CategoryTheory.Classifier.representableBy', 'CategoryTheory.isRepresentable_hasClassifier_iff', 'CategoryTheory.Classifier.SubobjectRepresentableBy', 'CategoryTheory.Classifier.SubobjectRepresentableBy.classifier', 'CategoryTheory.Classifier.SubobjectRepresentableBy.Ω₀', 'CategoryTheory.Classifier.SubobjectRepresentableBy.congr_simp', 'ComputablePred.computable_iff', 'CategoryTheory.Classifier.noConfusion', 'Mathlib.Tactic.AtomM.State.noConfusion', 'CategoryTheory.Classifier.SubobjectRepresentableBy.χ.congr_simp']
+--- raw_LS-O2-orig-nl.json
+top-10: ['Sym2.decidablePred_mem_diagSet', 'Sym2.isDiag_iff_proj_eq', 'CategoryTheory.Classifier.SubobjectRepresentableBy.congr_simp', 'Sym2.IsDiag.decidablePred', 'CategoryTheory.Pairwise.pair.noConfusion', 'CategoryTheory.Classifier.noConfusionType', 'CategoryTheory.Pairwise.Hom.right.noConfusion', 'CategoryTheory.Pairwise.noConfusion', 'PeriodPair.noConfusionType', 'CategoryTheory.ExactPairing.mk.noConfusion']
+
+=== RAW: tool availability ===
+loogle.net          : DNS unresolvable from probe box (socket.gaierror, 3 retries)
+loogle.lean-lang.org: UI 200 (mirror); JSON /api?q= -> 404 'Not found.'; /api/search, /search -> 404
+www.moogle.ai       : TLS cert expired (curl 60); /api/search -> 404 DEPLOYMENT_NOT_FOUND (Vercel) = backend gone
+leansearch.net      : 200; API = POST /search {"query":[...],"num_results":N}
+leansearch.cs.hu-berlin.de: connection timeout (13s)
