@@ -73,7 +73,7 @@ MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓�
 ## 信任边界
 
 * **工具链：**`leanprover/lean4:v4.14.0` 与 Mathlib `v4.14.0`（rev `4bbdccd9c5f862bf90ff12f0a9e2c8be032b9a84`，固定在 `lake-manifest.json` 中）。`MSTNFDefsPred` 不导入任何东西。
-* **公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 525 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；399 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，6 条使用 `Quot.sound`，**27 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，4 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。
+* **公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 526 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；401 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，7 条使用 `Quot.sound`，**25 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。
 * **`native_decide`：**本仓库中没有。`MSTNFConcreteAbstractEquivMWE` 的开发源码最初对三条桥接定理使用 `native_decide`；开发仓库现已改用 `decide`，因此由内核检查，陈述不变（`evidence/native_decide.txt`）。
 * **内核复核**（`evidence/`）：
   * `lean4checker`（标签 `v4.14.0`，提交 `bee437b`）把这 27 个模块的每个常量重放到全新环境中，使用 Lean 内核：**27/27 通过**（`evidence/kernel_replay_per_module.txt`）。对 `MSTNFConcreteAbstractEquivMWE`、`MSTNFT1BridgeClosureMWE`、`MSTNF3Form4FormEquivMWE` 的 `--fresh` 重放（把它导入的全部常量，包括 Mathlib，重放到空环境中）退出码为 0。 对 `MSTNF3FormOmegaForcedProbeMWE`（它导入整个 `Mathlib.Tactic`）的 `--fresh` 重放因内核确定性超时（kernel deterministic timeout）而中止；这是资源上限，不是类型错误，对该模块的逐模块重放与 Nanoda 检查均通过。 它使用的是*同一个*内核；它能发现环境篡改和不可重放的声明，但它不是第二个内核。

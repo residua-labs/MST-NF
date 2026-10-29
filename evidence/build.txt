@@ -1,22 +1,22 @@
 # lake build (default targets MSTNFDefsPred + MSTNF); Lean 4.14.0, Mathlib v4.14.0
 # raw exit: exit=0
-# started 2026-10-23T11:33:15Z  ended 2026-10-23T11:33:39Z
+# started 2026-10-29T23:10:02Z  ended 2026-10-29T23:10:12Z
 ✔ [2/2532] Built MSTNFDefsPred.MSTNFDefsPredMWE
 ✔ [2506/2532] Built MSTNF.algorithms.MSTNFStructuralAdvantageMWE
 ✔ [2507/2532] Built MSTNF.algorithms.MSTNFVSoundnessConformanceMWE
 ✔ [2508/2532] Built MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE
 ✔ [2509/2532] Built MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE
 ✔ [2510/2532] Built MSTNF.algorithms.MSTNecessityExecModelMWE
-ℹ [2511/2532] Built MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
-✔ [2512/2532] Built MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE
-✔ [2513/2532] Built MSTNF.algorithms.MSTNFKernelConformanceMWE
+✔ [2511/2532] Built MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE
+✔ [2512/2532] Built MSTNF.algorithms.MSTNFKernelConformanceMWE
+ℹ [2513/2532] Built MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
 ✔ [2514/2532] Built MSTNF.algorithms.MSTNF3FormMWE
 ℹ [2515/2532] Built MSTNF.algorithms.MSTNFProfileDichotomyMWE
 ℹ [2516/2532] Built MSTNF.algorithms.MSTNFT1BridgeClosureMWE
 ⚠ [2517/2532] Built MSTNF.algorithms.MSTNFCompletenessRepresentationMWE
-✔ [2518/2532] Built MSTNF.algorithms.MSTNFResidueTypologyMWE
+✔ [2518/2532] Built MSTNF.algorithms.MSTNF3Form4FormEquivMWE
 ✔ [2519/2532] Built MSTNF.algorithms.MSTNecessityRoleAblationMWE
-✔ [2520/2532] Built MSTNF.algorithms.MSTNF3Form4FormEquivMWE
+✔ [2520/2532] Built MSTNF.algorithms.MSTNFResidueTypologyMWE
 ✔ [2521/2532] Built MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE
 ✔ [2522/2532] Built MSTNF.algorithms.MSTMinimalityRoleBasisMWE
 ✔ [2523/2532] Built MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE
