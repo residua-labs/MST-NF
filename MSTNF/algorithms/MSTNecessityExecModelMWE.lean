@@ -11,9 +11,9 @@ P1-A proves:
    four structural properties has the MST-NF execution profile.
 
 P1-B proves:
-3. `semantics_factor_through_active_structure`: any semantic interpretation
+3. `semantics_factor_through_kernel_quotient`: any semantic interpretation
    that respects the MST quotient structure must factor uniquely through the
-   active quotient image. This is the universal property of the quotient —
+   kernel quotient. This is the universal property of the quotient —
    the mathematical meaning of "semantics is defined by structure".
 
 Roles mapped:
@@ -27,11 +27,14 @@ representatives is encoded by the function-nature of `sigma`; a
 relational/list-valued model would be needed to make uniqueness
 itself a nontrivial proof obligation.
 
-P1-B boundary: `semantics_factor_through_active_structure` uses
-`Classical.choose` to select active witnesses and restricts uniqueness to
-the active image `{ c : Class // ∃ r, q r = c }`.  The factorization is
-unique only on active classes because `m_bar` on non-active classes is
-unconstrained.
+P1-B boundary: `semantics_factor_through_kernel_quotient` is stated over the
+kernel quotient `Quot (fun x y => q x = q y)` and uses no choice axiom:
+`m_bar` is `Quot.lift m h` and uniqueness is proved by `Quot.inductionOn`.
+The equivalent statement over the active image `{ c : Class // ∃ r, q r = c }`
+is recoverable by composing with `rawKernelQuotientEquivActiveClass_classical`;
+that equivalence is the only declaration in this file that uses
+`Classical.choice` (its inverse direction must pick a representative out of a
+`Prop`-level `∃`), and no theorem depends on it.
 
 ## Two-tier axiom structure
 
@@ -262,7 +265,8 @@ def hasMSTNFSafetyProfile (M : ExecModel) : Prop :=
 -- witness definitions.
 
 -- ---------------------------------------------------------------------------
--- P1-B: Semantics must factor through active structure
+-- P1-B: Semantics must factor through the kernel quotient (constructive),
+--        plus the classical bridge to the active image
 -- ---------------------------------------------------------------------------
 
 /-- The active image of q: classes that are actually reached by some raw input. -/
@@ -279,6 +283,51 @@ def qActive {X Q : Type} (q : X → Q) (x : X) : ActiveClass q :=
 theorem activeClass_is_image {X Q : Type} (q : X → Q) :
     ActiveClass q = { c : Q // ∃ x : X, q x = c } := rfl
 
+/-- The kernel quotient of `q`: raw inputs identified when `q` maps them to the
+    same class.  This is the constructive carrier of "raw events modulo
+    structural indistinguishability"; it is an `abbrev` so that `Quot` API
+    (`Quot.lift`, `Quot.inductionOn`, `Quot.sound`) applies directly. -/
+abbrev KernelQuot {X Q : Type} (q : X → Q) : Type :=
+  Quot (fun (x y : X) => q x = q y)
+
+/-- The canonical map from X into the kernel quotient. -/
+def qKernel {X Q : Type} (q : X → Q) (x : X) : KernelQuot q :=
+  Quot.mk _ x
+
+/-- The canonical map from the kernel quotient to the active image.
+    Constructive: it only forgets the chosen representative embodied in a
+    quotient point, never chooses one. -/
+def kernelQuotToActiveClass {X Q : Type} (q : X → Q) :
+    KernelQuot q → ActiveClass q :=
+  Quot.lift
+    (fun x => qActive q x)
+    (by
+      intro x y hxy
+      apply Subtype.ext
+      exact hxy)
+
+/-- The canonical map is bijective.  Stated as a `Prop` this is constructive:
+    surjectivity is an `∃` discharged inside `Prop` (where eliminating the
+    `Prop`-valued witness `c.property` is allowed), and injectivity follows
+    from `Quot.sound`.  Only turning this fact into an inverse *function*
+    `ActiveClass q → KernelQuot q` needs `Classical.choice`; see
+    `rawKernelQuotientEquivActiveClass_classical`. -/
+theorem kernelQuotToActiveClass_bijective {X Q : Type} (q : X → Q) :
+    (∀ z1 z2 : KernelQuot q,
+      kernelQuotToActiveClass q z1 = kernelQuotToActiveClass q z2 → z1 = z2) ∧
+    (∀ c : ActiveClass q, ∃ z : KernelQuot q, kernelQuotToActiveClass q z = c) := by
+  constructor
+  · intro z1 z2
+    refine Quot.inductionOn z1 ?_
+    refine Quot.inductionOn z2 ?_
+    intro x y hxy
+    apply Quot.sound
+    exact congrArg Subtype.val hxy
+  · intro c
+    refine Exists.elim c.property ?_
+    intro x hx
+    exact ⟨Quot.mk _ x, Subtype.ext hx⟩
+
 /-- A tiny local equivalence record, used to avoid importing any library just
     to name the set-level exact image bijection. -/
 structure ExactEquiv (A B : Type) where
@@ -287,7 +336,7 @@ structure ExactEquiv (A B : Type) where
   left_inv : ∀ a : A, invFun (toFun a) = a
   right_inv : ∀ b : B, toFun (invFun b) = b
 
-/-- First-isomorphism-style exactness for arbitrary functions.
+/-- First-isomorphism-style exactness for arbitrary functions — CLASSICAL form.
 
     Let two raw inputs be equivalent when q maps them to the same class.  The
     quotient of raw inputs by that kernel relation is equivalent to the active
@@ -295,18 +344,24 @@ structure ExactEquiv (A B : Type) where
     MST-NF slogan "raw events modulo structural indistinguishability are exactly
     active quotient classes".
 
+    **This declaration uses `Classical.choice`**: the inverse direction
+    `ActiveClass q → KernelQuot q` must pick a representative `x` out of the
+    `Prop`-level `∃ x, q x = c`, which CIC cannot do without an axiom.  The
+    forward map `kernelQuotToActiveClass` and the *fact* of bijectivity
+    (`kernelQuotToActiveClass_bijective`) are constructive; only the inverse
+    *function* is classical.
+
+    No theorem in this development depends on this equivalence: the
+    factorization theorems are stated directly over `KernelQuot`, and the
+    image-subtype form of P1-B is recoverable by composing with it.
+
     No group or algebraic operation is assumed here.  This is the quotient/image
     exactness layer, not a group first-isomorphism theorem. -/
-noncomputable def rawKernelQuotientEquivActiveClass {X Q : Type}
+noncomputable def rawKernelQuotientEquivActiveClass_classical {X Q : Type}
     (q : X → Q) :
-    ExactEquiv (Quot (fun (x y : X) => q x = q y)) (ActiveClass q) where
-  toFun := Quot.lift
-    (fun x => qActive q x)
-    (by
-      intro x y hxy
-      apply Subtype.ext
-      exact hxy)
-  invFun := fun c => Quot.mk _ (Classical.choose c.property)
+    ExactEquiv (KernelQuot q) (ActiveClass q) where
+  toFun := kernelQuotToActiveClass q
+  invFun := fun c => qKernel q (Classical.choose c.property)
   left_inv := by
     intro z
     refine Quot.inductionOn z ?_
@@ -319,51 +374,50 @@ noncomputable def rawKernelQuotientEquivActiveClass {X Q : Type}
     exact Classical.choose_spec c.property
 
 /-- P1-B: Any semantic interpretation that respects the MST quotient structure
-    must factor uniquely through the active quotient image.
+    must factor uniquely through the kernel quotient.
 
-    This is the universal property of the quotient restricted to active classes.
-    It is the mathematical statement of "semantics is defined by structure":
-    no admissible semantic interpretation can bypass the quotient map q.
+    This is the universal property of the quotient: it is the mathematical
+    statement of "semantics is defined by structure" — no admissible semantic
+    interpretation can bypass the quotient map q.
 
-    Boundary: uniqueness holds only on active classes.  The value of m_bar on
-    non-active classes is unconstrained; restricting to ActiveClass q is what
-    makes ∃! true. -/
-theorem semantics_factor_through_active_structure
+    The statement is constructive (no `Classical.choice`): `m_bar` is
+    `Quot.lift m h` itself, and uniqueness holds on every point of the kernel
+    quotient by `Quot.inductionOn`.  The previously shipped form quantified
+    over the subtype `ActiveClass q`; building `m_bar` there required choosing
+    representatives, so it is now recovered only through the explicitly
+    classical `rawKernelQuotientEquivActiveClass_classical`.  On the kernel
+    quotient uniqueness is total rather than restricted to the image, because
+    every quotient point is by definition hit by `qKernel`. -/
+theorem semantics_factor_through_kernel_quotient
     {X Q D : Type}
     (q : X → Q)
     (m : X → D)
     (h : ∀ x y : X, q x = q y → m x = m y) :
-    ∃ m_bar : ActiveClass q → D,
-      (∀ x : X, m x = m_bar (qActive q x)) ∧
-      ∀ m_bar' : ActiveClass q → D,
-        (∀ x : X, m x = m_bar' (qActive q x)) →
-        ∀ c : ActiveClass q, m_bar c = m_bar' c := by
-  classical
-  refine ⟨fun c => m (Classical.choose c.property), ?_, ?_⟩
+    ∃ m_bar : KernelQuot q → D,
+      (∀ x : X, m x = m_bar (qKernel q x)) ∧
+      ∀ m_bar' : KernelQuot q → D,
+        (∀ x : X, m x = m_bar' (qKernel q x)) →
+        ∀ c : KernelQuot q, m_bar c = m_bar' c := by
+  refine ⟨Quot.lift m h, ?_, ?_⟩
   · intro x
-    apply h
-    exact (Classical.choose_spec (qActive q x).property).symm
+    rfl
   · intro m_bar' hm_bar' c
-    let x := Classical.choose c.property
-    have hx : q x = c.val := Classical.choose_spec c.property
-    have hc : qActive q x = c := by
-      apply Subtype.ext
-      exact hx
-    dsimp [x]
-    rw [hm_bar' x, hc]
+    refine Quot.inductionOn c ?_
+    intro x
+    exact hm_bar' x
 
 /-- Corollary: on the ExecModel, any outcome function that respects quotientFactorization
-    factors uniquely through the active class image.
-    This connects P1-B to the ExecModel vocabulary. -/
-theorem execModel_semantics_factor_through_active_structure
+    factors uniquely through the kernel quotient.
+    This connects P1-B to the ExecModel vocabulary, constructively. -/
+theorem execModel_semantics_factor_through_kernel_quotient
     (M : ExecModel)
     (hQF : quotientFactorization M) :
-    ∃ m_bar : ActiveClass M.q → M.Outcome,
-      (∀ r : M.Raw, M.evalRaw r = m_bar (qActive M.q r)) ∧
-      ∀ m_bar' : ActiveClass M.q → M.Outcome,
-        (∀ r : M.Raw, M.evalRaw r = m_bar' (qActive M.q r)) →
-        ∀ c : ActiveClass M.q, m_bar c = m_bar' c := by
-  apply semantics_factor_through_active_structure
+    ∃ m_bar : KernelQuot M.q → M.Outcome,
+      (∀ r : M.Raw, M.evalRaw r = m_bar (qKernel M.q r)) ∧
+      ∀ m_bar' : KernelQuot M.q → M.Outcome,
+        (∀ r : M.Raw, M.evalRaw r = m_bar' (qKernel M.q r)) →
+        ∀ c : KernelQuot M.q, m_bar c = m_bar' c := by
+  apply semantics_factor_through_kernel_quotient
   intro r1 r2 hq
   exact sameClass_sameOutcome M hQF hq
 
