@@ -1,28 +1,26 @@
-AUDIT modules=27 theorems=525 defs=552
-AUDIT classical_choice_theorems=27 [MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic,
+AUDIT modules=27 theorems=526 defs=555
+AUDIT classical_choice_theorems=25 [MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.sound_iff_emptySoundnessResidue,
  MSTNF.methodology.GenericResidueExhaustionSchemaMWE::GenericResidueExhaustionSchemaMWE.set_eq_iff_subset_subset,
  MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE::MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded.allReached_of_wellFounded,
  MSTNF.methodology.GenericResidueExhaustionSchemaMWE::GenericResidueExhaustionSchemaMWE.emptyBadResidue_iff_subset,
- MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.semantics_factor_through_active_structure,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.exact_iff_sound_and_complete,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.hasIndependent_iff_not_exhaustive,
- MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass.proof_3,
  MSTNF.algorithms.MSTNFCanonicalDecompositionMWE::MSTNFCanonicalDecompositionMWE.kernel_exact_iso,
  MSTNF.algorithms.MSTMinimalityRoleBasisMWE::MSTMinimalityRoleBasisMWE.noninjective_simulation_requires_role_fusion,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.emptyResidue_iff_not_hasIndependent,
- MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.execModel_semantics_factor_through_active_structure,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.not_emptyResidue_iff_hasIndependent,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.CoreExecutionProfile.coreProfile_noExplicitDiagnostic,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.exact_iff_empty_residues,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.emptyResidue_iff_exhaustive,
  MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE::MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness,
+ MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass_classical.proof_3,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.complete_iff_emptyCompletenessResidue,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.allRolesRepresented_iff_noExplicitDiagnosticWitness,
- MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass.proof_4,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_of_noDiagnostic,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_implies_allRolesRepresented,
+ MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass_classical.proof_2,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_allRolesRepresented,
  MSTNF.methodology.GenericResidueExhaustionSchemaMWE::GenericResidueExhaustionSchemaMWE.set_eq_iff_both_emptyBadResidue,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.exhaustive_iff_not_hasIndependent]
@@ -32,7 +30,7 @@ AUDIT native_decide_theorems=0 []
 AUDIT axset [Classical.choice,Quot.sound,propext] : 22
 AUDIT axset [Quot.sound,propext] : 30
 AUDIT axset [propext] : 63
-AUDIT axset [Classical.choice] : 4
-AUDIT axset [Quot.sound] : 6
-AUDIT axset [] : 399
+AUDIT axset [Classical.choice] : 2
+AUDIT axset [Quot.sound] : 7
+AUDIT axset [] : 401
 AUDIT axset [Classical.choice,Quot.sound] : 1

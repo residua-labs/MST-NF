@@ -1911,7 +1911,7 @@
    "file": "README.md",
    "lang": "en",
    "section": "Trust boundary",
-   "anchor_text": "**Axiom profile** (`scripts/AxiomAudit.lean` over all 525 theorems, `evidence/axiom_audit.txt`): no user `axiom` declaration, no `sorry`, no `native_decide` (`Lean.ofReduceBool`); 399 theorems use no axiom, 63 use `propext`, 30 use `propext` and `Quot.sound`, 6 use `Quot.sound`, and **27 use `Classical.choice`** (22 with `propext` and `Quot.sound`, 4 alone, 1 with `Quot.sound`) (`evidence/axiom_audit.txt`)."
+   "anchor_text": "**Axiom profile** (`scripts/AxiomAudit.lean` over all 526 theorems, `evidence/axiom_audit.txt`): no user `axiom` declaration, no `sorry`, no `native_decide` (`Lean.ofReduceBool`); 401 theorems use no axiom, 63 use `propext`, 30 use `propext` and `Quot.sound`, 7 use `Quot.sound`, and **25 use `Classical.choice`** (22 with `propext` and `Quot.sound`, 2 alone, 1 with `Quot.sound`) (`evidence/axiom_audit.txt`)."
   },
   {
    "id": "E0017",
@@ -2175,7 +2175,7 @@
    "file": "README.zh-CN.md",
    "lang": "zh",
    "section": "信任边界",
-   "anchor_text": "**公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 525 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；399 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，6 条使用 `Quot.sound`，**27 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，4 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。"
+   "anchor_text": "**公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 526 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；401 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，7 条使用 `Quot.sound`，**25 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。"
   },
   {
    "id": "E0050",
