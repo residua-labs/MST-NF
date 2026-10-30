@@ -1533,7 +1533,6 @@
      "module": "MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE",
      "statement_hash": "6ff4a30f7ab8c11c6a8e6bcdc2ee932b",
      "axioms": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
      ]
@@ -1566,7 +1565,7 @@
      ]
     }
    ],
-   "scope_note": "abstract model; godel2 is a field; flip_not_wellFounded uses Classical.choice",
+   "scope_note": "abstract model; godel2 is a field; flip_not_wellFounded uses propext, Quot.sound",
    "anchors": [
     {
      "file": "README.md",
@@ -1584,7 +1583,7 @@
      "file": "README.md",
      "lang": "en",
      "section": "Intents",
-     "text": "| `godelStep_flip_not_wellFounded` — the successor relation is not well-founded | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | Classical.choice, Quot.sound, propext |"
+     "text": "| `godelStep_flip_not_wellFounded` — the successor relation is not well-founded | `MSTNF/algorithms/MSTNFResidueAbsorptionWellFoundedMWE.lean` | Quot.sound, propext |"
     },
     {
      "file": "README.md",
@@ -1614,7 +1613,7 @@
      "file": "docs/RATIONALE.md",
      "lang": "en",
      "section": "What the Gödel wall model proves",
-     "text": "The theorems: `godelStep_no_terminal` (`¬ InBasis godelStep F`: no framework is terminal; the reason is that `godelSuccessor F` is a successor, which is the separate statement `godelStep_has_successor`), `godelStep_flip_not_wellFounded` (`¬ WellFounded (flip godelStep)`; uses `Classical.choice`), `T1_parametric_in_framework` (`∀ F, ¬ ReachesBasis godelStep F`) and `T1_closure` (a conjunction of: every level of an earlier toy ladder has a successor; the concrete facts `42 ∉ [40]`, `49 ∉ [40, 42]`, `52 ∉ [40, 42, 49]`; and `T1_parametric_in_framework`; axioms `propext`, `Quot.sound`)."
+     "text": "The theorems: `godelStep_no_terminal` (`¬ InBasis godelStep F`: no framework is terminal; the reason is that `godelSuccessor F` is a successor, which is the separate statement `godelStep_has_successor`), `godelStep_flip_not_wellFounded` (`¬ WellFounded (flip godelStep)`; axioms `propext`, `Quot.sound`), `T1_parametric_in_framework` (`∀ F, ¬ ReachesBasis godelStep F`) and `T1_closure` (a conjunction of: every level of an earlier toy ladder has a successor; the concrete facts `42 ∉ [40]`, `49 ∉ [40, 42]`, `52 ∉ [40, 42, 49]`; and `T1_parametric_in_framework`; axioms `propext`, `Quot.sound`)."
     },
     {
      "file": "docs/RATIONALE.md",
@@ -1626,7 +1625,7 @@
      "file": "docs/RATIONALE.zh-CN.md",
      "lang": "zh",
      "section": "哥德尔墙模型证明了什么",
-     "text": "定理有：`godelStep_no_terminal`（`¬ InBasis godelStep F`：没有框架是终止的；原因是 `godelSuccessor F` 是一个后继，这是另一条陈述 `godelStep_has_successor`）、`godelStep_flip_not_wellFounded`（`¬ WellFounded (flip godelStep)`；用到了 `Classical.choice`）、`T1_parametric_in_framework`（`∀ F, ¬ ReachesBasis godelStep F`）和 `T1_closure`（一个合取：早先玩具阶梯的每一层都有后继；具体事实 `42 ∉ [40]`、`49 ∉ [40, 42]`、`52 ∉ [40, 42, 49]`；以及 `T1_parametric_in_framework`；公理 `propext`、`Quot.sound`）。"
+     "text": "定理有：`godelStep_no_terminal`（`¬ InBasis godelStep F`：没有框架是终止的；原因是 `godelSuccessor F` 是一个后继，这是另一条陈述 `godelStep_has_successor`）、`godelStep_flip_not_wellFounded`（`¬ WellFounded (flip godelStep)`；公理 `propext`、`Quot.sound`）、`T1_parametric_in_framework`（`∀ F, ¬ ReachesBasis godelStep F`）和 `T1_closure`（一个合取：早先玩具阶梯的每一层都有后继；具体事实 `42 ∉ [40]`、`49 ∉ [40, 42]`、`52 ∉ [40, 42, 49]`；以及 `T1_parametric_in_framework`；公理 `propext`、`Quot.sound`）。"
     },
     {
      "file": "docs/RATIONALE.zh-CN.md",
@@ -1911,7 +1910,7 @@
    "file": "README.md",
    "lang": "en",
    "section": "Trust boundary",
-   "anchor_text": "**Axiom profile** (`scripts/AxiomAudit.lean` over all 526 theorems, `evidence/axiom_audit.txt`): no user `axiom` declaration, no `sorry`, no `native_decide` (`Lean.ofReduceBool`); 401 theorems use no axiom, 63 use `propext`, 30 use `propext` and `Quot.sound`, 7 use `Quot.sound`, and **25 use `Classical.choice`** (22 with `propext` and `Quot.sound`, 2 alone, 1 with `Quot.sound`) (`evidence/axiom_audit.txt`)."
+   "anchor_text": "**Axiom profile** (`scripts/AxiomAudit.lean` over all 526 theorems, `evidence/axiom_audit.txt`): no user `axiom` declaration, no `sorry`, no `native_decide` (`Lean.ofReduceBool`); 404 theorems use no axiom, 63 use `propext`, 33 use `propext` and `Quot.sound`, 7 use `Quot.sound`, and **19 use `Classical.choice`** (16 with `propext` and `Quot.sound`, 2 alone, 1 with `Quot.sound`) (`evidence/axiom_audit.txt`)."
   },
   {
    "id": "E0017",
@@ -2175,7 +2174,7 @@
    "file": "README.zh-CN.md",
    "lang": "zh",
    "section": "信任边界",
-   "anchor_text": "**公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 526 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；401 条定理不使用任何公理，63 条使用 `propext`，30 条使用 `propext` 和 `Quot.sound`，7 条使用 `Quot.sound`，**25 条使用 `Classical.choice`**（22 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。"
+   "anchor_text": "**公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 526 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；404 条定理不使用任何公理，63 条使用 `propext`，33 条使用 `propext` 和 `Quot.sound`，7 条使用 `Quot.sound`，**19 条使用 `Classical.choice`**（16 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）（`evidence/axiom_audit.txt`）。"
   },
   {
    "id": "E0050",
