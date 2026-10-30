@@ -225,9 +225,13 @@ theorem noIndependentFifth_for_coreProfile :
 
 theorem coreProfile_noExplicitDiagnostic :
     Generic.NoExplicitDiagnosticWitness profile sem IsExecutionRole := by
-  exact
-    (Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness
-      profile sem IsExecutionRole).mp noIndependentFifth_for_coreProfile
+  intro r _ hDiag
+  rcases hDiag with ⟨x, y, hxy, hAsym⟩
+  have hxy' : x = y := hxy
+  subst hxy'
+  rcases hAsym with ⟨hx, hy⟩ | ⟨hy, hx⟩
+  · exact hy hx
+  · exact hx hy
 
 theorem distinguish_is_q :
     roleProfile distinguish = q := by

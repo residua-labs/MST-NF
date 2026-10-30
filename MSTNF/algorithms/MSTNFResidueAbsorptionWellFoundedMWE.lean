@@ -177,22 +177,28 @@ theorem godelStep_flip_not_wellFounded :
   -- But each F has a successor, so the chain never bottoms out under flip.
   -- Direct argument: WellFounded ⇒ AllResiduesRepresented (mirror of Phase 3),
   -- contradicting godel_not_allRepresented.
-  have hAll := allReached_of_wellFounded godelStep hWF
+  have hAll := allReached_of_wellFounded godelStep
+    (fun F => .isTrue ⟨godelSuccessor F, rfl⟩) hWF
   exact godel_not_allRepresented hAll
 where
   -- Local helper inlined from Phase 3 file (Task B's ← direction).
-  -- We provide a self-contained restatement.
+  -- We provide a self-contained restatement. The "has a successor?"
+  -- case split is a `Decidable` hypothesis (constructive); for `godelStep`
+  -- the caller discharges it with `godelStep_has_successor`.
   allReached_of_wellFounded : ∀ (step : GodelFramework → GodelFramework → Prop),
+      (∀ k, Decidable (∃ k', step k k')) →
       WellFounded (flip step) → AllResiduesRepresented step := by
-    intro step hWF k
+    intro step hdec hWF k
     induction k using hWF.induction with
     | _ k ih =>
-      by_cases hTerm : ∃ k', step k k'
-      · rcases hTerm with ⟨k', hStep⟩
+      cases hdec k with
+      | isTrue hTerm =>
+        rcases hTerm with ⟨k', hStep⟩
         rcases ih k' hStep with ⟨k₀, hk₀Basis, hk₀Reach⟩
         refine ⟨k₀, hk₀Basis, ?_⟩
         exact ReflTransGen.trans (ReflTransGen.tail ReflTransGen.refl hStep) hk₀Reach
-      · refine ⟨k, ?_, ReflTransGen.refl⟩
+      | isFalse hTerm =>
+        refine ⟨k, ?_, ReflTransGen.refl⟩
         intro k' hStep; exact hTerm ⟨k', hStep⟩
 
 -- ===========================================================================
