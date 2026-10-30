@@ -102,7 +102,8 @@ theorem emptyBadResidue_iff_subset {X : Type u} (R Adm : Set X) :
 theorem set_eq_iff_subset_subset {X : Type u} (R Adm : Set X) :
     R = Adm ↔ R ⊆ Adm ∧ Adm ⊆ R := by
   constructor
-  · intro h; exact ⟨h.le, h.symm.le⟩
+  · intro h
+    exact ⟨fun _ hx => h ▸ hx, fun _ hx => h.symm ▸ hx⟩
   · intro ⟨h1, h2⟩; exact Set.Subset.antisymm h1 h2
 
 /-- Set equality is iff both bad residues are empty (R-into-Adm and Adm-into-R). -/

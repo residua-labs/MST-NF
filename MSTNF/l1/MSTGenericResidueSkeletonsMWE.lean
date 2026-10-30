@@ -90,8 +90,11 @@ theorem emptyResidue_iff_not_hasIndependent
     (sem : Candidate → Obj → Prop) :
     EmptyResidue BaseCovers sem
       ↔ ¬ HasIndependent BaseCovers sem := by
-  rw [emptyResidue_iff_exhaustive]
-  exact exhaustive_iff_not_hasIndependent BaseCovers sem
+  constructor
+  · intro h ⟨c, x, hsem, hnot⟩
+    exact h x ⟨c, hsem, hnot⟩
+  · intro h x ⟨c, hsem, hnot⟩
+    exact h ⟨c, x, hsem, hnot⟩
 
 theorem hasIndependent_iff_not_exhaustive
     (BaseCovers : Obj → Prop)
