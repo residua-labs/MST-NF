@@ -1,5 +1,5 @@
 'MSTNFObject.exact_iff_empty_residues' depends on axioms: [propext, Classical.choice, Quot.sound]
-'MSTNFObject.exact_iff_sound_and_complete' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFObject.exact_iff_sound_and_complete' depends on axioms: [propext, Quot.sound]
 'MSTNFExecutionNoFifthRoleMWE.CoreExecutionProfile.noIndependentFifth_for_coreProfile' does not depend on any axioms
 'MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_allRolesRepresented' depends on axioms: [propext,
  Classical.choice,
@@ -42,9 +42,7 @@
 'MSTNFT1BridgeClosure.T1_parametric_in_framework' depends on axioms: [propext, Quot.sound]
 'MSTNFT1BridgeClosure.antiFiatChain_each_detects_prior_fiat' depends on axioms: [propext, Quot.sound]
 'MSTNFResidueAbsorptionWellFounded.godelStep_no_terminal' depends on axioms: [propext, Quot.sound]
-'MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
+'MSTNFResidueAbsorptionWellFounded.godelStep_flip_not_wellFounded' depends on axioms: [propext, Quot.sound]
 'MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
