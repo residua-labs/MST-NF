@@ -2,7 +2,7 @@ import MSTNF.algorithms.MSTNecessityExecModelMWE
 import MSTNF.algorithms.MSTNF3FormMWE
 
 /-!
-# MST-NF 3-form ↔ 4-form Adequacy-Preserving Bijection MWE
+# MST-NF 3-form ↔ 4-form correspondence MWE (projection + section, not a bijection)
 
 This file proves the v0.8 §25.3 equivalence:
 
@@ -14,10 +14,14 @@ This file proves the v0.8 §25.3 equivalence:
   admissible, sigma, rho)` plus the three structural side conditions
   (admissibilitySound, residueTotality, representativePrecision).
 
-The bijection is **adequacy-preserving**: every Λ output in the
-3-form carries an `IsRep` / `IsResidue` witness; the 4-form
-projection preserves it by recording that σ outputs `some` exactly
-on admissible classes (so the witness can always be recovered).
+Scope of the formal results below: the 3-form → 4-form direction is a
+projection that forgets the `IsRep` / `IsResidue` adequacy witnesses
+(it records only that σ outputs `some` exactly on admissible classes),
+and the 4-form → 3-form direction is an existential section that needs
+the structural side conditions. The round trip holds operationally; it
+is NOT an adequacy-preserving bijection on arbitrary adequacy predicates.
+(Earlier wording of this header called it a bijection; that overstated
+the theorems proved here.)
 
 References:
   - the MST-NF schema structure analysis v0.8 §25.2, §25.3 (not included)
