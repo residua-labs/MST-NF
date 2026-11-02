@@ -91,8 +91,10 @@ theorem canonical_is_valid {E X : Type} (C : CompressionFn E X) :
     e₁, e₂ are kernel-equivalent (C e₁ = C e₂), then q must send them to
     classes that σ maps to the same output.
 
-    In other words: a valid decomposition cannot separate what C merges —
-    but it *may* merge things that C keeps separate (as long as σ then agrees). -/
+    In other words: on C's kernel classes σ ∘ q agrees with C. Faithful
+    reconstruction (`C = σ ∘ q`) forces `q e₁ = q e₂ → C e₁ = C e₂`: a valid
+    decomposition may SPLIT what C merges (q finer than C's kernel), but it
+    can never MERGE what C keeps separate. -/
 theorem valid_decomposition_preserves_sigma_on_kernel
     {E X Q : Type} (C : CompressionFn E X)
     (q : E → Q) (a : Q → Bool) (σ : Q → Option X)
