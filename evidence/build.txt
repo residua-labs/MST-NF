@@ -29,3 +29,12 @@
 ✔ [2530/2532] Built MSTNF.core.MSTNFObjectMWE
 ✔ [2531/2532] Built MSTNF.core.MSTNFPredBridgeMWE
 Build completed successfully.
+
+== R2 verification (Mathlib-free raw `lean -o` chain, LEAN_PATH=.r2build) ==
+Full build of MSTNecessityExecModelMWE + MSTNFFiniteInstanceMWE + the 10
+MSTNF/r2 modules: rc=0, 0 errors, 0 warnings.
+scripts/R2ClaimsCheck.lean EMIT over all 202 candidate names: 201 found as
+theorems (one name is a docstring artifact, not a declaration); every axiom
+root set is within [propext, Classical.choice, Quot.sound].
+scripts/R2ClaimsCheck.lean CHECK on the completed evidence/CLAIMS.json:
+{"skipped_not_r2":45,"items_checked":208,"failures":0}, rc=0, 0 warnings.

@@ -28,3 +28,25 @@ AUDIT axset [Classical.choice] : 2
 AUDIT axset [Quot.sound] : 7
 AUDIT axset [] : 404
 AUDIT axset [Classical.choice,Quot.sound] : 1
+
+== R2 verification: B2Audit (#print axioms over the CedarBridge port) ==
+MSTNFR2.CedarBridge.sortedBy_equiv_implies_eq: [propext]
+MSTNFR2.CedarBridge.insertCanonical_sortedBy: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.insertCanonical_equiv: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.canonicalize_equiv: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.equiv_implies_canonical_eq: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.Set.make_make_eqv: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.LexN.trans: []
+MSTNFR2.CedarBridge.LexN.connected: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.toNats_inj: []
+MSTNFR2.CedarBridge.order_and_dup_independent: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.order_dup_DuplicateInvariance: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.cedar_bridge_bridged: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.cedar_bridge_sourceSection: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.cedar_bridge_auth_norm: [propext, Classical.choice, Quot.sound]
+MSTNFR2.CedarBridge.cedar_bridge_dup_collision: [propext, Classical.choice, Quot.sound]
+All roots within [propext, Classical.choice, Quot.sound].
+Complete R2 EMIT census: all 201 public theorems of the 11 new modules
+(10 x MSTNF.r2.* + MSTNF.algorithms.MSTNFFiniteInstanceMWE) have axiom root
+sets within [propext, Classical.choice, Quot.sound]; no sorry, no
+native_decide, no new axioms; lexNDec is constructive.

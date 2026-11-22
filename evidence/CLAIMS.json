@@ -1781,6 +1781,1643 @@
    "files": [
     "README.md"
    ]
+  },
+  {
+   "id": "C26",
+   "kind": "theorem",
+   "title": "R2 active interface and P1 factorization with converse",
+   "theorems": [
+    {
+     "name": "MSTNFR2.P1_factorization_converse",
+     "module": "MSTNF.r2.Factorization",
+     "statement_hash": "f2d77ffac69b6af723848287c45e136e",
+     "axioms": [
+      "Quot.sound"
+     ]
+    },
+    {
+     "name": "MSTNFR2.P1_observation_factorization",
+     "module": "MSTNF.r2.Factorization",
+     "statement_hash": "eed4459e36d7fb535c7f403f92e55326",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.P4_normalization",
+     "module": "MSTNF.r2.Factorization",
+     "statement_hash": "83dc460211f790aed4ba88607bfe8d8d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.P4_normalizer_respects_quotient",
+     "module": "MSTNF.r2.Factorization",
+     "statement_hash": "3e27e116a319ad781fcf56b7493fbda4",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.admissible_iff_sigma_on_active",
+     "module": "MSTNF.r2.Active",
+     "statement_hash": "dc34e5a6b78c1ba170e0fca406b11485",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.cact_surjective",
+     "module": "MSTNF.r2.Active",
+     "statement_hash": "b9428b6d9109c3342d2a942b7bb21df4",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.globalExclusivity_implies_active",
+     "module": "MSTNF.r2.Active",
+     "statement_hash": "ee09582689fe757a5ee2822e49798907",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.globalSourceSection_implies_active",
+     "module": "MSTNF.r2.Active",
+     "statement_hash": "08d2d58eb669d85659d3131b8e82d312",
+     "axioms": []
+    }
+   ],
+   "scope_note": "MST-NF revision 2: the active class interface (cact surjectivity, sections imply active) and P1 observation factorization with its converse (closes AUDIT r1 M1-P1); every public theorem of MSTNF/r2/Active.lean and MSTNF/r2/Factorization.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Active.lean",
+    "MSTNF/r2/Factorization.lean"
+   ]
+  },
+  {
+   "id": "C27",
+   "kind": "theorem",
+   "title": "R2 normalization and composition calculus (P4, P5, P7, P8)",
+   "theorems": [
+    {
+     "name": "MSTNFR2.P5_sequential_preservation",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "8048b5273258d78bfab9af037e89c555",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.P5_sequential_sourceSection",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "ca71a72ff5ed6fdfc34211963067105a",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.P7_sum_preservation",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "b311b087aa7a5004a4acb5a5a8b68c79",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.P7_sum_sourceSection",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "947f15b93220bbbc7f1355e07666c25b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.P8_product_preservation",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "01103a77a5b32ed8f144b81ef791d7c2",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.P8_product_sourceSection",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "5e59081c6da37565d2388618d44ec944",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mem_allPairs",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "34e71a78ea26bab9bde39ae6361fcc96",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.prodKinds_closed",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "95cf44f9ee2081c25d28f79e7f74d3c7",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.taggedKinds_closed",
+     "module": "MSTNF.r2.Compose",
+     "statement_hash": "b0fbe341397d088cd98c57207425b59b",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: normalizer respects the quotient; sequential/sum/product preservation with section tracking; tagged-sum and product residue-kind closure; every public theorem of MSTNF/r2/Compose.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Compose.lean"
+   ]
+  },
+  {
+   "id": "C28",
+   "kind": "theorem",
+   "title": "R2 decision surface: P3 reuse, Dact round trips, model-level exclusivity",
+   "theorems": [
+    {
+     "name": "MSTNFR2.Dact_admOfD",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "f6c44bf0580c8c378d99cb07bd098c6c",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dact_eq_inl_of_admissible",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "2b3da1e7a09d52253364f98cf8c85ddd",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dact_eq_inr_of_not_admissible",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "ed8457e03c72ac3bd973f65bc405d4fa",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dact_eq_of_Dopt",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "550ce8eb703df599d3508528e587e3ba",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.Dact_excl",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "e43fa042cc0b2791dd637a086bd301b8",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dact_rhoOfD",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "cea890517183e68dc3d122cad1a68ede",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dact_sigOfD",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "5d15d879f5318cfdc6868d605dffedc5",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.Dopt_ne_none",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "1802e3860bd1f357c66f0e9465a86805",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.P3_boundObservation_reuse",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "019b98a8efb1f9371bec2f056932b625",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.admOfD_inl",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "0c56bd4e49f3832daa087c3cd5d732ce",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.admOfD_inr",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "ac96706af37318a4559752d143f7cedc",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.admOfD_sound",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "12f436accf6a67452e44b590684edc89",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.profile_referenceBridge",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "fab85684ee38997696f17d163a4e0a98",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.rhoOfD_inl",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "8c21aa5413529ff87d4af96c056ae53d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.rhoOfD_inr",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "c94dbc5622c79559a98a3f9a1fd902d3",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.rhoOfD_ne_none_of_not_adm",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "ca78f1ebc6f07adcc6c32781c0da4852",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.rhoOfD_none_of_adm",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "eae0584d8c7114158fb079ab0fa24caa",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.sigOfD_inl",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "3648c170798f4568318fa6dc016792bb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.sigOfD_inr",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "9ef65400180f1a58cf5c6378a28e90e7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.sigOfD_ne_none_of_adm",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "ef1e5751dfd5ae0c167c96132401b479",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.sigma_rho_excl",
+     "module": "MSTNF.r2.Decision",
+     "statement_hash": "19c50ebde11c638109001c5ec2795fc9",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: bound observation reuse; Dact projects back to admissible/signature/rho in both directions, is exclusive, and the underlying model-level sigma/rho exclusivity holds (closes AUDIT r1 B3; AUDIT r2 M4 note); every public theorem of MSTNF/r2/Decision.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Decision.lean"
+   ]
+  },
+  {
+   "id": "C29",
+   "kind": "theorem",
+   "title": "R2 finite six-input base and mutant witnesses",
+   "theorems": [
+    {
+     "name": "MSTNFR2.base_activeExclusivity",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "9f4918abe663c6c2ad80376e64bea310",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_activeSourceSection",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "0a07291499ecfbaaa3de808f9610f6f2",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_admissibilitySound",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "8baa18bc29864a6ca3f2a41d8e73dd6d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_profile",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "44a54719a25b1c90af60138fa80bbc0b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_quotientFactorization",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "db4c91373d1d783864f0ba79326f346d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_representativePrecision",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "0f14ee5a97d728b3b71f9344fe61977d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_residueTotality",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "39d6f0639eb602012ce85a8b3a01e417",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_witnesses",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "aca50c2703b45f532fd019c763b67089",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantA_truth",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "a04a1bf4f24b2775e3eb65548bf6359e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantA_witnesses",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "fe5d42e84ca7165c488438b78467529b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantQ_truth",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "4cc1076b1cb8f4b17538bf97b9661f4d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantQ_witnesses",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "556d33ea3e7370f0f6d2f86f7d6af6ae",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantR_truth",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "7c9631dcb3c3b1e13fffd8e9814aff6d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantR_witnesses",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "49ab3c0ad23f46eec8be8a25e6a8d84d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantS_truth",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "b700e93b814ee90688ab258eeaa00da4",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantS_witnesses",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "946c416c96bd31e3cd2dbc334d8ceeb9",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantX1_laws",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "eb6de59d73c8456c74077d493578f0f0",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantX1_not_activeExclusivity",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "cd62e390322173daa6fef50bf70cae15",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantX2_laws",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "2e4695e30f70f9d2bbd739cb9ad51f21",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mutantX2_not_activeSourceSection",
+     "module": "MSTNF.r2.Finite",
+     "statement_hash": "2defa72d11153f0575f4510afa427ff0",
+     "axioms": []
+    }
+   ],
+   "scope_note": "MST-NF revision 2: the six-input base satisfies all five profile laws; each mutant fails exactly the targeted law, each with explicit witnesses; every public theorem of MSTNF/r2/Finite.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Finite.lean"
+   ]
+  },
+  {
+   "id": "C30",
+   "kind": "theorem",
+   "title": "R2 joint profile is the coarsest common refinement",
+   "theorems": [
+    {
+     "name": "MSTNFR2.OC_respects_k_iff_descends",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "15d85eac8e59b742546f8c6a51055887",
+     "axioms": [
+      "Quot.sound"
+     ]
+    },
+    {
+     "name": "MSTNFR2.cact_ext",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "a9965a0c8a3558d219ad72639db28736",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.joint_activeExclusivity",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "03670790d812c620fdac463e0d0c3ef8",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.joint_activeSourceSection",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "a72867a6a082d7d81b0fc278e506eb71",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.joint_profile",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "26c0efc798b3447eb46fc43f772793f4",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.joint_residueKinds",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "61c9c1b2e7c79b938dfa93e7e67eace7",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.qjoint_eq_iff_Jraw",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "0dd856c393c5de7b9c2b8af19845bdb7",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.qjoint_is_coarsest",
+     "module": "MSTNF.r2.Joint",
+     "statement_hash": "d73a27453897db025d23dc8e0a8f36f8",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: qjoint equals the raw intersection, has the profile, and is coarsest; every public theorem of MSTNF/r2/Joint.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Joint.lean"
+   ]
+  },
+  {
+   "id": "C31",
+   "kind": "theorem",
+   "title": "R2 prekey extraction is total, correct, and collision-aware",
+   "theorems": [
+    {
+     "name": "MSTNFR2.Pkey_preKey",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "443cceb515ed3ddab6a285b73b16db02",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.pkey_collision",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "c8a55d57b8ec0b726788a889dd17442d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.pkey_correct",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "1acc13c9e1bf945a15839c9c04c77dd6",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.pkey_total",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "511ed5064d921dc06625e225afb08c53",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.pkey_usesDeclared",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "22e10a7c4cae9ac18144920222911443",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.run_det",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "9a9a32293e837d8f2b7f5434e57bcd5a",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.run_trace_only_program_prims",
+     "module": "MSTNF.r2.PreKey",
+     "statement_hash": "adad0c5dcef6ff1c32b11b325dbaba56",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: deterministic run, declared-only trace use (transitive trace accounting), total correct prekey extraction with a concrete collision; every public theorem of MSTNF/r2/PreKey.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/PreKey.lean"
+   ]
+  },
+  {
+   "id": "C32",
+   "kind": "theorem",
+   "title": "R2 reason component is independent of the model's rho",
+   "theorems": [
+    {
+     "name": "MSTNFR2.base_reasonValid",
+     "module": "MSTNF.r2.Reason",
+     "statement_hash": "7641fd46e1e675dcbfb78168171ee9ff",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.base_refuting",
+     "module": "MSTNF.r2.Reason",
+     "statement_hash": "3009fd00075970054bb0c9a5843443b1",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.reasonValid_without_refuting",
+     "module": "MSTNF.r2.Reason",
+     "statement_hash": "12f0a6ed53800a0d1f638347cbb30f2f",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.rho_some_adm_false_iff_activeExclusivity",
+     "module": "MSTNF.r2.Reason",
+     "statement_hash": "14cce7976f71864b60acb2384b0501d7",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.rho_some_adm_false_iff_globalExclusivity",
+     "module": "MSTNF.r2.Reason",
+     "statement_hash": "249b12b4d8f8160f7a2b5da0ff27fc3e",
+     "axioms": []
+    }
+   ],
+   "scope_note": "MST-NF revision 2: rho-some-refutes iff the exclusivity sections hold globally and on the active interface; reason validity needs no refuting witness (closes AUDIT r1 B4); every public theorem of MSTNF/r2/Reason.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/Reason.lean"
+   ]
+  },
+  {
+   "id": "C33",
+   "kind": "theorem",
+   "title": "R2 Cedar dedup instance",
+   "theorems": [
+    {
+     "name": "MSTNFR2.Cfix_eq",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "c4eeaa015772086581e3fe0dc089b5bb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.D_allow",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "d8d7aea530cde4279328c9e4f8d6c894",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.D_deny",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "f14e9811e5904eec7af94417ae23a25a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.auth_norm",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "b0bbd3e91079c1183ba3e3981c6f5a45",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.both_branches",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "d53758ebda653ee97f790f587de9ab76",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.cedarIF_bridged",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "965eee07d813e562ce3c73aaa8ef0155",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.cedarIF_sourceSection",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "0a7f8d4abc8e8f02ba9e10b336ebd301",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.classify_allow",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "43cd9690d83138397ae115f0910aa269",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.classify_deny",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "9c083383e39f1dfa03123f492ef171fe",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.dedup_dup_singleton",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "bbe0737c2a8cc40e70eef5da17e992d7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.dedup_idem",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "a0c9ad341f67ecdcba98ebaaa942a9c0",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.dedup_singleton",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "10f4368544ea214a37f2206ea2d955f7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.dup_collision",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "4bffc80cc27f0cba41f0c796a76296ff",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.erase_classify",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "71c080e71077055a68f9ce0e6f41367a",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.mem_dedup_iff",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "7920811a939446b626ae200cafa2a5c5",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.mem_dedup_of_mem",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "b0ecf617c85e55a719b17f5e59956f36",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.mem_of_mem_dedup",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "db0731ec9a78d4b86388721756d53101",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.normIn_congr_policies",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "9757b4369c65432b2cd17f04bc6ff14b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.normIn_of_fix",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "bed4492d373ed5ba00884ed9b90c1f8f",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.qkey_fix",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "7e4e4664f3df615ced47a0acc349a6a0",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.qkey_withPols_dup",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "8d75a05a0919ac517d5481bb862dcb3f",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.withPols_dup_ne",
+     "module": "MSTNF.r2.CedarDedup",
+     "statement_hash": "1caf89ca76c713a34ddd926a0c4bcfe6",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: dedup idempotence and member preservation, key stability, norm invariance, lossless erase-of-classify, and the bridged cedarIF interface; every public theorem of MSTNF/r2/CedarDedup.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/CedarDedup.lean"
+   ]
+  },
+  {
+   "id": "C34",
+   "kind": "theorem",
+   "title": "R2 Cedar bridge: in-repo Lean 4.14 parametric port of cedar-spec order_and_dup_independent, DuplicateInvariance discharged",
+   "theorems": [
+    {
+     "name": "MSTNFR2.CedarBridge.Equiv.of_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "638abc8b1e26db40d1928654e6f84e00",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.Equiv.refl",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6dc86c5cea24f33de2b1dd97104d3cf2",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.Equiv.symm",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6ef6d4d0a78b9901599e0503389d952e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.Equiv.trans",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6cff559306acc25215f73a04e5c8162d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.LexN.connected",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "638eac5484713dcd8293f19e5cbd4ffd",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.LexN.irrefl",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6fe1eee8089d0ec6ce55dc0b390cdb3e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.LexN.trans",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "04aef2878c2bc18c74317874f7b5cc38",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.Set.make_make_eqv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "de8bf51c1910cceba0a58a04c8192223",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.StrictLT.if_not_lt_gt_then_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "ab3619fe1de1f86928754bb4057bd73c",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.StrictLT.irreflexive",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "c374502f4f0ebb09f4960ce401832aec",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.canonicalize_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "ceeda3af3f76794cdb94e41a91e8ac5b",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.canonicalize_sortedBy",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "a416ee1dc7813d3ed4de0df6e40e20e3",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedarAuth_witForbid",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "1551a8366c11ba084f2c5da70d40402b",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedarAuth_witPermit",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "b77598232b6198ea04a90b446e38466a",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_auth_norm",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "4d6e8254d4c63b769703ef9e644ebc5e",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_bridged",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "f04a9c275dd1400fee10d04bf10a80f2",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_deny_carries_full",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "90dda24a0150a11f4d16721bb43ef0d6",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_dup_collision",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6d20cee729759126e6578b5410c40738",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_erase_classify",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "29927a9ec407d6e9ac59283c53f26916",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_forbid_collision",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "8ff39e6a86fa1d8360c3cf7cf3a09341",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_permit_collision",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "9f68cd7e1c6d16cf9de9c18992298407",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cedar_bridge_sourceSection",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "64ad0e5578e723e5f82cc1958ea6b8b7",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.cons_equiv_cons",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "30111ebd2e6d6e9fb1ace727c905cf44",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.denialKind_forbidDetermined",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "a45bc1a620513fc0e10293aaba93b36d",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.denialKind_noPermit",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "4d8cd63686d229ce07cd67634945037b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.denialKind_of_allow",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "301d60681cd0f525cea7f8525ce0b7db",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.dup_head_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "f35fb94acda6090fe14d555cd8becbb1",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.equiv_implies_canonical_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "149a515711ab56ca085dca1fcb5c71f2",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.errorPolicies_order_and_dup_independent",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "6d768043a6d3459520b4a843c8b0871b",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.filterMap_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "d605afed605b3f217530599805d8ca6e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_cases",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "4d22e44d32730af95984bf05e94f31e9",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_cons_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "8f2b6af38c57e850a8345a863dca44bb",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_cons_gt",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "269078e171b07e62ba0671044a39761b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_cons_lt",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "7077c9af7eed14abd8b574b8917ef1ef",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "179baf8975e934c170507fbe45ac2eb3",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_sortedBy",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "dddcd9c0a8d540bc9b134c1e3cffbb3b",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.insertCanonical_subset",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "7c6b62b41952f8df3e9b247c264e0cfc",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.isAuthorized_congr",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "fc759e6a6bcd9cc769300f2aabca3bcd",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.isAuthorized_error_plus_permit",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "12a903814d62dd1f29f40cc90ca8ce1a",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.order_and_dup_independent",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "63050ffca95e5957cb0d38f69fb59bb6",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.order_dup_DuplicateInvariance",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "513903acd06b91974c9d28d8c5598629",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.satisfiedPolicies_order_and_dup_independent",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "cc5edc77e8fd97a6fc4b76dac5686ed4",
+     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.sortedBy_equiv_implies_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "2fc0d98e0917d3e7125b39a406a1533d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.sortedBy_equiv_implies_head_eq",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "f9a4362f1dff8141720d074838d8f348",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.sortedBy_equiv_implies_tail_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "d035862846ce771bfa7c9c4db4dfd064",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.sortedBy_equiv_implies_tail_subset",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "e02aabf4f842a36f97c312bb99175c9a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.sortedBy_implies_head_lt_tail",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "2f2b5d7c5ecd18e6213b6394612e003d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.swap_cons_cons_equiv",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "079dbeee6b41ca8522e99e38273617a9",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.tail_sortedBy",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "caabf42dad36b2e986e4bfbc5c50ecd5",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFR2.CedarBridge.toNats_inj",
+     "module": "MSTNF.r2.CedarBridge",
+     "statement_hash": "deed4df802162655f59ea21d33fb68be",
+     "axioms": []
+    }
+   ],
+   "scope_note": "In-repo Lean 4.14 core parametric port of Cedar.Thm.order_and_dup_independent at cedar-spec@fdbec74705 (NOT a Lean 4.34.1 direct import; evaluate abstracted to Expr -> Request -> Entities -> Except Error Bool, Policy reduced to id/effect/toExpr; isAuthorized is ported branch-for-branch from Cedar/Spec/Authorizer.lean:56 — an erroring policy does not override a satisfied permit, regression isAuthorized_error_plus_permit on the [allowAll, bad] witness); order/dup independence, DuplicateInvariance discharge, unconditional section-8 bind (norm, source section, full-response refusals with separate denial-kind projection, lossless erase-of-classify, concrete permit/forbid collisions on both branches); every public theorem of MSTNF/r2/CedarBridge.lean is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/r2/CedarBridge.lean"
+   ]
+  },
+  {
+   "id": "C35",
+   "kind": "theorem",
+   "title": "R2 finite instance (32 requests) and composite/sum/product/mutant checks",
+   "theorems": [
+    {
+     "name": "MSTNFFiniteInstanceMWE.allClass_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "304b6de6444b4fef74edf69c8ef2d6eb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allNumeral_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "607f8db0b5983bbac00b03a094e6a7bb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allRaw_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "171e3057654ee6e641bd7c3bfdc16ede",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allRaw_nodup",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "3f4c5ae9c91dda421c4c236e906b131c",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allResidue_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "b801b482d6dc1b265d84d7bfb58d1506",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allSum_count",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "bea48b22a9a47300530c5682bdd5176f",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allTrace_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "70f8a454bfe4b8a64eb6c66e7ee6836f",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.allVerb_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "185c6d1f7b5dfa0e3c7c66cf7fa37cf1",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_admissibilitySound",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "67df77c2e884aaeb503c8a590c1c314c",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_hasMSTNFProfile",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "2541aa920703cd8f05b2695390e0a495",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_quotientFactorization",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "cdb75251515b1337a5a7164b23a9dd50",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_representativePrecision",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "de63ac9c8121a8b451b006a3a4c6cd28",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_residueExclusive",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "336a8fd1d6a494d3b991d8624e7cef69",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_residueTotality",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "28b8b725e9bc9b56af765d90934d3acd",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.base6_sigmaSection",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "1dec02350b46f82b5b26afb115b80bc1",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_active_classes",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "60e30d62de3bc76663c505d65e03c549",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_admission_split",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "864133b7db6c247275072cab3f4a6c22",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_coarse_mismatch",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "1548b7727560be09d4b2e11fce28d6a4",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_composite_outcomes",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "21b9216b7cf0f0a5f2ad23fd2d1893fc",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_composite_reference",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "470f35f9d922e4ec391e7cce00905b34",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_composite_section_stability",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "147db76fda225eeb8ee109cd6e0ec49b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_double_failure",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "5a8f62e67050fea6eedcbbf341bfeef9",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_equal_key_pairs",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "929d23f13017094da5e1484e560cee32",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_fiber_cardinality",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "652e55b8af82d5a5488660021c2b42b0",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_ordered_pairs",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "b6d13f1780d3635db2628a74a34714db",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_product_reference",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "586ca60a4b75d3f937b04878d1be0362",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_raw_cardinality",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "76b4756793e6291ccda323591413cff5",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_reference_eq_lifted",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "3988c3ac0ed2a8afb15ec5d16567d0bb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_section_normalization",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "d5938ee6384b1b50b2f08dc9cbb4a868",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.check_tagged_sum_reference",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "e0eaed7a49bfba37c3cb5421321f2619",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.coarse_key_table",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "1c7aa8d21a8bd7eca4d9a73f0fd4002e",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.composite_rep_on_class1",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "ffd516f719cc30c384393d2f136bfa7d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.core_admissibilitySound",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "28e3cf0d9b818dbb7fd33f3d4af27fbc",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.core_hasMSTNFProfile",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "e5d837ebc5039257f9d86d6d1829ec33",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.core_representativePrecision",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "3d282669e4c530bc157e6bc39933b63b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.core_residueTotality",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "2df9c46a545cf80ed1c673338d2770d7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.double_failure_retains",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "e7b2fc033546c66ab2c740f5c0083d3b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantA_laws",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "4ed15beaca137d42adbba761c778669e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantA_nondegenerate",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "d30035dcee0162f74afb73dfda62f32b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantQ_laws",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "1436f4a299afa7deafc7a858128f9b31",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantQ_nondegenerate",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "9897c58b0bec5f15095ca20a28bfa318",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantR_laws",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "f6ec5fccec540c305295a47f2be09a29",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantR_nondegenerate",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "05a5fbac2a295b4fb034dae06c7eae4e",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantS_laws",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "e8d82be8afbe03d67d340c8b4fbdef01",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantS_nondegenerate",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "ebc5dd08e51644e93a2e98c89533980b",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantSec_section_violation",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "2ea7664d17d942ca2c25268bcff6f2d1",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.mutantX_exclusive_violation",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "fc3479a283343bd1ee8df4fac3facade",
+     "axioms": []
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.product_reference_eq_bool",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "da5cbefa8f897d7708f381feff3d768b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.rawPairs_complete",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "37a00fc9b0a18e0843994890df10a67c",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.same_key_distinct_admitted",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "24474428d88a6ecfc5f6b21f10ae99e9",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "MSTNFFiniteInstanceMWE.same_key_distinct_refused",
+     "module": "MSTNF.algorithms.MSTNFFiniteInstanceMWE",
+     "statement_hash": "180ed0fc354fa5d3f31173d89435aef4",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "MST-NF revision 2: 32-request instance deciding all 15 frozen spec section-7 rows (raw/fiber cardinalities, reference-lifted equality, admission split, ordered/equal-key pairs, section normalization, composite outcomes and representative, tagged-sum 64, product 1024, coarse-key separation) plus base6 profile and nondegenerate mutants (closes AUDIT r1 M2); every public theorem of the module is registered",
+   "anchors": [],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "MSTNF/algorithms/MSTNFFiniteInstanceMWE.lean"
+   ]
   }
  ],
  "other_property_sentences": [

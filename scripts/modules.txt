@@ -25,3 +25,14 @@ MSTNF.core.MSTNFObjectMWE
 MSTNF.core.MSTNFPredBridgeMWE
 MSTNF.l1.MSTGenericResidueSkeletonsMWE
 MSTNF.methodology.GenericResidueExhaustionSchemaMWE
+MSTNF.algorithms.MSTNFFiniteInstanceMWE
+MSTNF.r2.Active
+MSTNF.r2.Factorization
+MSTNF.r2.Decision
+MSTNF.r2.Compose
+MSTNF.r2.Finite
+MSTNF.r2.Joint
+MSTNF.r2.PreKey
+MSTNF.r2.Reason
+MSTNF.r2.CedarDedup
+MSTNF.r2.CedarBridge

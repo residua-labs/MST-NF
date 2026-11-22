@@ -34,6 +34,17 @@ import MSTNF.core.MSTNFObjectMWE
 import MSTNF.core.MSTNFPredBridgeMWE
 import MSTNF.l1.MSTGenericResidueSkeletonsMWE
 import MSTNF.methodology.GenericResidueExhaustionSchemaMWE
+import MSTNF.algorithms.MSTNFFiniteInstanceMWE
+import MSTNF.r2.Active
+import MSTNF.r2.Factorization
+import MSTNF.r2.Decision
+import MSTNF.r2.Compose
+import MSTNF.r2.Finite
+import MSTNF.r2.Joint
+import MSTNF.r2.PreKey
+import MSTNF.r2.Reason
+import MSTNF.r2.CedarDedup
+import MSTNF.r2.CedarBridge
 import Lean
 open Lean Meta
 
@@ -117,7 +128,10 @@ def posInst (lps : List Name) (e : Expr) : Expr :=
 
 open Lean Meta Elab
 
-def shippedModules : List Name := [`MSTNF.algorithms.MSTMinimalityRoleBasisMWE, `MSTNF.algorithms.MSTNF3Form4FormEquivMWE, `MSTNF.algorithms.MSTNF3FormMWE, `MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE, `MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE, `MSTNF.algorithms.MSTNFCanonicalDecompositionMWE, `MSTNF.algorithms.MSTNFCompletenessRepresentationMWE, `MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE, `MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE, `MSTNF.algorithms.MSTNFKernelConformanceMWE, `MSTNF.algorithms.MSTNFPartitionCompletenessMWE, `MSTNF.algorithms.MSTNFProfileDichotomyMWE, `MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE, `MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE, `MSTNF.algorithms.MSTNFResidueTypologyMWE, `MSTNF.algorithms.MSTNFRunNFAbstractMWE, `MSTNF.algorithms.MSTNFStructuralAdvantageMWE, `MSTNF.algorithms.MSTNFT1BridgeClosureMWE, `MSTNF.algorithms.MSTNFVSoundnessConformanceMWE, `MSTNF.algorithms.MSTNecessityExecModelMWE, `MSTNF.algorithms.MSTNecessityRoleAblationMWE, `MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE, `MSTNFDefsPred.MSTNFDefsPredMWE, `MSTNF.core.MSTNFObjectMWE, `MSTNF.core.MSTNFPredBridgeMWE, `MSTNF.l1.MSTGenericResidueSkeletonsMWE, `MSTNF.methodology.GenericResidueExhaustionSchemaMWE]
+def shippedModules : List Name := [`MSTNF.algorithms.MSTMinimalityRoleBasisMWE, `MSTNF.algorithms.MSTNF3Form4FormEquivMWE, `MSTNF.algorithms.MSTNF3FormMWE, `MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE, `MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE, `MSTNF.algorithms.MSTNFCanonicalDecompositionMWE, `MSTNF.algorithms.MSTNFCompletenessRepresentationMWE, `MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE, `MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE, `MSTNF.algorithms.MSTNFKernelConformanceMWE, `MSTNF.algorithms.MSTNFPartitionCompletenessMWE, `MSTNF.algorithms.MSTNFProfileDichotomyMWE, `MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE, `MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE, `MSTNF.algorithms.MSTNFResidueTypologyMWE, `MSTNF.algorithms.MSTNFRunNFAbstractMWE, `MSTNF.algorithms.MSTNFStructuralAdvantageMWE, `MSTNF.algorithms.MSTNFT1BridgeClosureMWE, `MSTNF.algorithms.MSTNFVSoundnessConformanceMWE, `MSTNF.algorithms.MSTNecessityExecModelMWE, `MSTNF.algorithms.MSTNecessityRoleAblationMWE, `MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE, `MSTNFDefsPred.MSTNFDefsPredMWE, `MSTNF.core.MSTNFObjectMWE, `MSTNF.core.MSTNFPredBridgeMWE, `MSTNF.l1.MSTGenericResidueSkeletonsMWE, `MSTNF.methodology.GenericResidueExhaustionSchemaMWE,
+  `MSTNF.algorithms.MSTNFFiniteInstanceMWE, `MSTNF.r2.Active, `MSTNF.r2.Factorization,
+  `MSTNF.r2.Decision, `MSTNF.r2.Compose, `MSTNF.r2.Finite, `MSTNF.r2.Joint,
+  `MSTNF.r2.PreKey, `MSTNF.r2.Reason, `MSTNF.r2.CedarDedup, `MSTNF.r2.CedarBridge]
 
 def axiomsOf (n : Name) : CoreM (List String) := do
   let (_, s) := ((CollectAxioms.collect n).run (← getEnv)).run {}

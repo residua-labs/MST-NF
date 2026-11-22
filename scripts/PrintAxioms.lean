@@ -16,6 +16,17 @@ import MSTNF.algorithms.MSTNF3Form4FormEquivMWE
 import MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE
 import MSTNF.algorithms.MSTNFT1BridgeClosureMWE
 import MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
+import MSTNF.algorithms.MSTNFFiniteInstanceMWE
+import MSTNF.r2.Active
+import MSTNF.r2.Factorization
+import MSTNF.r2.Decision
+import MSTNF.r2.Compose
+import MSTNF.r2.Finite
+import MSTNF.r2.Joint
+import MSTNF.r2.PreKey
+import MSTNF.r2.Reason
+import MSTNF.r2.CedarDedup
+import MSTNF.r2.CedarBridge
 
 #print axioms MSTNFObject.exact_iff_empty_residues
 #print axioms MSTNFObject.exact_iff_sound_and_complete
@@ -62,3 +73,45 @@ import MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
 #print axioms MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness
 #print axioms MSTNFProfileDichotomyMWE.input_dichotomy
 #print axioms MSTNFProfileDichotomyMWE.representative_only_if_admitted
+
+-- Round 2 (MST-NF-R2): the R2 intent theorems and the Cedar bridge port.
+#print axioms MSTNFR2.P1_observation_factorization
+#print axioms MSTNFR2.P1_factorization_converse
+#print axioms MSTNFR2.P4_normalization
+#print axioms MSTNFR2.P5_sequential_preservation
+#print axioms MSTNFR2.P7_sum_preservation
+#print axioms MSTNFR2.P8_product_preservation
+#print axioms MSTNFR2.Dact_admOfD
+#print axioms MSTNFR2.Dact_sigOfD
+#print axioms MSTNFR2.Dact_rhoOfD
+#print axioms MSTNFR2.sigma_rho_excl
+#print axioms MSTNFR2.mutantQ_truth
+#print axioms MSTNFR2.mutantA_truth
+#print axioms MSTNFR2.mutantR_truth
+#print axioms MSTNFR2.mutantS_truth
+#print axioms MSTNFR2.qjoint_is_coarsest
+#print axioms MSTNFR2.pkey_correct
+#print axioms MSTNFR2.pkey_collision
+#print axioms MSTNFR2.reasonValid_without_refuting
+#print axioms MSTNFR2.cedarIF_bridged
+#print axioms MSTNFR2.CedarBridge.isAuthorized_error_plus_permit
+#print axioms MSTNFR2.CedarBridge.order_and_dup_independent
+#print axioms MSTNFR2.CedarBridge.order_dup_DuplicateInvariance
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_bridged
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_sourceSection
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_auth_norm
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_dup_collision
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_erase_classify
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_deny_carries_full
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_permit_collision
+#print axioms MSTNFR2.CedarBridge.cedar_bridge_forbid_collision
+#print axioms MSTNFR2.CedarBridge.denialKind_noPermit
+#print axioms MSTNFR2.CedarBridge.denialKind_forbidDetermined
+#print axioms MSTNFFiniteInstanceMWE.core_hasMSTNFProfile
+#print axioms MSTNFFiniteInstanceMWE.check_reference_eq_lifted
+#print axioms MSTNFFiniteInstanceMWE.check_section_normalization
+#print axioms MSTNFFiniteInstanceMWE.check_double_failure
+#print axioms MSTNFFiniteInstanceMWE.check_coarse_mismatch
+#print axioms MSTNFFiniteInstanceMWE.base6_hasMSTNFProfile
+#print axioms MSTNFFiniteInstanceMWE.mutantX_exclusive_violation
+#print axioms MSTNFFiniteInstanceMWE.mutantSec_section_violation
