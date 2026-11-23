@@ -1,52 +1,58 @@
-AUDIT modules=27 theorems=526 defs=557
-AUDIT classical_choice_theorems=19 [MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic,
+AUDIT modules=47 theorems=1507 defs=1411
+AUDIT classical_choice_theorems=47 [MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_bridged,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.canonicalize_equiv,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_erase_classify,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.sound_iff_emptySoundnessResidue,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.isAuthorized_congr,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.Set.make_make_eqv,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_sourceSection,
  MSTNF.methodology.GenericResidueExhaustionSchemaMWE::GenericResidueExhaustionSchemaMWE.emptyBadResidue_iff_subset,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.equiv_implies_canonical_eq,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.isAuthorized.eq_1,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_permit_collision,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedarAuth_witPermit,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.isAuthorized_error_plus_permit,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.insertCanonical_sortedBy,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.hasIndependent_iff_not_exhaustive,
  MSTNF.algorithms.MSTNFCanonicalDecompositionMWE::MSTNFCanonicalDecompositionMWE.kernel_exact_iso,
  MSTNF.algorithms.MSTMinimalityRoleBasisMWE::MSTMinimalityRoleBasisMWE.noninjective_simulation_requires_role_fusion,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.order_and_dup_independent,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.satisfiedPolicies.eq_1,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.order_dup_DuplicateInvariance,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.not_emptyResidue_iff_hasIndependent,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_dup_collision,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.StrictLT.if_not_lt_gt_then_eq,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.exact_iff_empty_residues,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.emptyResidue_iff_exhaustive,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_auth_norm,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedarAuth.eq_1,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.canonicalize_sortedBy,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.errorPolicies_order_and_dup_independent,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_noExplicitDiagnosticWitness,
  MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass_classical.proof_3,
  MSTNF.core.MSTNFObjectMWE::MSTNFObject.complete_iff_emptyCompletenessResidue,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.satisfiedPolicies_order_and_dup_independent,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.allRolesRepresented_iff_noExplicitDiagnosticWitness,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.insertCanonical_equiv,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.LexN.connected,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_of_noDiagnostic,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_implies_allRolesRepresented,
  MSTNF.algorithms.MSTNecessityExecModelMWE::MSTNecessityExecModelMWE.rawKernelQuotientEquivActiveClass_classical.proof_2,
  MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.noIndependentFifth_iff_allRolesRepresented,
  MSTNF.methodology.GenericResidueExhaustionSchemaMWE::GenericResidueExhaustionSchemaMWE.set_eq_iff_both_emptyBadResidue,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.errorPolicies.eq_1,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_forbid_collision,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_deny_carries_full,
+ MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedarAuth_witForbid,
  MSTNF.l1.MSTGenericResidueSkeletonsMWE::MSTGenericResidueSkeletonsMWE.exhaustive_iff_not_hasIndependent]
 AUDIT user_axioms=0 []
 AUDIT sorry_theorems=0 []
 AUDIT native_decide_theorems=0 []
-AUDIT axset [Classical.choice,Quot.sound,propext] : 16
-AUDIT axset [Quot.sound,propext] : 33
-AUDIT axset [propext] : 63
+AUDIT axset [Classical.choice,Quot.sound,propext] : 44
+AUDIT axset [propext] : 276
+AUDIT axset [Quot.sound,propext] : 127
 AUDIT axset [Classical.choice] : 2
-AUDIT axset [Quot.sound] : 7
-AUDIT axset [] : 404
+AUDIT axset [Quot.sound] : 19
+AUDIT axset [] : 1038
 AUDIT axset [Classical.choice,Quot.sound] : 1
-
-== R2 verification: B2Audit (#print axioms over the CedarBridge port) ==
-MSTNFR2.CedarBridge.sortedBy_equiv_implies_eq: [propext]
-MSTNFR2.CedarBridge.insertCanonical_sortedBy: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.insertCanonical_equiv: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.canonicalize_equiv: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.equiv_implies_canonical_eq: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.Set.make_make_eqv: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.LexN.trans: []
-MSTNFR2.CedarBridge.LexN.connected: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.toNats_inj: []
-MSTNFR2.CedarBridge.order_and_dup_independent: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.order_dup_DuplicateInvariance: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.cedar_bridge_bridged: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.cedar_bridge_sourceSection: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.cedar_bridge_auth_norm: [propext, Classical.choice, Quot.sound]
-MSTNFR2.CedarBridge.cedar_bridge_dup_collision: [propext, Classical.choice, Quot.sound]
-All roots within [propext, Classical.choice, Quot.sound].
-Complete R2 EMIT census: all 201 public theorems of the 11 new modules
-(10 x MSTNF.r2.* + MSTNF.algorithms.MSTNFFiniteInstanceMWE) have axiom root
-sets within [propext, Classical.choice, Quot.sound]; no sorry, no
-native_decide, no new axioms; lexNDec is constructive.

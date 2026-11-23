@@ -118,6 +118,10 @@ Then `sameClass_sameOutcome` applies. `exact_iff_empty_residues` is stated for t
 
 Downstream runtimes that keep a no-Mathlib boundary can vendor `MSTNFDefsPred/` instead of the full theory. It has zero imports, it is the predicate form of the core object, and its faithfulness to the set form is established by the equivalence theorems of `MSTNFPredBridgeMWE` (for exactness, `exact_agrees`).
 
+Models compose as `ExecModel`s: `sumModel` is the tagged dependent sum over a family, `prodModel` the product, `seqModel` the stage-1-then-stage-2 composite, and `seqObserveModel` the stage-2 composite fed by a class-respecting observation map. Each composite has the MST-NF profile when its components do (`sum_profile`, `prod_profile`, `seq_profile`, `seqObserve_profile`), and `MSTNFCompositionAtMostOneMWE` tracks at-most-once admission through the same composites.
+
+A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`).
+
 The table below is illustrative; only the abstract theory is formalized here.
 
 | System | q: same thing | a: allowed in | σ: canonical form | ρ: named refusal |

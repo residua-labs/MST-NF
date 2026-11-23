@@ -1,40 +1,51 @@
 # lake build (default targets MSTNFDefsPred + MSTNF); Lean 4.14.0, Mathlib v4.14.0
 # raw exit: exit=0
-# started 2026-10-30T00:11:39Z  ended 2026-10-30T00:11:49Z
-✔ [2/2532] Built MSTNFDefsPred.MSTNFDefsPredMWE
-✔ [2506/2532] Built MSTNF.algorithms.MSTNFStructuralAdvantageMWE
-✔ [2507/2532] Built MSTNF.algorithms.MSTNFVSoundnessConformanceMWE
-✔ [2508/2532] Built MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE
-✔ [2509/2532] Built MSTNF.algorithms.MSTNecessityExecModelMWE
-✔ [2510/2532] Built MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE
-✔ [2511/2532] Built MSTNF.algorithms.MSTNFKernelConformanceMWE
-✔ [2512/2532] Built MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE
-ℹ [2513/2532] Built MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
-✔ [2514/2532] Built MSTNF.algorithms.MSTNF3FormMWE
-ℹ [2515/2532] Built MSTNF.algorithms.MSTNFProfileDichotomyMWE
-ℹ [2516/2532] Built MSTNF.algorithms.MSTNFT1BridgeClosureMWE
-⚠ [2517/2532] Built MSTNF.algorithms.MSTNFCompletenessRepresentationMWE
-✔ [2518/2532] Built MSTNF.algorithms.MSTNFResidueTypologyMWE
-✔ [2519/2532] Built MSTNF.algorithms.MSTNF3Form4FormEquivMWE
-✔ [2520/2532] Built MSTNF.algorithms.MSTNecessityRoleAblationMWE
-✔ [2521/2532] Built MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE
-✔ [2522/2532] Built MSTNF.algorithms.MSTMinimalityRoleBasisMWE
-✔ [2523/2532] Built MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE
-✔ [2524/2532] Built MSTNF.algorithms.MSTNFRunNFAbstractMWE
-⚠ [2525/2532] Built MSTNF.algorithms.MSTNFCanonicalDecompositionMWE
-✔ [2526/2532] Built MSTNF.algorithms.MSTNFPartitionCompletenessMWE
-✔ [2527/2532] Built MSTNF.l1.MSTGenericResidueSkeletonsMWE
-ℹ [2528/2532] Built MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE
-✔ [2529/2532] Built MSTNF.methodology.GenericResidueExhaustionSchemaMWE
-✔ [2530/2532] Built MSTNF.core.MSTNFObjectMWE
-✔ [2531/2532] Built MSTNF.core.MSTNFPredBridgeMWE
+# started 2026-11-23T18:11:49Z  ended 2026-11-23T18:12:08Z (empty .lake/build; Mathlib oleans prebuilt)
+✔ [2/2552] Built MSTNFDefsPred.MSTNFDefsPredMWE
+✔ [2506/2552] Built MSTNF.algorithms.MSTNFStructuralAdvantageMWE
+✔ [2507/2552] Built MSTNF.algorithms.MSTNFVSoundnessConformanceMWE
+✔ [2508/2552] Built MSTNF.algorithms.MSTNecessityExecModelMWE
+✔ [2509/2552] Built MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE
+✔ [2510/2552] Built MSTNF.algorithms.MSTNFKernelConformanceMWE
+✔ [2511/2552] Built MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE
+✔ [2512/2552] Built MSTNF.algorithms.MSTNF3FormMWE
+✔ [2513/2552] Built MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE
+ℹ [2514/2552] Built MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE
+✔ [2515/2552] Built MSTNF.r2.Active
+✔ [2516/2552] Built MSTNF.r2.Factorization
+✔ [2517/2552] Built MSTNF.algorithms.MSTNFCompositionBasicMWE
+ℹ [2518/2552] Built MSTNF.algorithms.MSTNFProfileDichotomyMWE
+✔ [2519/2552] Built MSTNF.algorithms.MSTNecessityRoleAblationMWE
+⚠ [2520/2552] Built MSTNF.algorithms.MSTNFCompletenessRepresentationMWE
+✔ [2521/2552] Built MSTNF.algorithms.MSTNFResidueTypologyMWE
+✔ [2522/2552] Built MSTNF.algorithms.MSTNF3Form4FormEquivMWE
+✔ [2523/2552] Built MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE
+✔ [2524/2552] Built MSTNF.r2.Finite
+✔ [2525/2552] Built MSTNF.r2.Decision
+✔ [2526/2552] Built MSTNF.r2.Joint
+ℹ [2527/2552] Built MSTNF.algorithms.MSTNFT1BridgeClosureMWE
+✔ [2528/2552] Built MSTNF.algorithms.MSTNFCompositionSumMWE
+✔ [2529/2552] Built MSTNF.algorithms.MSTNFCompositionProdMWE
+✔ [2530/2552] Built MSTNF.algorithms.MSTMinimalityRoleBasisMWE
+✔ [2531/2552] Built MSTNF.algorithms.MSTNFCompositionSeqMWE
+✔ [2532/2552] Built MSTNF.r2.PreKey
+✔ [2533/2552] Built MSTNF.r2.CedarDedup
+✔ [2534/2552] Built MSTNF.r2.Reason
+✔ [2535/2552] Built MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE
+✔ [2536/2552] Built MSTNF.r2.Compose
+⚠ [2537/2552] Built MSTNF.algorithms.MSTNFCanonicalDecompositionMWE
+✔ [2538/2552] Built MSTNF.algorithms.MSTNFCompositionAtMostOneMWE
+✔ [2539/2552] Built MSTNF.r2.CedarBridge
+✔ [2540/2552] Built MSTNF.algorithms.MSTNFRunNFAbstractMWE
+✔ [2541/2552] Built MSTNF.algorithms.MSTNFHopMWE
+✔ [2542/2552] Built MSTNF.algorithms.MSTNFPartitionCompletenessMWE
+✔ [2543/2552] Built MSTNF.algorithms.MSTNFHopComposeMWE
+✔ [2544/2552] Built MSTNF.algorithms.MSTNFHopWitnessMWE
+⚠ [2545/2552] Built MSTNF.algorithms.MSTNFRecComposeMWE
+✔ [2546/2552] Built MSTNF.l1.MSTGenericResidueSkeletonsMWE
+ℹ [2547/2552] Built MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE
+✔ [2548/2552] Built MSTNF.algorithms.MSTNFFiniteInstanceMWE
+✔ [2549/2552] Built MSTNF.methodology.GenericResidueExhaustionSchemaMWE
+✔ [2550/2552] Built MSTNF.core.MSTNFObjectMWE
+✔ [2551/2552] Built MSTNF.core.MSTNFPredBridgeMWE
 Build completed successfully.
-
-== R2 verification (Mathlib-free raw `lean -o` chain, LEAN_PATH=.r2build) ==
-Full build of MSTNecessityExecModelMWE + MSTNFFiniteInstanceMWE + the 10
-MSTNF/r2 modules: rc=0, 0 errors, 0 warnings.
-scripts/R2ClaimsCheck.lean EMIT over all 202 candidate names: 201 found as
-theorems (one name is a docstring artifact, not a declaration); every axiom
-root set is within [propext, Classical.choice, Quot.sound].
-scripts/R2ClaimsCheck.lean CHECK on the completed evidence/CLAIMS.json:
-{"skipped_not_r2":45,"items_checked":208,"failures":0}, rc=0, 0 warnings.

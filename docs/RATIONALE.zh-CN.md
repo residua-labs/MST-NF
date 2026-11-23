@@ -118,6 +118,10 @@ structure GodelFramework where
 
 要保持"无 Mathlib"边界的下游运行时，可以只引入 `MSTNFDefsPred/` 而不引入整个理论。它零导入，是 core object 的谓词形式，它对集合形式的忠实性由 `MSTNFPredBridgeMWE` 的等价定理确立（exactness 部分见 `exact_agrees`）。
 
+模型可以作为 `ExecModel` 组合：`sumModel` 是一族模型上的 tagged dependent sum，`prodModel` 是乘积，`seqModel` 是先 stage-1 再 stage-2 的复合，`seqObserveModel` 是由类保持的观测映射喂给 stage-2 的复合。组件满足 profile 时每个复合模型也满足 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`、`seqObserve_profile`）；`MSTNFCompositionAtMostOneMWE` 追踪同样的复合下 at-most-once 准入的行为。
+
+从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。
+
 下表只是示意；本仓库只形式化了抽象理论。
 
 | 系统 | q：同一个东西 | a：允许进入 | σ：规范形式 | ρ：具名的拒绝 |

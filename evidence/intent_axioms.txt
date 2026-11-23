@@ -51,3 +51,247 @@
  Quot.sound]
 'MSTNFProfileDichotomyMWE.input_dichotomy' does not depend on any axioms
 'MSTNFProfileDichotomyMWE.representative_only_if_admitted' does not depend on any axioms
+'MSTNFR2.P1_observation_factorization' does not depend on any axioms
+'MSTNFR2.P1_factorization_converse' depends on axioms: [Quot.sound]
+'MSTNFR2.P4_normalization' does not depend on any axioms
+'MSTNFR2.P5_sequential_preservation' depends on axioms: [propext]
+'MSTNFR2.P7_sum_preservation' depends on axioms: [propext]
+'MSTNFR2.P8_product_preservation' depends on axioms: [propext]
+'MSTNFR2.Dact_admOfD' depends on axioms: [propext]
+'MSTNFR2.Dact_sigOfD' depends on axioms: [propext]
+'MSTNFR2.Dact_rhoOfD' depends on axioms: [propext]
+'MSTNFR2.sigma_rho_excl' depends on axioms: [propext]
+'MSTNFR2.mutantQ_truth' does not depend on any axioms
+'MSTNFR2.mutantA_truth' does not depend on any axioms
+'MSTNFR2.mutantR_truth' does not depend on any axioms
+'MSTNFR2.mutantS_truth' does not depend on any axioms
+'MSTNFR2.qjoint_is_coarsest' depends on axioms: [propext, Quot.sound]
+'MSTNFR2.pkey_correct' depends on axioms: [propext]
+'MSTNFR2.pkey_collision' does not depend on any axioms
+'MSTNFR2.reasonValid_without_refuting' does not depend on any axioms
+'MSTNFR2.cedarIF_bridged' depends on axioms: [propext]
+'MSTNFR2.CedarBridge.isAuthorized_error_plus_permit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.order_and_dup_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.order_dup_DuplicateInvariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_bridged' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_sourceSection' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_auth_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_dup_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_erase_classify' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_deny_carries_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_permit_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.cedar_bridge_forbid_collision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'MSTNFR2.CedarBridge.denialKind_noPermit' does not depend on any axioms
+'MSTNFR2.CedarBridge.denialKind_forbidDetermined' does not depend on any axioms
+'MSTNFFiniteInstanceMWE.core_hasMSTNFProfile' depends on axioms: [propext]
+'MSTNFFiniteInstanceMWE.check_reference_eq_lifted' depends on axioms: [propext]
+'MSTNFFiniteInstanceMWE.check_section_normalization' depends on axioms: [propext]
+'MSTNFFiniteInstanceMWE.check_double_failure' depends on axioms: [propext]
+'MSTNFFiniteInstanceMWE.check_coarse_mismatch' depends on axioms: [propext]
+'MSTNFFiniteInstanceMWE.base6_hasMSTNFProfile' does not depend on any axioms
+'MSTNFFiniteInstanceMWE.mutantX_exclusive_violation' does not depend on any axioms
+'MSTNFFiniteInstanceMWE.mutantSec_section_violation' does not depend on any axioms
+'NfCompose.parts_profile' does not depend on any axioms
+'NfCompose.bool_and_true' does not depend on any axioms
+'NfCompose.sigma_eq_snd' does not depend on any axioms
+'NfCompose.option_some_ne_none' does not depend on any axioms
+'NfCompose.sum_active_iff' does not depend on any axioms
+'NfCompose.sum_profile' depends on axioms: [propext]
+'NfCompose.seq_profile' depends on axioms: [propext]
+'NfCompose.seqObserve_profile' depends on axioms: [propext]
+'NfCompose.observeM1_profile' depends on axioms: [propext]
+'NfCompose.observeM2_profile' depends on axioms: [propext]
+'NfCompose.observe_does_not_factor' depends on axioms: [propext]
+'NfCompose.observe_no_respects' depends on axioms: [propext]
+'NfCompose.prod_active_iff' does not depend on any axioms
+'NfCompose.prod_profile' depends on axioms: [propext]
+'NfCompose.sum_atMost_iff' does not depend on any axioms
+'NfCompose.seq_atMost_of_stage1' depends on axioms: [propext]
+'NfCompose.prod_atMost' depends on axioms: [propext]
+'NfCompose.admitPoint_profile' depends on axioms: [propext]
+'NfCompose.admitPoint_atMost' does not depend on any axioms
+'NfCompose.refusePoint_profile' depends on axioms: [propext]
+'NfCompose.seq_stage2_collision_stays' depends on axioms: [propext]
+'NfCompose.seq_stage2_source_fails' does not depend on any axioms
+'NfCompose.seq_stage1_collision_blocked' depends on axioms: [propext]
+'NfCompose.seq_stage1_source_fails' does not depend on any axioms
+'NfCompose.prod_atMost_while_left_fails' depends on axioms: [propext]
+'NfCompose.two_profile' depends on axioms: [propext]
+'NfCompose.two_sum_profile' depends on axioms: [propext]
+'NfCompose.two_sum_not_atMost' does not depend on any axioms
+'NfCompose.hopModel_profile' depends on axioms: [propext]
+'NfCompose.hop_rho_none_iff_admissible' depends on axioms: [propext]
+'NfCompose.hopCorrect_iff_exact' depends on axioms: [propext]
+'NfCompose.seq_residue_none_iff' depends on axioms: [propext]
+'NfCompose.seq_residue_empty_iff' depends on axioms: [propext]
+'NfCompose.seqAssocRep_left_inv' does not depend on any axioms
+'NfCompose.seqAssocRep_right_inv' does not depend on any axioms
+'NfCompose.seqAssocRes_left_inv' does not depend on any axioms
+'NfCompose.seqAssocRes_right_inv' does not depend on any axioms
+'NfCompose.seqAssocOut_left_inv' does not depend on any axioms
+'NfCompose.seqAssocOut_right_inv' does not depend on any axioms
+'NfCompose.seqAssocRes_s1s1' depends on axioms: [Quot.sound]
+'NfCompose.seqAssocRes_s1s2' depends on axioms: [Quot.sound]
+'NfCompose.seqAssocRes_s2' depends on axioms: [Quot.sound]
+'NfCompose.seq_assoc_laws' depends on axioms: [propext, Quot.sound]
+'NfCompose.seq_assoc_evalRaw' depends on axioms: [propext]
+'NfCompose.seqResMap_s1' depends on axioms: [Quot.sound]
+'NfCompose.seqResMap_s2' depends on axioms: [Quot.sound]
+'NfCompose.seqRepMap_both' depends on axioms: [Quot.sound]
+'NfCompose.seqCong_feed_q' does not depend on any axioms
+'NfCompose.seqCong_feed_q_inv' does not depend on any axioms
+'NfCompose.hop_eval_eq_obs_seq' depends on axioms: [propext]
+'NfCompose.hopCorrect_iff_obsSeq' depends on axioms: [propext]
+'NfCompose.hop_admissible_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.hop_sigma_eq' depends on axioms: [propext]
+'NfCompose.hop_seq_correct' depends on axioms: [propext, Quot.sound]
+'NfCompose.hop_seq_correct_from' depends on axioms: [propext, Quot.sound]
+'NfCompose.hopSeq_admissible' depends on axioms: [propext]
+'NfCompose.hopSeq_correct_iff' depends on axioms: [propext]
+'NfCompose.hop_seq_correct_direct' depends on axioms: [propext, Quot.sound]
+'NfCompose.hopObsSeq_comp' depends on axioms: [propext]
+'NfCompose.hopObsSeq_chain3' depends on axioms: [propext]
+'NfCompose.hop_sum_admissible' depends on axioms: [propext]
+'NfCompose.hop_sum_correct_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.hop_sum_one_target' depends on axioms: [propext, Quot.sound]
+'NfCompose.hop_prod_admissible' depends on axioms: [propext]
+'NfCompose.hop_prod_correct' depends on axioms: [propext]
+'NfCompose.hop_prod_correct_left' depends on axioms: [propext]
+'NfCompose.hop_prod_correct_right' depends on axioms: [propext]
+'NfCompose.Fam.qf_iff' does not depend on any axioms
+'NfCompose.clockHopModel_profile' depends on axioms: [propext]
+'NfCompose.clock_resourceOk_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.transFam_profile' depends on axioms: [propext]
+'NfCompose.clock_hop_seq_correct' depends on axioms: [propext, Quot.sound]
+'NfCompose.clock_const_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.transSigma_input' depends on axioms: [propext]
+'NfCompose.bootstrap_instance' depends on axioms: [propext, Quot.sound]
+'NfCompose.HopWitness.pt_profile' depends on axioms: [propext]
+'NfCompose.HopWitness.badB_other_laws' depends on axioms: [propext]
+'NfCompose.HopWitness.badB_not_qf' does not depend on any axioms
+'NfCompose.HopWitness.eqN_sound' does not depend on any axioms
+'NfCompose.HopWitness.eqT_unsound' does not depend on any axioms
+'NfCompose.HopWitness.hopCorrect_of_all' depends on axioms: [propext]
+'NfCompose.HopWitness.not_hopCorrect_of' depends on axioms: [propext]
+'NfCompose.HopWitness.not_hopObsSeq_of' does not depend on any axioms
+'NfCompose.HopWitness.clock_of_all' does not depend on any axioms
+'NfCompose.HopWitness.not_clock_of' does not depend on any axioms
+'NfCompose.HopWitness.direct_needs_hAB' depends on axioms: [propext]
+'NfCompose.HopWitness.direct_needs_hBC' depends on axioms: [propext]
+'NfCompose.HopWitness.direct_needs_hqB' depends on axioms: [propext]
+'NfCompose.HopWitness.direct_needs_heqB' depends on axioms: [propext]
+'NfCompose.HopWitness.hopHop_needs_hBC' depends on axioms: [propext]
+'NfCompose.HopWitness.hopHop_needs_hqB' depends on axioms: [propext]
+'NfCompose.HopWitness.hopHop_needs_heqB' depends on axioms: [propext]
+'NfCompose.HopWitness.obsSeq_needs_h12' depends on axioms: [propext]
+'NfCompose.HopWitness.obsSeq_needs_h23' depends on axioms: [propext]
+'NfCompose.HopWitness.obsSeq_needs_hqB' does not depend on any axioms
+'NfCompose.HopWitness.prod_needs_h1' depends on axioms: [propext]
+'NfCompose.HopWitness.prod_needs_h2' depends on axioms: [propext]
+'NfCompose.HopWitness.cpt_qf' does not depend on any axioms
+'NfCompose.HopWitness.cbadB_not_qf' does not depend on any axioms
+'NfCompose.HopWitness.clock_needs_hAB' does not depend on any axioms
+'NfCompose.HopWitness.clock_needs_hBC' does not depend on any axioms
+'NfCompose.HopWitness.clock_needs_hqB' does not depend on any axioms
+'NfCompose.HopWitness.clock_needs_heqB' does not depend on any axioms
+'NfCompose.HopWitness.clock_lim_minimal' depends on axioms: [propext, Quot.sound]
+'NfCompose.HopWitness.boot_needs_hadm' does not depend on any axioms
+'NfCompose.HopWitness.boot_needs_hfix' does not depend on any axioms
+'NfCompose.Rec.TreeSig.induction' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.TreeSig.map_congr_mem' depends on axioms: [propext]
+'NfCompose.Rec.TreeSig.foldN_stable' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.TreeSig.fold_eq' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.TreeSig.eq_fold' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.TreeSig.fold_fusion' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.forall_mem_map' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.all_eq_true'' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.firstFail_eq_none' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.allSome_eq_none' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.combineRho_eq_none' depends on axioms: [propext]
+'NfCompose.Rec.stepAlg_out' does not depend on any axioms
+'NfCompose.Rec.stepAlg_adm' does not depend on any axioms
+'NfCompose.Rec.stepAlg_rho' does not depend on any axioms
+'NfCompose.Rec.stepAlg_sig' does not depend on any axioms
+'NfCompose.Rec.rec_qf' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.rec_rho_none_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.rec_as' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.rec_rt' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.rec_rp' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.recModel_profile' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.recModel_rho_none_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.firstFail_some' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.recModel_rho_path' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.hopCorrect_of_rel' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.hopCorrect_of_localSquares' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.local_of_forms' does not depend on any axioms
+'NfCompose.Rec.obs_eval_of_fusion' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.hopCorrect_of_fusion' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.clockHopCorrect_of_stepRel' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.eqInt_iff' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.good_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.good_rep' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.good_semA' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.good_evalB' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.good_sq' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.good_admB' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.correct_hop' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.not_hopCorrect_at' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.sq_other' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.sq_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.sq_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.admB_other' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.admB_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.admB_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rp_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rp_rep' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rp_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rep_rp' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rep_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rep_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.eq_fails' does not depend on any axioms
+'NfCompose.Rec.Necessity.eq_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.semA_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.semA_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.evalB_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.evalB_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.noNeg_eq' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_loc_other' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_loc_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_loc_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_rp_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_root_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.step_eq_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.qkids_id' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.ok_qf' does not depend on any axioms
+'NfCompose.Rec.Necessity.ok_as' does not depend on any axioms
+'NfCompose.Rec.Necessity.ok_rt' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.ok_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.ok_profile' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.qkids_fails' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.q_qf' does not depend on any axioms
+'NfCompose.Rec.Necessity.q_as' does not depend on any axioms
+'NfCompose.Rec.Necessity.q_rt' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.q_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.qkids_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.qf_fails' does not depend on any axioms
+'NfCompose.Rec.Necessity.qf_as' does not depend on any axioms
+'NfCompose.Rec.Necessity.qf_rt' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.qf_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.qf_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.as_fails' does not depend on any axioms
+'NfCompose.Rec.Necessity.as_qf' does not depend on any axioms
+'NfCompose.Rec.Necessity.as_rt' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.as_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.as_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rt_fails' does not depend on any axioms
+'NfCompose.Rec.Necessity.rt_qf' does not depend on any axioms
+'NfCompose.Rec.Necessity.rt_as' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.rt_rp' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.rt_needed' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.rp_fails'' does not depend on any axioms
+'NfCompose.Rec.Necessity.rp_qf' does not depend on any axioms
+'NfCompose.Rec.Necessity.rp_as' does not depend on any axioms
+'NfCompose.Rec.Necessity.rp_rt' depends on axioms: [propext]
+'NfCompose.Rec.Necessity.rp_needed'' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.Necessity.path_rho' depends on axioms: [propext, Quot.sound]
+'NfCompose.Rec.TreeSig.step_induction' depends on axioms: [propext, Quot.sound]

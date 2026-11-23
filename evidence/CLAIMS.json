@@ -79,6 +79,22 @@
    "statement_hash": "d7a6b3a964e4ea5234b5badbb577390e",
    "kind": "definition",
    "anchors": []
+  },
+  {
+   "id": "D:seq_assoc",
+   "name": "NfCompose.seq_assoc",
+   "module": "MSTNF.algorithms.MSTNFHopMWE",
+   "statement_hash": "907597d39f3e4d433789ea4f97703a8a",
+   "kind": "definition",
+   "anchors": []
+  },
+  {
+   "id": "D:seq_congr",
+   "name": "NfCompose.seq_congr",
+   "module": "MSTNF.algorithms.MSTNFHopMWE",
+   "statement_hash": "d1dc6f9fb9f2d1c6b541205e451e3c15",
+   "kind": "definition",
+   "anchors": []
   }
  ],
  "hash": "Hfull (hash of the theorem type Expr: universe params by position, mdata erased, binder names/infos ignored, de Bruijn indices); see scripts/ClaimsCheck.lean",
@@ -3417,6 +3433,1439 @@
    ],
    "files": [
     "MSTNF/algorithms/MSTNFFiniteInstanceMWE.lean"
+   ]
+  },
+  {
+   "id": "C36",
+   "kind": "theorem",
+   "title": "Obligation-field parts give the MST-NF profile",
+   "theorems": [
+    {
+     "name": "NfCompose.parts_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionBasicMWE",
+     "statement_hash": "c678dcecf2b838417020378716387fcd",
+     "axioms": []
+    }
+   ],
+   "scope_note": "the profile is defined as the conjunction of the four obligation fields",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `parts_profile` — the four obligation fields of a `Parts` model give the MST-NF profile | `MSTNF/algorithms/MSTNFCompositionBasicMWE.lean` | none |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C37",
+   "kind": "theorem",
+   "title": "Tagged dependent sums of profiled models",
+   "theorems": [
+    {
+     "name": "NfCompose.sum_active_iff",
+     "module": "MSTNF.algorithms.MSTNFCompositionSumMWE",
+     "statement_hash": "3b3d57866f802a4d8da9debf17189c8d",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.sum_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionSumMWE",
+     "statement_hash": "257813bbc9d86c20536c70032e884421",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "a family F : ι → ExecModel; active means the component model is active at the class",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `sum_profile`, `sum_active_iff` — the tagged dependent sum of profiled models has the MST-NF profile; a sum class is active iff its component class is | `MSTNF/algorithms/MSTNFCompositionSumMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Profiled models compose: tagged sums, products and sequential composites of profiled models again have the profile (`sum_profile`, `prod_profile`, `seq_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "带 profile 的模型可以组合：tagged sum、product 与顺序复合都保持 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Models compose as `ExecModel`s: `sumModel` is the tagged dependent sum over a family, `prodModel` the product, `seqModel` the stage-1-then-stage-2 composite, and `seqObserveModel` the stage-2 composite fed by a class-respecting observation map. Each composite has the MST-NF profile when its components do (`sum_profile`, `prod_profile`, `seq_profile`, `seqObserve_profile`), and `MSTNFCompositionAtMostOneMWE` tracks at-most-once admission through the same composites."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "模型可以作为 `ExecModel` 组合：`sumModel` 是一族模型上的 tagged dependent sum，`prodModel` 是乘积，`seqModel` 是先 stage-1 再 stage-2 的复合，`seqObserveModel` 是由类保持的观测映射喂给 stage-2 的复合。组件满足 profile 时每个复合模型也满足 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`、`seqObserve_profile`）；`MSTNFCompositionAtMostOneMWE` 追踪同样的复合下 at-most-once 准入的行为。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C38",
+   "kind": "theorem",
+   "title": "Products of profiled models",
+   "theorems": [
+    {
+     "name": "NfCompose.prod_active_iff",
+     "module": "MSTNF.algorithms.MSTNFCompositionProdMWE",
+     "statement_hash": "96eb6d5d9e00c4fb6d9473ee99f1332d",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.prod_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionProdMWE",
+     "statement_hash": "a4c7375d09a2940d3f5b062176cfcc52",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "the composite evaluates both components at the paired class",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `prod_profile`, `prod_active_iff` — the product of two profiled models has the MST-NF profile; a product class is active iff both component classes are | `MSTNF/algorithms/MSTNFCompositionProdMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Profiled models compose: tagged sums, products and sequential composites of profiled models again have the profile (`sum_profile`, `prod_profile`, `seq_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "带 profile 的模型可以组合：tagged sum、product 与顺序复合都保持 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Models compose as `ExecModel`s: `sumModel` is the tagged dependent sum over a family, `prodModel` the product, `seqModel` the stage-1-then-stage-2 composite, and `seqObserveModel` the stage-2 composite fed by a class-respecting observation map. Each composite has the MST-NF profile when its components do (`sum_profile`, `prod_profile`, `seq_profile`, `seqObserve_profile`), and `MSTNFCompositionAtMostOneMWE` tracks at-most-once admission through the same composites."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "模型可以作为 `ExecModel` 组合：`sumModel` 是一族模型上的 tagged dependent sum，`prodModel` 是乘积，`seqModel` 是先 stage-1 再 stage-2 的复合，`seqObserveModel` 是由类保持的观测映射喂给 stage-2 的复合。组件满足 profile 时每个复合模型也满足 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`、`seqObserve_profile`）；`MSTNFCompositionAtMostOneMWE` 追踪同样的复合下 at-most-once 准入的行为。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C39",
+   "kind": "theorem",
+   "title": "Sequential and observed composition of profiled models",
+   "theorems": [
+    {
+     "name": "NfCompose.seq_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "fc4ba036d3768ce513cb1ac3368e1f44",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seqObserve_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "329f254085c4233d16e189d7ebc66cb8",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.observeM1_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "471e29ea4149a6937cb366a5b9c7f265",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.observeM2_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "5b5cc774d3852c02ab7e8ec76dbe7b97",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.observe_does_not_factor",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "a33b964233d15928ae7cddf21c81b5b3",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.observe_no_respects",
+     "module": "MSTNF.algorithms.MSTNFCompositionSeqMWE",
+     "statement_hash": "8c1205f844af12c9f9356ef9906e52eb",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "seqObserve requires a RespectsClasses feed; the fixture shows an observation that does not factor through stage-1 classes",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `seq_profile`, `seqObserve_profile`, `observe_no_respects` — sequential and observed composites of profiled models have the MST-NF profile; the observed form needs a class-respecting feed, and the fixture has none | `MSTNF/algorithms/MSTNFCompositionSeqMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Profiled models compose: tagged sums, products and sequential composites of profiled models again have the profile (`sum_profile`, `prod_profile`, `seq_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "带 profile 的模型可以组合：tagged sum、product 与顺序复合都保持 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Models compose as `ExecModel`s: `sumModel` is the tagged dependent sum over a family, `prodModel` the product, `seqModel` the stage-1-then-stage-2 composite, and `seqObserveModel` the stage-2 composite fed by a class-respecting observation map. Each composite has the MST-NF profile when its components do (`sum_profile`, `prod_profile`, `seq_profile`, `seqObserve_profile`), and `MSTNFCompositionAtMostOneMWE` tracks at-most-once admission through the same composites."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "模型可以作为 `ExecModel` 组合：`sumModel` 是一族模型上的 tagged dependent sum，`prodModel` 是乘积，`seqModel` 是先 stage-1 再 stage-2 的复合，`seqObserveModel` 是由类保持的观测映射喂给 stage-2 的复合。组件满足 profile 时每个复合模型也满足 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`、`seqObserve_profile`）；`MSTNFCompositionAtMostOneMWE` 追踪同样的复合下 at-most-once 准入的行为。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C40",
+   "kind": "theorem",
+   "title": "At-most-once admission under composition",
+   "theorems": [
+    {
+     "name": "NfCompose.sum_atMost_iff",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "ca097ccaa2ace828e5973a72ad709bc7",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.seq_atMost_of_stage1",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "214f6d543be4fddfd889173bfca5b7ad",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.prod_atMost",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "7e4fe61696ac3b86816ce88704dff6ec",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seq_stage2_collision_stays",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "a73966b1276d9f90cbb63bef6aa0782a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seq_stage2_source_fails",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "b64e7a357792380f5c17787ea2e04246",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.seq_stage1_collision_blocked",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "e585ec69cbca83dadfd739afdc7530e6",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seq_stage1_source_fails",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "b64e7a357792380f5c17787ea2e04246",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.prod_atMost_while_left_fails",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "f1745605499a7797d2347ef4fda92e77",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.two_sum_profile",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "f6039ef94ebd5d3759cdea9708055536",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.two_sum_not_atMost",
+     "module": "MSTNF.algorithms.MSTNFCompositionAtMostOneMWE",
+     "statement_hash": "14f3885b3e3854313cbd58f6a91a57d7",
+     "axioms": []
+    }
+   ],
+   "scope_note": "at most one admitted class per outcome; the witnesses are finite fixtures",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `sum_atMost_iff`, `prod_atMost`, `seq_atMost_of_stage1`, `prod_atMost_while_left_fails` — at-most-once admission through sums (iff), products and stage-1 sequences, with fixtures where a component fails it and the composite does not | `MSTNF/algorithms/MSTNFCompositionAtMostOneMWE.lean` | propext |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C41",
+   "kind": "theorem",
+   "title": "A hop is an ExecModel; correctness is residue-freeness",
+   "theorems": [
+    {
+     "name": "NfCompose.hopModel_profile",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "730c57da3c0100ee694a057f9f8b887b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_rho_none_iff_admissible",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "90f0e61291ddea89fed39f4189b67d06",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopCorrect_iff_exact",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "2a71b4a1de4442bba4ab904f3ad1a662",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seq_residue_none_iff",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "c91ec2b2d982ba8f9a2a5150e63b599e",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.seq_residue_empty_iff",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "a45797da40ad973ef5e237b22e4fb0df",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_eval_eq_obs_seq",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "15b2abb0e42fb5c18012599f33590aed",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopCorrect_iff_obsSeq",
+     "module": "MSTNF.algorithms.MSTNFHopMWE",
+     "statement_hash": "8b403f8bbefaab26550fd8bcac109e90",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "hopModel takes the source classes, the target representative and a named residue (translation refused, target refused, value mismatch); hopCorrect is no residue on source-admissible classes",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `hopModel_profile`, `hopCorrect_iff_exact` — a translation between two profiled models, packaged as a model (`hopModel`), has the MST-NF profile; it is correct iff every active admissible source class is admitted by it | `MSTNF/algorithms/MSTNFHopMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C42",
+   "kind": "theorem",
+   "title": "Hop correctness composes sequentially",
+   "theorems": [
+    {
+     "name": "NfCompose.hop_admissible_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "e6456311b4b7dc2f6f2447bad726787d",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_sigma_eq",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "b508b830b2bc9d44e2cc98c4f6441e95",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_seq_correct",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "570594058a8aa1b39cc321ffbb107fbb",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_seq_correct_from",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "e4e7cd55332f74a5cf9f6e2d90251d03",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopSeq_admissible",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "c8b4f6e7c26068b72aafb96fbe80cf6b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopSeq_correct_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "3ca92569a347a80da4b6ae2d21eb4cff",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_seq_correct_direct",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "f5ec1ad2f870c43cc28a167df3e65b56",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopObsSeq_comp",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "3e1a910b8837284c9d13f7bcd82994b0",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hopObsSeq_chain3",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "e28db7dca1828f1824ec0e13cfefbb44",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "hypotheses: the second hop correct, quotient factorization of the middle layer, a sound middle equality; the direct form adds the first hop",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `hop_seq_correct`, `hopSeq_correct_iff` — hop correctness composes sequentially; the hop-of-a-hop form equals the direct form plus the first hop | `MSTNF/algorithms/MSTNFHopComposeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C43",
+   "kind": "theorem",
+   "title": "Hop correctness over sums and products",
+   "theorems": [
+    {
+     "name": "NfCompose.hop_sum_admissible",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "eb250f0346ce83577114085b6862a32d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_sum_correct_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "58d681a9a4a9db0bd607cceb67e64ea9",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_sum_one_target",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "42384949e37822b81d7887395903e246",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_prod_admissible",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "b0935d863a8f8227b4ad87ebc1a6bd7e",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_prod_correct",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "7d06d2a119fd0e68b748a7937ce41b71",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_prod_correct_left",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "45c65ff8fea80d2d28abad7c8852b3fc",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_prod_correct_right",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "67dbc54c5f141cbf857000331dea1c74",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "the product converse needs an active admissible class on the other side",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `hop_sum_correct_iff`, `hop_prod_correct` — a hop on a sum is correct iff every component hop is; a hop on a product is correct when both component hops are | `MSTNF/algorithms/MSTNFHopComposeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C44",
+   "kind": "theorem",
+   "title": "Clocked hops with a named resource residue; the bootstrap instance",
+   "theorems": [
+    {
+     "name": "NfCompose.Fam.qf_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "9bc77c599cd02058c7ce892b180fa4b5",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.clockHopModel_profile",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "bfe8e48e0d86fcb580aae11a91e55fc3",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.clock_resourceOk_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "698fe18ce618f0d71a25b87429464101",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.transFam_profile",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "df2ff4844b7f6993295531d381c5bcf3",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.clock_hop_seq_correct",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "94c11b08d47315307c4d8f0ad5c9ce16",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.clock_const_iff",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "9d58ba219b52dbb81b266511d2cf79a0",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.transSigma_input",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "67bfd39f8c834d80a29cfc4a4abc096d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.bootstrap_instance",
+     "module": "MSTNF.algorithms.MSTNFHopComposeMWE",
+     "statement_hash": "30673944180c7e537169bac1028430e0",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "clock-indexed evaluation; the resource predicate is named by the caller; bootstrap_instance takes per-hop clocked correctness and the fixpoint evidence as hypotheses",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `clock_hop_seq_correct`, `clock_const_iff`, `bootstrap_instance` — clocked hop correctness, with a named resource residue, composes sequentially and is `hopCorrect` on clock-free layers; from per-hop clocked correctness and fixpoint evidence, the chain image of a source behaves as the source up to the resource residue | `MSTNF/algorithms/MSTNFHopComposeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "What this does NOT claim",
+     "text": "* **Composition laws are about models, not about any particular translator.** The hop, clock and recursion theorems hold for every `ExecModel` that satisfies their hypotheses. `bootstrap_instance` takes per-hop clocked correctness and the fixpoint evidence as hypotheses; it does not establish them for any concrete compiler."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "本仓库不宣称什么",
+     "text": "* **组合定律关于模型，而不是关于某个具体的翻译器。**hop、时钟与递归定理对满足其假设的每个 `ExecModel` 成立。`bootstrap_instance` 把逐 hop 的带时钟正确性和不动点证据作为假设，并不为任何具体编译器确立这些假设。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C45",
+   "kind": "theorem",
+   "title": "Every hypothesis of the hop laws is necessary",
+   "theorems": [
+    {
+     "name": "NfCompose.HopWitness.pt_profile",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "8ca5605da84e12a49fd8345fc4a427ba",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.badB_other_laws",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "3a5436a34aec547ad50b0d812ee628de",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.badB_not_qf",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "3fb6871a65aa67eb54eeaafbe5384f36",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.eqN_sound",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "a4adc2461c10cb49b5d02def662e6ba6",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.eqT_unsound",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "3896bb330714d514e2fcbf8456e02345",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.direct_needs_hAB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "879fa8c0e16a6176639273dccd575f8f",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.direct_needs_hBC",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "08c84131b80501ee730ce8abefb8639a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.direct_needs_hqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "fbc3883759d7e01773758769c288c8bd",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.direct_needs_heqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "71dda062c2c83bfa01cc63aabcf96931",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.hopHop_needs_hBC",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "0d41598fbafa5806e4c1304908fb8ff6",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.hopHop_needs_hqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "67defe6a63c3a8b6881b30e3e037c559",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.hopHop_needs_heqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "36f54ffc6edba06ca6cd0ad9cafbc339",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.obsSeq_needs_h12",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "d0f49fb6717387691cdee1b96bf0ff9d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.obsSeq_needs_h23",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "788aa97facc5c20d9176de78eb00a1b7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.obsSeq_needs_hqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "db84339100d4dfd2359779c9e99e5bce",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.prod_needs_h1",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "e2553ff67f8a4f610f942f7464bea879",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.prod_needs_h2",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "df99f9883641760691c95131d94f6577",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.cpt_qf",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "303b840f70ebbc48ea7c8e06e110f019",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.cbadB_not_qf",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "457631cc3005738afbce5b52893f84ac",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.clock_needs_hAB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "1aeb8bae803ff54e4248a04df7021ae2",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.clock_needs_hBC",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "d9a9bfa422dc117639c19484bd97c465",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.clock_needs_hqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "94651254862ed24d2aa34e0d16f44a52",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.clock_needs_heqB",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "b1c420339c15adf6fc4a8a27fe724855",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.clock_lim_minimal",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "3dbbc27d699dff41bb6eed9538dd5d31",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.HopWitness.boot_needs_hadm",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "8931e681235227e2c83504f8708576f3",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.HopWitness.boot_needs_hfix",
+     "module": "MSTNF.algorithms.MSTNFHopWitnessMWE",
+     "statement_hash": "ed8f9141a7b6fc58f97965affc6065f8",
+     "axioms": []
+    }
+   ],
+   "scope_note": "finite witness models on Unit, Bool and Nat; one model per hypothesis, all other hypotheses hold and the conclusion fails",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `direct_needs_hAB`, `clock_needs_heqB`, `boot_needs_hfix`, `clock_lim_minimal` — for each hypothesis of each hop law, a model where the others hold and the conclusion fails (18 witnesses); the composite resource predicate cannot be weakened | `MSTNF/algorithms/MSTNFHopWitnessMWE.lean` | Quot.sound, propext |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
+   ]
+  },
+  {
+   "id": "C46",
+   "kind": "theorem",
+   "title": "Models built node by node over a tree view",
+   "theorems": [
+    {
+     "name": "NfCompose.Rec.TreeSig.induction",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "a55e37892090b75a52a3d689cdc7a33a",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.TreeSig.fold_eq",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "8abc17ba0b694707936ada68e958c669",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.TreeSig.eq_fold",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "e8ade63243f2022b350521705ef4c710",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.TreeSig.fold_fusion",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "e98f1eb8ed977ccdd43b758b5452fccb",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.recModel_profile",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "0a2f14ab768655e632e82a3d50b2a89c",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.recModel_rho_none_iff",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "15f4df6246295192e441bdeb3dd11cb8",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.recModel_rho_path",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "d6e30adb51866b5665e7ed2a8c5446e3",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "a tree view is a children function with a decreasing size; the model is built from per-node local laws",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `recModel_profile`, `recModel_rho_path`, `fold_fusion` — local per-node laws give the MST-NF profile of the recursive model; its residue names a failing node by its path; fold uniqueness and fusion | `MSTNF/algorithms/MSTNFRecComposeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C47",
+   "kind": "theorem",
+   "title": "Hop correctness over recursive structure",
+   "theorems": [
+    {
+     "name": "NfCompose.Rec.hopCorrect_of_rel",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "6221e0abe458c2593e7515e5fcb2b134",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.hopCorrect_of_localSquares",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "507e3a1d8d82acc0528d279dac41719c",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.hopCorrect_of_fusion",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "b89a5c0878fc0dd243682497ae8944d2",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.TreeSig.step_induction",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "be67a74b9090c4e39433417f22c5f1fd",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.clockHopCorrect_of_stepRel",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "428661b55c7da35af739a022ab83ee1f",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "fundamental-lemma form: a per-node relation closed under the local laws with root adequacy; step-indexed form for clocked hops",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `hopCorrect_of_localSquares`, `hopCorrect_of_fusion`, `clockHopCorrect_of_stepRel` — per-node commuting squares give hop correctness; the same in fold-fusion form; a step-indexed form for clocked hops | `MSTNF/algorithms/MSTNFRecComposeMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "A translation between two models (a hop) is itself a model, and its correctness is the absence of residue on it (`hopCorrect_iff_exact`); correctness composes sequentially, over sums and over products (`hop_seq_correct`, `hop_sum_correct_iff`, `hop_prod_correct`), with clocks and a named resource residue (`clock_hop_seq_correct`), and follows from per-node squares over recursive structure (`hopCorrect_of_localSquares`), where a model built node by node has the profile (`recModel_profile`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "A translation from one model to another is itself a model (`hopModel`): its classes are the source classes, its representative is the target's, and its residue names why a class does not carry over (no representative to translate, the target refuses the translated program, or the two evaluations differ). Correctness is the absence of that residue on the admissible source classes (`hopCorrect_iff_exact`). It composes sequentially (`hop_seq_correct`), over sums (`hop_sum_correct_iff`) and over products (`hop_prod_correct`), and in a clock-indexed form whose only extra residue is a named resource stop (`clock_hop_seq_correct`); `MSTNFHopWitnessMWE` gives, for each hypothesis of these laws, a model where the other hypotheses hold and the conclusion fails. Over recursive structure, `MSTNFRecComposeMWE` builds a model node by node from local laws (`recModel_profile`) and derives hop correctness from per-node squares (`hopCorrect_of_localSquares`), also in a step-indexed form (`clockHopCorrect_of_stepRel`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C48",
+   "kind": "theorem",
+   "title": "Every hypothesis of the recursion laws is necessary",
+   "theorems": [
+    {
+     "name": "NfCompose.Rec.Necessity.step_loc_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "db39179edab80b5ee480adc48a6496cc",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.step_loc_fails",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "4d9f58c323eaacd0437e0a163485fe3c",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.step_rp_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "54cb6362a468d82379ec5a3fd4ba9a17",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.step_root_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "109c835b2427de1794753676931c0499",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.step_eq_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "0f2ae9b6770116a473c1c0ef46b1252a",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.correct_hop",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "b2da3fe1686af3a483572b813de40d9d",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.ok_profile",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "05861002e872c12c78a022213c597c8e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.sq_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "eafd6b0a2f18ca45600c7d6a2e874aae",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.admB_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "4ed803883c152bf52a6b0ab1fa6ca222",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.rp_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "85d9791eb57fc879e96d0576632cee2f",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.rep_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "c8910aef56e5545ba24a7dd778f0f3e2",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.eq_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "dcc44af18c2465784411a497a345117f",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.semA_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "59ca3a714c9a553a197fc54430fbab99",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.evalB_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "a6bb6d65a3c3b5860cb524bca8ca7198",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.qkids_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "e7d04f9e751d55020cf9ab93ff7e5c2f",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.qf_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "0d2d6c6ebe0b4e71c22b480b415f0c37",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.as_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "d09a3419f70ca62978daba75138d7710",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.rt_needed",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "67b7af0ff293842cf2b662fecb4ea704",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.rp_needed'",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "54aea689da9d5ce4ba980fc0e37702c6",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Rec.Necessity.path_rho",
+     "module": "MSTNF.algorithms.MSTNFRecComposeMWE",
+     "statement_hash": "6c1e87abfb11d1725e1bd6054f4fc66e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "one witness per hypothesis of the recursive model, the fundamental lemma and the step-indexed lemma",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `sq_needed`, `qkids_needed`, `step_loc_needed` — for each hypothesis of the recursion laws, a model where the others hold, the dropped one fails at one constructor, and the conclusion fails | `MSTNF/algorithms/MSTNFRecComposeMWE.lean` | Quot.sound, propext |"
+    }
+   ],
+   "langs": [
+    "en"
+   ],
+   "files": [
+    "README.md"
    ]
   }
  ],
