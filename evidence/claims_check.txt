@@ -356,6 +356,14 @@
 {"why":[],"theorem":"NfCompose.Rec.Necessity.rt_needed","ok":true,"claim":"C48"}
 {"why":[],"theorem":"NfCompose.Rec.Necessity.rp_needed'","ok":true,"claim":"C48"}
 {"why":[],"theorem":"NfCompose.Rec.Necessity.path_rho","ok":true,"claim":"C48"}
+{"why":[],"theorem":"NfCompose.resourceAdequateExact_stronger","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.resourceAdequate_seq","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.resourceAdequateExact_seq","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.resourceAdequate_of_empty","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.all_resource_not_adequate","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.AdequateWitness.clock_correct_but_not_adequate","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.AdequateWitness.vacuous_adequate_example","ok":true,"claim":"C49"}
+{"why":[],"theorem":"NfCompose.AdequateWitness.image_needed","ok":true,"claim":"C49"}
 {"why":[],"ok":true,"definition":"MSTNecessityExecModelMWE.quotientFactorization","claim":"D:quotientFactorization"}
 {"why":[],"ok":true,"definition":"MSTNecessityExecModelMWE.admissibilitySound","claim":"D:admissibilitySound"}
 {"why":[],"ok":true,"definition":"MSTNecessityExecModelMWE.residueTotality","claim":"D:residueTotality"}
@@ -363,4 +371,8 @@
 {"why":[],"ok":true,"definition":"MSTNecessityExecModelMWE.hasMSTNFProfile","claim":"D:hasMSTNFProfile"}
 {"why":[],"ok":true,"definition":"NfCompose.seq_assoc","claim":"D:seq_assoc"}
 {"why":[],"ok":true,"definition":"NfCompose.seq_congr","claim":"D:seq_congr"}
-{"summary":true,"items_checked":365,"failures":0}
+{"why":[],"ok":true,"definition":"NfCompose.resourceAdequate","claim":"D:resourceAdequate"}
+{"why":[],"ok":true,"definition":"NfCompose.resourceAdequateExact","claim":"D:resourceAdequateExact"}
+{"why":[],"ok":true,"definition":"NfCompose.nondegenerate","claim":"D:nondegenerate"}
+{"why":[],"ok":true,"definition":"NfCompose.AdequateWitness.unitLayer","claim":"D:unitLayer"}
+{"summary":true,"items_checked":377,"failures":0}

@@ -18,3 +18,7 @@ The modules below were ported from the development repository at commit `5c663e0
 | `d539a322288d146f61265dcd21129ebf8e102edd` | `MSTNF/algorithms/MSTNFRecComposeMWE.lean` |
 
 The base `MSTNecessityExecModelMWE` these sources were checked against is byte-identical to `MSTNF/algorithms/MSTNecessityExecModelMWE.lean` here.
+
+## Resource adequacy module
+
+`MSTNF/algorithms/MSTNFResourceAdequateMWE.lean` has no development-source counterpart: it was written for this repository, against the same `ExecModel` interface.

@@ -95,6 +95,38 @@
    "statement_hash": "d1dc6f9fb9f2d1c6b541205e451e3c15",
    "kind": "definition",
    "anchors": []
+  },
+  {
+   "id": "D:resourceAdequate",
+   "name": "NfCompose.resourceAdequate",
+   "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+   "statement_hash": "b5384141a36f445995127add90ef7251",
+   "kind": "definition",
+   "anchors": []
+  },
+  {
+   "id": "D:resourceAdequateExact",
+   "name": "NfCompose.resourceAdequateExact",
+   "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+   "statement_hash": "cfc6f781efdad8cb676b1ddddae36877",
+   "kind": "definition",
+   "anchors": []
+  },
+  {
+   "id": "D:nondegenerate",
+   "name": "NfCompose.nondegenerate",
+   "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+   "statement_hash": "130de30cbb6a07fc01e60a9a04f4b5dc",
+   "kind": "definition",
+   "anchors": []
+  },
+  {
+   "id": "D:unitLayer",
+   "name": "NfCompose.AdequateWitness.unitLayer",
+   "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+   "statement_hash": "e11704787bc1c82904575aeeebfd82b5",
+   "kind": "definition",
+   "anchors": []
   }
  ],
  "hash": "Hfull (hash of the theorem type Expr: universe params by position, mdata erased, binder names/infos ignored, de Bruijn indices); see scripts/ClaimsCheck.lean",
@@ -4866,6 +4898,89 @@
    ],
    "files": [
     "README.md"
+   ]
+  },
+  {
+   "id": "C49",
+   "kind": "theorem",
+   "title": "Resource adequacy (H-progress) for clocked hops: the exact form is stronger, both forms compose sequentially through the feasible-domain image condition, and the witnesses give the H-witness shape",
+   "theorems": [
+    {
+     "name": "NfCompose.resourceAdequateExact_stronger",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "f03d665abd0728e8c902bb0a60407484",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.resourceAdequate_seq",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "6978e80cf2c6f71dc6883f51499210ee",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.resourceAdequateExact_seq",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "086871dfcf27b02b2b9968023f6b0108",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.resourceAdequate_of_empty",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "eb9d5291ec53cb56597df6579eeb018b",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.all_resource_not_adequate",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "c7e00713089882d7db225c2dec9b69a9",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.AdequateWitness.clock_correct_but_not_adequate",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "7bde029a5734951a1c7095bd405e7d5d",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.AdequateWitness.vacuous_adequate_example",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "d894bb0a3b9e8a8c5c840943e066ba11",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.AdequateWitness.image_needed",
+     "module": "MSTNF.algorithms.MSTNFResourceAdequateMWE",
+     "statement_hash": "718df23a3a224cf15d4fc7d73726ab73",
+     "axioms": []
+    }
+   ],
+   "scope_note": "generic ExecModels only: realization (some target clock) versus exact (decoder) form, the feasible-domain image condition, and one witness per independence; no concrete translation is shown adequate",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `resourceAdequateExact_stronger`, `resourceAdequate_seq`, `resourceAdequateExact_seq` — H-progress (`resourceAdequate`) for clocked hops: the exact decoder form is stronger; both forms compose sequentially through the feasible-domain image condition `∀ x, D1 x → D2 (h1 x)` | `MSTNF/algorithms/MSTNFResourceAdequateMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `resourceAdequate_of_empty`, `all_resource_not_adequate`, `AdequateWitness.clock_correct_but_not_adequate`, `AdequateWitness.vacuous_adequate_example`, `AdequateWitness.image_needed` — the H-witness shape (`nondegenerate`): H-progress is vacuous on an empty feasible domain, refuted by an all-resource target on any nondegenerate domain, independent of clocked-hop correctness, and the image condition is necessary | `MSTNF/algorithms/MSTNFResourceAdequateMWE.lean` | Quot.sound, propext (one); none (the rest) |"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
    ]
   }
  ],

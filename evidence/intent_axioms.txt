@@ -295,3 +295,15 @@
 'NfCompose.Rec.Necessity.rp_needed'' depends on axioms: [propext, Quot.sound]
 'NfCompose.Rec.Necessity.path_rho' depends on axioms: [propext, Quot.sound]
 'NfCompose.Rec.TreeSig.step_induction' depends on axioms: [propext, Quot.sound]
+'NfCompose.resourceAdequate' does not depend on any axioms
+'NfCompose.resourceAdequateExact' does not depend on any axioms
+'NfCompose.nondegenerate' does not depend on any axioms
+'NfCompose.resourceAdequateExact_stronger' does not depend on any axioms
+'NfCompose.resourceAdequate_seq' does not depend on any axioms
+'NfCompose.resourceAdequateExact_seq' does not depend on any axioms
+'NfCompose.resourceAdequate_of_empty' does not depend on any axioms
+'NfCompose.all_resource_not_adequate' does not depend on any axioms
+'NfCompose.AdequateWitness.unitLayer' does not depend on any axioms
+'NfCompose.AdequateWitness.clock_correct_but_not_adequate' depends on axioms: [propext, Quot.sound]
+'NfCompose.AdequateWitness.vacuous_adequate_example' does not depend on any axioms
+'NfCompose.AdequateWitness.image_needed' does not depend on any axioms

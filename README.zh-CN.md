@@ -64,7 +64,7 @@ MST-NF 不是自上而下设计出来的。在项目的历史里，它起源于�
 
 ## 一段话说明理论
 
-MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓词 **a**、代表元选择 **σ** 和有类型的残差 **ρ**。Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。带 profile 的模型可以组合：tagged sum、product 与顺序复合都保持 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`）。两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。全部内容都针对 Lean 4.14.0 与 Mathlib v4.14.0 做了机器检查；本 README 说明这一点确立了什么、没有确立什么；原始证据见 [`evidence/`](evidence/)。
+MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓词 **a**、代表元选择 **σ** 和有类型的残差 **ρ**。Lean 开发中定义了四个角色的义务（`ExecModel`、`hasMSTNFProfile`），并证明了 *Intents* 中列出的陈述：每个决策函数都有四部分分解（`completeness_theorem`）；没有哪个角色是多余的（`deleting_each_role_breaks_semantics`）；这四个角色作为独立诊断基是最小的（`standard_basis_is_minimal_independent_diagnostic_basis`）；两个 kernel-exact 且满射的商是同构的（`kernel_exact_iso`）；一个 core object 是 exact 的，当且仅当它的两类残差都为空（`exact_iff_empty_residues`）。带 profile 的模型可以组合：tagged sum、product 与顺序复合都保持 MST-NF profile（`sum_profile`、`prod_profile`、`seq_profile`）。两个模型之间的翻译（hop）本身也是一个模型，它的正确性就是该模型上没有残差（`hopCorrect_iff_exact`）；这种正确性沿顺序复合、sum 与 product 组合（`hop_seq_correct`、`hop_sum_correct_iff`、`hop_prod_correct`），可以带时钟和具名的资源残差（`clock_hop_seq_correct`），并可在递归结构上由逐节点的交换方块推出（`hopCorrect_of_localSquares`），其中逐节点构造的模型满足 profile（`recModel_profile`）。对带时钟的 hop，资源充分性（`MSTNFResourceAdequateMWE`）要求：每个语义层的源观察，在翻译后的输入上总存在某个目标时钟也给出语义层的观察（H-progress）：其精确（解码）形式更强，两种形式都沿可行域的像条件顺序复合，且其见证将资源充分性与带时钟的 hop 正确性分离（`AdequateWitness.clock_correct_but_not_adequate`）。全部内容都针对 Lean 4.14.0 与 Mathlib v4.14.0 做了机器检查；本 README 说明这一点确立了什么、没有确立什么；原始证据见 [`evidence/`](evidence/)。
 
 ## 仓库内容、Intents、清单与许可
 
@@ -73,13 +73,13 @@ MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓�
 ## 信任边界
 
 * **工具链：**`leanprover/lean4:v4.14.0` 与 Mathlib `v4.14.0`（rev `4bbdccd9c5f862bf90ff12f0a9e2c8be032b9a84`，固定在 `lake-manifest.json` 中）。`MSTNFDefsPred` 不导入任何东西。
-* **公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 1507 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；1038 条定理不使用任何公理，276 条使用 `propext`，127 条使用 `propext` 和 `Quot.sound`，19 条使用 `Quot.sound`，**47 条使用 `Classical.choice`**（44 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）；组合、hop 与递归模块都不使用 `Classical.choice`（`evidence/axiom_audit.txt`）。
+* **公理画像**（`scripts/AxiomAudit.lean` 覆盖全部 1515 条定理，`evidence/axiom_audit.txt`）：没有用户 `axiom` 声明，没有 `sorry`，没有 `native_decide`（`Lean.ofReduceBool`）；1045 条定理不使用任何公理，276 条使用 `propext`，128 条使用 `propext` 和 `Quot.sound`，19 条使用 `Quot.sound`，**47 条使用 `Classical.choice`**（44 条同时使用 `propext` 和 `Quot.sound`，2 条单独使用，1 条同时使用 `Quot.sound`）；组合、hop、递归与资源充分性模块都不使用 `Classical.choice`（`evidence/axiom_audit.txt`）。
 * **`native_decide`：**本仓库中没有。`MSTNFConcreteAbstractEquivMWE` 的开发源码最初对三条桥接定理使用 `native_decide`；开发仓库现已改用 `decide`，因此由内核检查，陈述不变（`evidence/native_decide.txt`）。
 * **内核复核**（`evidence/`）：
-  * `lean4checker`（标签 `v4.14.0`，提交 `bee437b`）把 1.0 版的这 27 个模块的每个常量重放到全新环境中，使用 Lean 内核：**27/27 通过**（`evidence/kernel_replay_per_module.txt`）。此后加入的模块（`MSTNF/r2/`、`MSTNFFiniteInstanceMWE`、组合、hop 与递归模块）由 `lake build` 期间的 Lean 内核检查，不在这些重放中，也不在 Nanoda 的导出中。对 `MSTNFConcreteAbstractEquivMWE`、`MSTNFT1BridgeClosureMWE`、`MSTNF3Form4FormEquivMWE` 的 `--fresh` 重放（把它导入的全部常量，包括 Mathlib，重放到空环境中）退出码为 0。 对 `MSTNF3FormOmegaForcedProbeMWE`（它导入整个 `Mathlib.Tactic`）的 `--fresh` 重放因内核确定性超时（kernel deterministic timeout）而中止；这是资源上限，不是类型错误，对该模块的逐模块重放与 Nanoda 检查均通过。 它使用的是*同一个*内核；它能发现环境篡改和不可重放的声明，但它不是第二个内核。
+  * `lean4checker`（标签 `v4.14.0`，提交 `bee437b`）把 1.0 版的这 27 个模块的每个常量重放到全新环境中，使用 Lean 内核：**27/27 通过**（`evidence/kernel_replay_per_module.txt`）。此后加入的模块（`MSTNF/r2/`、`MSTNFFiniteInstanceMWE`、组合、hop、递归与资源充分性模块）由构建时的 Lean 内核检查（`lake build`，或 `evidence/build.txt` 记录的逐模块编译），不在这些重放中，也不在 Nanoda 的导出中。对 `MSTNFConcreteAbstractEquivMWE`、`MSTNFT1BridgeClosureMWE`、`MSTNF3Form4FormEquivMWE` 的 `--fresh` 重放（把它导入的全部常量，包括 Mathlib，重放到空环境中）退出码为 0。 对 `MSTNF3FormOmegaForcedProbeMWE`（它导入整个 `Mathlib.Tactic`）的 `--fresh` 重放因内核确定性超时（kernel deterministic timeout）而中止；这是资源上限，不是类型错误，对该模块的逐模块重放与 Nanoda 检查均通过。 它使用的是*同一个*内核；它能发现环境篡改和不可重放的声明，但它不是第二个内核。
   * **Nanoda**（`nanoda_lib` `v0.3.2`，提交 `66cca78`）是独立的 Rust 内核实现，它检查这 27 个模块的 1077 个定理和定义常量及其全部依赖的导出：**`Checked 3908 declarations with no errors`**（无错误），只允许 `propext`、`Classical.choice`、`Quot.sound`（`evidence/nanoda/`）。导出器是 `lean4export`（格式 2.0.0），带一个小补丁（限定 `HashMap`）以便在 Lean 4.14.0 上编译。
   * 反例对照：较早版本的 `MSTNFConcreteAbstractEquivMWE`（含 `native_decide`）被两个工具拒绝（`lean4checker`：`unknown declaration …_nativeDecide_1`；Nanoda：`unpermitted axiom "Lean.ofReduceBool"`）。
-* **断言闸门**（`evidence/CLAIMS.json`，`evidence/rcc/claims_*`）：注册表列出 README 与 `docs/RATIONALE.md`（英文和中文）中陈述性质的句子及其引用的定理；检查程序确认每条被引用的定理都存在于本仓库，且陈述哈希与允许的公理与记录一致。它不检查句子是否不超出其定理；那一评审记录在 `evidence/audit/`。RCC 可执行程序对该断言图的结果是 **Closed**。对每条断言与其定理的独立评审记录在 `evidence/audit/`。RCC 运行与该评审覆盖 1.0 版的断言（C01–C25）；之后的断言（C26–C48）由 `scripts/ClaimsCheck.lean` 检查（`evidence/claims_check.txt`）。
+* **断言闸门**（`evidence/CLAIMS.json`，`evidence/rcc/claims_*`）：注册表列出 README 与 `docs/RATIONALE.md`（英文和中文）中陈述性质的句子及其引用的定理；检查程序确认每条被引用的定理都存在于本仓库，且陈述哈希与允许的公理与记录一致。它不检查句子是否不超出其定理；那一评审记录在 `evidence/audit/`。RCC 可执行程序对该断言图的结果是 **Closed**。对每条断言与其定理的独立评审记录在 `evidence/audit/`。RCC 运行与该评审覆盖 1.0 版的断言（C01–C25）；之后的断言（C26–C49）由 `scripts/ClaimsCheck.lean` 检查（`evidence/claims_check.txt`）。
 * **对 intents 的 RCC 闭合判定**（`evidence/rcc/`）：这些 intents 还在"intent 定理 → 假设 → 生产者"的义务图上运行过 RCC 可执行程序。非空洞读法（存在一个生产者表明假设可满足）：**11/11 Closed**。严格读法（生产者必须是泛型的）：**7 个 Closed，4 个 Await**。
 
 ## 本仓库不宣称什么
@@ -95,6 +95,7 @@ MST-NF 用四个结构角色来描述一个决策系统：商 **q**、准入谓�
 * **RCC 判定是一致性证据，不是独立证明。**提取器与实例数据由与该理论相同的一方产生；复现它们需要 RCC 库，本仓库不含它。
 * **历史与研究立场不是定理。**起源故事、幻觉分类、"重分类即收敛"、"这个形式让任何系统都能展开成四个部分并用同一种证明形状"的说法，以及关于 Residua 的陈述，都是项目自己的，这里没有一条被检查。
 * **组合定律关于模型，而不是关于某个具体的翻译器。**hop、时钟与递归定理对满足其假设的每个 `ExecModel` 成立。`bootstrap_instance` 把逐 hop 的带时钟正确性和不动点证据作为假设，并不为任何具体编译器确立这些假设。
+* **资源充分性只是 realization，且是通用的。**`resourceAdequate` 断言存在某个目标时钟避开资源停止；它不要求目标观察等于（解码后的）源观察——那个更强的精确形式（`resourceAdequateExact`）单独陈述与证明，且没有任何具体翻译被证明是充分的。顺序复合需要可行域的像条件；没有它复合律不成立（`AdequateWitness.image_needed`）。
 * **应用不在范围内**（市场结构、缠论、DeFi、CRT/IET 接缝模块、自动生长），较早的 pre-NF 表述也不在范围内。
 * **`closure_claim = 0`。**这里没有任何内容说 MST-NF 或基于它构建的任何系统是"闭合的"。
 
