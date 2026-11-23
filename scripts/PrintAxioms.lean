@@ -36,6 +36,7 @@ import MSTNF.algorithms.MSTNFHopMWE
 import MSTNF.algorithms.MSTNFHopComposeMWE
 import MSTNF.algorithms.MSTNFHopWitnessMWE
 import MSTNF.algorithms.MSTNFRecComposeMWE
+import MSTNF.algorithms.MSTNFResourceAdequateMWE
 
 #print axioms MSTNFObject.exact_iff_empty_residues
 #print axioms MSTNFObject.exact_iff_sound_and_complete
@@ -328,3 +329,15 @@ import MSTNF.algorithms.MSTNFRecComposeMWE
 #print axioms NfCompose.Rec.Necessity.rp_needed'
 #print axioms NfCompose.Rec.Necessity.path_rho
 #print axioms NfCompose.Rec.TreeSig.step_induction
+#print axioms NfCompose.resourceAdequate
+#print axioms NfCompose.resourceAdequateExact
+#print axioms NfCompose.nondegenerate
+#print axioms NfCompose.resourceAdequateExact_stronger
+#print axioms NfCompose.resourceAdequate_seq
+#print axioms NfCompose.resourceAdequateExact_seq
+#print axioms NfCompose.resourceAdequate_of_empty
+#print axioms NfCompose.all_resource_not_adequate
+#print axioms NfCompose.AdequateWitness.unitLayer
+#print axioms NfCompose.AdequateWitness.clock_correct_but_not_adequate
+#print axioms NfCompose.AdequateWitness.vacuous_adequate_example
+#print axioms NfCompose.AdequateWitness.image_needed

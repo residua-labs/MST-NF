@@ -53,7 +53,9 @@ import MSTNF.algorithms.MSTNFCompositionAtMostOneMWE
 import MSTNF.algorithms.MSTNFHopMWE
 import MSTNF.algorithms.MSTNFHopComposeMWE
 import MSTNF.algorithms.MSTNFHopWitnessMWE
+import MSTNF.algorithms.MSTNFHopWitnessMWE
 import MSTNF.algorithms.MSTNFRecComposeMWE
+import MSTNF.algorithms.MSTNFResourceAdequateMWE
 import Lean
 open Lean Meta
 
@@ -142,7 +144,7 @@ def shippedModules : List Name := [`MSTNF.algorithms.MSTMinimalityRoleBasisMWE, 
   `MSTNF.r2.Decision, `MSTNF.r2.Compose, `MSTNF.r2.Finite, `MSTNF.r2.Joint,
   `MSTNF.r2.PreKey, `MSTNF.r2.Reason, `MSTNF.r2.CedarDedup, `MSTNF.r2.CedarBridge,
   `MSTNF.algorithms.MSTNFCompositionBasicMWE, `MSTNF.algorithms.MSTNFCompositionSumMWE, `MSTNF.algorithms.MSTNFCompositionSeqMWE, `MSTNF.algorithms.MSTNFCompositionProdMWE, `MSTNF.algorithms.MSTNFCompositionAtMostOneMWE,
-  `MSTNF.algorithms.MSTNFHopMWE, `MSTNF.algorithms.MSTNFHopComposeMWE, `MSTNF.algorithms.MSTNFHopWitnessMWE, `MSTNF.algorithms.MSTNFRecComposeMWE]
+  `MSTNF.algorithms.MSTNFHopMWE, `MSTNF.algorithms.MSTNFHopComposeMWE, `MSTNF.algorithms.MSTNFHopWitnessMWE, `MSTNF.algorithms.MSTNFRecComposeMWE, `MSTNF.algorithms.MSTNFResourceAdequateMWE]
 
 def axiomsOf (n : Name) : CoreM (List String) := do
   let (_, s) := ((CollectAxioms.collect n).run (← getEnv)).run {}

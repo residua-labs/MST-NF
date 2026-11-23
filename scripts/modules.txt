@@ -45,3 +45,4 @@ MSTNF.algorithms.MSTNFHopMWE
 MSTNF.algorithms.MSTNFHopComposeMWE
 MSTNF.algorithms.MSTNFHopWitnessMWE
 MSTNF.algorithms.MSTNFRecComposeMWE
+MSTNF.algorithms.MSTNFResourceAdequateMWE
