@@ -45,6 +45,15 @@ import MSTNF.r2.PreKey
 import MSTNF.r2.Reason
 import MSTNF.r2.CedarDedup
 import MSTNF.r2.CedarBridge
+import MSTNF.algorithms.MSTNFCompositionBasicMWE
+import MSTNF.algorithms.MSTNFCompositionSumMWE
+import MSTNF.algorithms.MSTNFCompositionSeqMWE
+import MSTNF.algorithms.MSTNFCompositionProdMWE
+import MSTNF.algorithms.MSTNFCompositionAtMostOneMWE
+import MSTNF.algorithms.MSTNFHopMWE
+import MSTNF.algorithms.MSTNFHopComposeMWE
+import MSTNF.algorithms.MSTNFHopWitnessMWE
+import MSTNF.algorithms.MSTNFRecComposeMWE
 import Lean
 open Lean Meta
 
@@ -131,7 +140,9 @@ open Lean Meta Elab
 def shippedModules : List Name := [`MSTNF.algorithms.MSTMinimalityRoleBasisMWE, `MSTNF.algorithms.MSTNF3Form4FormEquivMWE, `MSTNF.algorithms.MSTNF3FormMWE, `MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE, `MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE, `MSTNF.algorithms.MSTNFCanonicalDecompositionMWE, `MSTNF.algorithms.MSTNFCompletenessRepresentationMWE, `MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE, `MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE, `MSTNF.algorithms.MSTNFKernelConformanceMWE, `MSTNF.algorithms.MSTNFPartitionCompletenessMWE, `MSTNF.algorithms.MSTNFProfileDichotomyMWE, `MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE, `MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE, `MSTNF.algorithms.MSTNFResidueTypologyMWE, `MSTNF.algorithms.MSTNFRunNFAbstractMWE, `MSTNF.algorithms.MSTNFStructuralAdvantageMWE, `MSTNF.algorithms.MSTNFT1BridgeClosureMWE, `MSTNF.algorithms.MSTNFVSoundnessConformanceMWE, `MSTNF.algorithms.MSTNecessityExecModelMWE, `MSTNF.algorithms.MSTNecessityRoleAblationMWE, `MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE, `MSTNFDefsPred.MSTNFDefsPredMWE, `MSTNF.core.MSTNFObjectMWE, `MSTNF.core.MSTNFPredBridgeMWE, `MSTNF.l1.MSTGenericResidueSkeletonsMWE, `MSTNF.methodology.GenericResidueExhaustionSchemaMWE,
   `MSTNF.algorithms.MSTNFFiniteInstanceMWE, `MSTNF.r2.Active, `MSTNF.r2.Factorization,
   `MSTNF.r2.Decision, `MSTNF.r2.Compose, `MSTNF.r2.Finite, `MSTNF.r2.Joint,
-  `MSTNF.r2.PreKey, `MSTNF.r2.Reason, `MSTNF.r2.CedarDedup, `MSTNF.r2.CedarBridge]
+  `MSTNF.r2.PreKey, `MSTNF.r2.Reason, `MSTNF.r2.CedarDedup, `MSTNF.r2.CedarBridge,
+  `MSTNF.algorithms.MSTNFCompositionBasicMWE, `MSTNF.algorithms.MSTNFCompositionSumMWE, `MSTNF.algorithms.MSTNFCompositionSeqMWE, `MSTNF.algorithms.MSTNFCompositionProdMWE, `MSTNF.algorithms.MSTNFCompositionAtMostOneMWE,
+  `MSTNF.algorithms.MSTNFHopMWE, `MSTNF.algorithms.MSTNFHopComposeMWE, `MSTNF.algorithms.MSTNFHopWitnessMWE, `MSTNF.algorithms.MSTNFRecComposeMWE]
 
 def axiomsOf (n : Name) : CoreM (List String) := do
   let (_, s) := ((CollectAxioms.collect n).run (← getEnv)).run {}

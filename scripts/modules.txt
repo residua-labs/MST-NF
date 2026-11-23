@@ -36,3 +36,12 @@ MSTNF.r2.PreKey
 MSTNF.r2.Reason
 MSTNF.r2.CedarDedup
 MSTNF.r2.CedarBridge
+MSTNF.algorithms.MSTNFCompositionBasicMWE
+MSTNF.algorithms.MSTNFCompositionSumMWE
+MSTNF.algorithms.MSTNFCompositionSeqMWE
+MSTNF.algorithms.MSTNFCompositionProdMWE
+MSTNF.algorithms.MSTNFCompositionAtMostOneMWE
+MSTNF.algorithms.MSTNFHopMWE
+MSTNF.algorithms.MSTNFHopComposeMWE
+MSTNF.algorithms.MSTNFHopWitnessMWE
+MSTNF.algorithms.MSTNFRecComposeMWE
