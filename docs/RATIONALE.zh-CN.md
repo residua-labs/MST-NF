@@ -123,6 +123,8 @@ structure GodelFramework where
 从一个模型到另一个模型的翻译本身也是一个模型（`hopModel`）：它的类是源模型的类，代表元是目标模型的代表元，残差说明一个类为什么没能带过去（没有可翻译的代表元、目标拒绝翻译后的程序，或两边的求值不同）。正确性就是在源模型的可准入类上没有这种残差（`hopCorrect_iff_exact`）。它沿顺序复合（`hop_seq_correct`）、sum（`hop_sum_correct_iff`）和 product（`hop_prod_correct`）组合，也有带时钟的形式，其中唯一多出的残差是具名的资源耗尽（`clock_hop_seq_correct`）；`MSTNFHopWitnessMWE` 对这些定律的每条假设给出一个模型：其余假设成立而结论不成立。在递归结构上，`MSTNFRecComposeMWE` 由局部定律逐节点构造模型（`recModel_profile`），并由逐节点的交换方块推出 hop 正确性（`hopCorrect_of_localSquares`），也有 step-indexed 形式（`clockHopCorrect_of_stepRel`）。
  翻译也可以从资源角度评判：`resourceAdequate`（H-progress）说，只要源不在资源上停止，就存在某个目标时钟也不在资源上停止——这是 realization 性质，不是相等。其精确形式还把目标观察解码回源的观察（`resourceAdequateExact_stronger`）；两种形式都沿可行域的像条件顺序复合（`resourceAdequate_seq`、`resourceAdequateExact_seq`），而 `MSTNFResourceAdequateMWE` 的见证把资源充分性与带时钟的 hop 正确性、与空可行域的空洞成立、以及与像条件的必要性分离开来。
 
+正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。
+
 下表只是示意；本仓库只形式化了抽象理论。
 
 | 系统 | q：同一个东西 | a：允许进入 | σ：规范形式 | ρ：具名的拒绝 |

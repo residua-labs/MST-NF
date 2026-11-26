@@ -307,3 +307,61 @@
 'NfCompose.AdequateWitness.clock_correct_but_not_adequate' depends on axioms: [propext, Quot.sound]
 'NfCompose.AdequateWitness.vacuous_adequate_example' does not depend on any axioms
 'NfCompose.AdequateWitness.image_needed' does not depend on any axioms
+'NfCompose.relHopAt_mono' does not depend on any axioms
+'NfCompose.relHopOn_mono' does not depend on any axioms
+'NfCompose.relHopAt_seq' depends on axioms: [propext]
+'NfCompose.relHopOn_seq' depends on axioms: [propext]
+'NfCompose.relHopOn_comp' depends on axioms: [propext]
+'NfCompose.relHopOn_observed_seq' depends on axioms: [propext]
+'NfCompose.relHopCorrect_actual' depends on axioms: [propext]
+'NfCompose.relHopRho_none_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.relHopAt_total_bool_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.relHopCorrect_total_bool_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.relHopCorrect_equality_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.relHopAt_hopSeq_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.hop_seq_correct_relational' depends on axioms: [propext, Quot.sound]
+'NfCompose.clock_resource_relHopAt_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.forward_determinate_pointwise' does not depend on any axioms
+'NfCompose.forward_determinate_backward' does not depend on any axioms
+'NfCompose.execModel_forward_backward' does not depend on any axioms
+'NfCompose.evalRaw_determinate' does not depend on any axioms
+'NfCompose.relHopCorrect_backward_actual' depends on axioms: [propext]
+'NfCompose.target_determinism_needed' does not depend on any axioms
+'NfCompose.source_nonempty_needed' does not depend on any axioms
+'NfCompose.runtimeRefines_refl' depends on axioms: [propext]
+'NfCompose.runtimeRefines_trans' does not depend on any axioms
+'NfCompose.mapRuntimeValue_mono' does not depend on any axioms
+'NfCompose.runtime_success_noWrong' does not depend on any axioms
+'NfCompose.runtime_refusal_preserved' does not depend on any axioms
+'NfCompose.allowed_limit_not_value' does not depend on any axioms
+'NfCompose.runtimePoint_profile' does not depend on any axioms
+'NfCompose.runtime_point_hop' does not depend on any axioms
+'NfCompose.runtime_limit_chain' depends on axioms: [propext]
+'NfCompose.success_only_forward_insufficient' does not depend on any axioms
+'NfCompose.absent_translation_named' does not depend on any axioms
+'NfCompose.refusalPoint_profile' does not depend on any axioms
+'NfCompose.target_refusal_named' does not depend on any axioms
+'NfCompose.absent_middle_no_final_witness' does not depend on any axioms
+'NfCompose.Observation.preorder_laws' does not depend on any axioms
+'NfCompose.Observation.coarser_of_factor' does not depend on any axioms
+'NfCompose.Observation.quotient_order' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.coarser_iff_quotient_factor' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.agrees_ofSetoid' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.join_lub' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.meet_glb' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.pull_mono' does not depend on any axioms
+'NfCompose.Observation.compatible_comp' does not depend on any axioms
+'NfCompose.Observation.hopCorrect_coarsen' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.hop_seq_correct_compatible' depends on axioms: [propext, Quot.sound]
+'NfCompose.Observation.value_coarsenings' does not depend on any axioms
+'NfCompose.Observation.heap_steps_incomparable' does not depend on any axioms
+'NfCompose.Observation.exposing_heap_needs_counts' does not depend on any axioms
+'NfCompose.Observation.relHopOn_coarsen' depends on axioms: [propext]
+'NfCompose.Observation.infoCompatible_classOf' depends on axioms: [propext]
+'NfCompose.Observation.infoCompatible_variance' depends on axioms: [propext]
+'NfCompose.Observation.infoCompatible_comp' depends on axioms: [propext]
+'NfCompose.Observation.relHopOn_observation_seq' depends on axioms: [propext]
+'NfCompose.Observation.postcompose_coarser' does not depend on any axioms
+'NfCompose.Observation.liftRuntime_agreement' depends on axioms: [propext]
+'NfCompose.Observation.liftRuntime_mono' depends on axioms: [propext]
+'NfCompose.Observation.runtime_value_coarsenings' depends on axioms: [propext]

@@ -1,33 +1,33 @@
-# module compilation (all 48 modules of scripts/modules.txt); Lean 4.14.0; Mathlib v4.14.0 package oleans prebuilt
+# module compilation (all 54 modules of scripts/modules.txt); Lean 4.14.0; Mathlib v4.14.0 package oleans built from source in this clone
 # raw exit: exit=0 for every module
-# started 2026-11-24T04:33:41Z  ended 2026-11-24T04:35:20Z (Mathlib oleans prebuilt; each module compiled by the Lean elaborator/kernel with lean -o, dependency-ordered with retries; the repo scripts ClaimsCheck, PrintAxioms and AxiomAudit then ran over the same environment — see claims_check.txt, intent_axioms.txt, axiom_audit.txt; this run did not use lake build, whose trace bookkeeping would have recompiled Mathlib, while the per-module compilation loads the same Mathlib v4.14.0 oleans the lake build of release 921f434 used)
-MSTNF.algorithms.MSTNecessityExecModelMWE  exit=0
-MSTNF.core.MSTNFObjectMWE  exit=0
-MSTNF.l1.MSTGenericResidueSkeletonsMWE  exit=0
-MSTNF.core.MSTNFPredBridgeMWE  exit=0
-MSTNF.methodology.GenericResidueExhaustionSchemaMWE  exit=0
-MSTNF.algorithms.MSTNFCanonicalDecompositionMWE  exit=0
-MSTNF.algorithms.MSTNFPartitionCompletenessMWE  exit=0
-MSTNF.algorithms.MSTNFRunNFAbstractMWE  exit=0
-MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE  exit=0
-MSTNFDefsPred.MSTNFDefsPredMWE  exit=0
+# started 2026-11-26T08:56:37Z  ended 2026-11-26T08:59:03Z (each module compiled by the Lean elaborator/kernel with lean -o against the locally built Mathlib v4.14.0 oleans; a full `lake build` at this head also completed with exit 0 — build log retained in the clone; the repo scripts ClaimsCheck, PrintAxioms and AxiomAudit then ran over the same environment — see claims_check.txt, intent_axioms.txt, axiom_audit.txt)
 MSTNF.algorithms.MSTMinimalityRoleBasisMWE  exit=0
-MSTNF.algorithms.MSTNF3FormMWE  exit=0
 MSTNF.algorithms.MSTNF3Form4FormEquivMWE  exit=0
+MSTNF.algorithms.MSTNF3FormMWE  exit=0
+MSTNF.algorithms.MSTNF3FormOmegaForcedProbeMWE  exit=0
 MSTNF.algorithms.MSTNFAlgorithmClassCoverageMWE  exit=0
+MSTNF.algorithms.MSTNFCanonicalDecompositionMWE  exit=0
 MSTNF.algorithms.MSTNFCompletenessRepresentationMWE  exit=0
 MSTNF.algorithms.MSTNFConcreteAbstractEquivMWE  exit=0
 MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE  exit=0
 MSTNF.algorithms.MSTNFKernelConformanceMWE  exit=0
+MSTNF.algorithms.MSTNFPartitionCompletenessMWE  exit=0
 MSTNF.algorithms.MSTNFProfileDichotomyMWE  exit=0
 MSTNF.algorithms.MSTNFQuotientBeforeExecutionNFMWE  exit=0
 MSTNF.algorithms.MSTNFResidueAbsorptionWellFoundedMWE  exit=0
 MSTNF.algorithms.MSTNFResidueTypologyMWE  exit=0
+MSTNF.algorithms.MSTNFRunNFAbstractMWE  exit=0
 MSTNF.algorithms.MSTNFStructuralAdvantageMWE  exit=0
 MSTNF.algorithms.MSTNFT1BridgeClosureMWE  exit=0
 MSTNF.algorithms.MSTNFVSoundnessConformanceMWE  exit=0
+MSTNF.algorithms.MSTNecessityExecModelMWE  exit=0
 MSTNF.algorithms.MSTNecessityRoleAblationMWE  exit=0
 MSTNF.algorithms.MSTNoFifthRoleIntegrationMWE  exit=0
+MSTNFDefsPred.MSTNFDefsPredMWE  exit=0
+MSTNF.core.MSTNFObjectMWE  exit=0
+MSTNF.core.MSTNFPredBridgeMWE  exit=0
+MSTNF.l1.MSTGenericResidueSkeletonsMWE  exit=0
+MSTNF.methodology.GenericResidueExhaustionSchemaMWE  exit=0
 MSTNF.algorithms.MSTNFFiniteInstanceMWE  exit=0
 MSTNF.r2.Active  exit=0
 MSTNF.r2.Factorization  exit=0
@@ -49,3 +49,9 @@ MSTNF.algorithms.MSTNFHopComposeMWE  exit=0
 MSTNF.algorithms.MSTNFHopWitnessMWE  exit=0
 MSTNF.algorithms.MSTNFRecComposeMWE  exit=0
 MSTNF.algorithms.MSTNFResourceAdequateMWE  exit=0
+MSTNF.algorithms.MSTNFRelationalHopMWE  exit=0
+MSTNF.algorithms.MSTNFForwardBackwardMWE  exit=0
+MSTNF.algorithms.MSTNFRuntimeRefinementMWE  exit=0
+MSTNF.algorithms.MSTNFObservationMWE  exit=0
+MSTNF.algorithms.MSTNFObservationHopMWE  exit=0
+MSTNF.algorithms.MSTNFObservationRuntimeMWE  exit=0

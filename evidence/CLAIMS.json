@@ -4982,6 +4982,728 @@
     "docs/RATIONALE.md",
     "docs/RATIONALE.zh-CN.md"
    ]
+  },
+  {
+   "id": "C50",
+   "kind": "theorem",
+   "title": "Relational hops over ExecModel: correctness as an outcome relation, composition, the Boolean bridge",
+   "theorems": [
+    {
+     "name": "NfCompose.relHopAt_mono",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "7ff180f1eb25a96091a5541666befe75",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.relHopOn_mono",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "24e13f103cc70c0f79f4fb33274588b1",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.relHopAt_seq",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "e3fdccec150f11b7015a4c0f12cfad5b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopOn_seq",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "c5e6c586f99eea6818df71e47113fcd1",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopOn_comp",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "cc9e91450e9c74d7e6e1b66b4a2996ad",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopOn_observed_seq",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "1ada3a0af8e6a6c33482beac8b059449",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopCorrect_actual",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "8d8f73047c7828829a7f55eaf05dcbb4",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopRho_none_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "85ada15b73d082fe73e6c1ea66578490",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopAt_total_bool_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "bab93b63fc5697bc19fb4d8ed1e925bf",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopCorrect_total_bool_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "b85b50180826f2598f0a25db4b7efda8",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopCorrect_equality_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "f07a9de42e879ff7e7003d11104c0097",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopAt_hopSeq_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "8d369a71e0a77db3277e43aeaea58b53",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.hop_seq_correct_relational",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "570594058a8aa1b39cc321ffbb107fbb",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.clock_resource_relHopAt_iff",
+     "module": "MSTNF.algorithms.MSTNFRelationalHopMWE",
+     "statement_hash": "480c765e165883fd794cb22cb354ecee",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "a relational hop witnesses the actual representative, the actual translated raw, target admission and an outcome relation; generic over ExecModel",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`, `relHopCorrect_total_bool_iff`, `hop_seq_correct_relational` — a relational hop witnesses the actual representative, the translated raw, admission and an outcome relation; it composes, coincides with the Boolean check, and recovers `hop_seq_correct` | `MSTNF/algorithms/MSTNFRelationalHopMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C51",
+   "kind": "theorem",
+   "title": "Forward correctness over all outcomes gives the backward direction under target determinism",
+   "theorems": [
+    {
+     "name": "NfCompose.forward_determinate_pointwise",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "688779935e14d69e53de2435459cd1a0",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.forward_determinate_backward",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "0e9e1564dc8674e6beb71590e617929e",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.execModel_forward_backward",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "316263796eaea7965d7bb07d3214b831",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.evalRaw_determinate",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "c23ddecf10633b37a133f9ee94602176",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.relHopCorrect_backward_actual",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "58160fbc1301d3eabd11c284b5506c27",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.target_determinism_needed",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "feda6fd4cdf95ade1e9d15a3f8550407",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.source_nonempty_needed",
+     "module": "MSTNF.algorithms.MSTNFForwardBackwardMWE",
+     "statement_hash": "f72f4107c88d0e457398262da1c52692",
+     "axioms": []
+    }
+   ],
+   "scope_note": "outcome-level statements over the outcome graph, not a small-step simulation construction",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`, `target_determinism_needed`, `source_nonempty_needed` — forward correctness on every source outcome plus target determinism yields the backward direction at the actual raw; each hypothesis is necessary | `MSTNF/algorithms/MSTNFForwardBackwardMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C52",
+   "kind": "theorem",
+   "title": "Runtime outcomes keep values, refusal reasons and resource limits distinct",
+   "theorems": [
+    {
+     "name": "NfCompose.runtimeRefines_refl",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "1088f418202a07de8c3a3e0ec87eaf66",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.runtimeRefines_trans",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "3580d1af189ecad575132cb2209e4e87",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.mapRuntimeValue_mono",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "6ba773785cda840e3db243c20a6620cc",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.runtime_success_noWrong",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "dfa52effafb7867a1bab164f05a533db",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.runtime_refusal_preserved",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "7dd65fcf359a3013ebf8087c4259b731",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.allowed_limit_not_value",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "db0c078e2d5b5cbdc6787fd1ae4f97be",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.runtimePoint_profile",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "3292813702cf50c2993cb8fdf385c6d4",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.runtime_point_hop",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "ae13ce460aa3c16bfbc8d6310e0c9bfb",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.runtime_limit_chain",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "efab644ecf77c8826c4068712d050993",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.success_only_forward_insufficient",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "35a4df014317bf1e97be8174b48617b4",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.absent_translation_named",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "28a24c45145a1f8ae842fcc9ae252801",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.refusalPoint_profile",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "ca5f712e221cb26b3797084eb5c43399",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.target_refusal_named",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "aed22548b43e2d0066f38e170ae6a3fa",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.absent_middle_no_final_witness",
+     "module": "MSTNF.algorithms.MSTNFRuntimeRefinementMWE",
+     "statement_hash": "e986dc0cde43a5bd493a7e00acec2e0a",
+     "axioms": []
+    }
+   ],
+   "scope_note": "the policy permits a target limit and never turns a refusal or a limit into a value; the point models are finite witnesses",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`, `success_only_forward_insufficient` — runtime outcomes keep values, named refusals and limits distinct; a permitted limit is not a value and success-only coverage does not suffice | `MSTNF/algorithms/MSTNFRuntimeRefinementMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C53",
+   "kind": "theorem",
+   "title": "Observation order: projections quotient to a lattice of information classes",
+   "theorems": [
+    {
+     "name": "NfCompose.Observation.preorder_laws",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "d67c298dbe9667a832d857f88a23ac1f",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.coarser_of_factor",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "51d84badb5211eaee692d6683c081332",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.quotient_order",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "42240591b0af4df54e91c1138f98715f",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.coarser_iff_quotient_factor",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "c13f4a3c3e7bb86f6ff63a7bedc0e1a3",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.agrees_ofSetoid",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "077ac62370ecd23ba72f4adfd207af9d",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.join_lub",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "dbe6bff18ce89aa4ad48bada643253b4",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.meet_glb",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "cc9c5c17577466046252c2f0798e2784",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.pull_mono",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "7401b1518bd93fd58bdcced941bfc15b",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.compatible_comp",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "76df24b10b597e954b78d3624b29f1fa",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.hopCorrect_coarsen",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "31459604439d67548b29797a83611b9e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.hop_seq_correct_compatible",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "a1bee35ac63fa7ff55826b0514d8ec5a",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.value_coarsenings",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "aa16421778dac6c592147b8f674b1ef1",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.heap_steps_incomparable",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "3ecf54ea76b56623dadff8a82c1a379c",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Observation.exposing_heap_needs_counts",
+     "module": "MSTNF.algorithms.MSTNFObservationMWE",
+     "statement_hash": "3769556ceeb196486620377642672880",
+     "axioms": []
+    }
+   ],
+   "scope_note": "the order needs no choice of representatives and no decidable view equality; run readings are instances",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`, `value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts` — outcome views ordered coarse-to-fine quotient to a lattice of information classes (join is relation intersection, meet the generated equivalence); run readings order as expected and heap and step counts are incomparable | `MSTNF/algorithms/MSTNFObservationMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C54",
+   "kind": "theorem",
+   "title": "Hop correctness transports to coarser observation classes",
+   "theorems": [
+    {
+     "name": "NfCompose.Observation.relHopOn_coarsen",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "594c1642a259d8027be52e0563e244b8",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.infoCompatible_classOf",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "fa5f4692d4802ec9b09e31078954d8e2",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.infoCompatible_variance",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "9faa610cae3b4b19277aa7ae8f4c6000",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.infoCompatible_comp",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "4698feb7cf9618833210be1a72c2a7a1",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.relHopOn_observation_seq",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "18890e0c537cb4801dc97f265c540179",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.postcompose_coarser",
+     "module": "MSTNF.algorithms.MSTNFObservationHopMWE",
+     "statement_hash": "b265ed19e38df4b134340131457c836c",
+     "axioms": []
+    }
+   ],
+   "scope_note": "semantic transport covers classes without a decidable view equality; composition needs a compatible middle reading",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `relHopOn_coarsen`, `infoCompatible_comp`, `relHopOn_observation_seq`, `postcompose_coarser` — relational hop correctness transports to every coarser information class; compatibility composes and survives outer coarsening | `MSTNF/algorithms/MSTNFObservationHopMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C55",
+   "kind": "theorem",
+   "title": "Observers lift to full runtime outcomes",
+   "theorems": [
+    {
+     "name": "NfCompose.Observation.liftRuntime_agreement",
+     "module": "MSTNF.algorithms.MSTNFObservationRuntimeMWE",
+     "statement_hash": "664a7e480e0951b5105cff0d7cd763bb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.liftRuntime_mono",
+     "module": "MSTNF.algorithms.MSTNFObservationRuntimeMWE",
+     "statement_hash": "7430bf3710516b254cb56dce86ca5301",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Observation.runtime_value_coarsenings",
+     "module": "MSTNF.algorithms.MSTNFObservationRuntimeMWE",
+     "statement_hash": "c26944030992baabdb3bc932cedcf575",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "the lift preserves the value/refusal/limit tags and their payloads",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `liftRuntime_agreement`, `liftRuntime_mono`, `runtime_value_coarsenings` — every observer lifts to full runtime outcomes, distinguishing all three tags and their payloads, and preserves the observation order | `MSTNF/algorithms/MSTNFObservationRuntimeMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness is also stated relationally: a relational hop witnesses the actual source representative, the actual translated raw, its admission and a relation between the two evaluations, and this form composes (`relHopAt_seq`, `relHopOn_seq`, `relHopOn_comp`), coincides with the executable Boolean check (`relHopCorrect_total_bool_iff`, from which `hop_seq_correct` is recovered: `hop_seq_correct_relational`) and reads the fixed-clock resource policy as a permitted-limit relation (`clock_resource_relHopAt_iff`). With forward correctness on every source outcome, a determinate target gives the backward direction (`forward_determinate_backward`, `execModel_forward_backward`, `relHopCorrect_backward_actual`), and each needed hypothesis is shown necessary (`target_determinism_needed`, `source_nonempty_needed`, `success_only_forward_insufficient`). Runtime outcomes keep values, refusal reasons and resource-limit labels distinct (`runtimeRefines_trans`, `runtime_refusal_preserved`, `allowed_limit_not_value`, `runtime_limit_chain`), with the named-diagnostics fixtures `absent_translation_named`, `target_refusal_named` and `absent_middle_no_final_witness`. Observations of an outcome are ordered from coarser to finer and quotient to a lattice of information classes (`quotient_order`, `coarser_iff_quotient_factor`, `join_lub`, `meet_glb`); hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`, `relHopOn_observation_seq`), instrumented run readings compare as expected while heap and step counts stay incomparable (`value_coarsenings`, `heap_steps_incomparable`, `exposing_heap_needs_counts`), and every observer lifts to full runtime outcomes preserving refusal and limit tags (`liftRuntime_agreement`, `runtime_value_coarsenings`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性也以关系形式陈述：一个关系 hop 见证实际的源代表元、实际翻译出的 raw、目标对它的准入以及两边求值之间的关系，这种形式可复合（`relHopAt_seq`、`relHopOn_seq`、`relHopOn_comp`），与可执行的 Boolean 检查一致（`relHopCorrect_total_bool_iff`，并由此恢复 `hop_seq_correct`：`hop_seq_correct_relational`），且把固定时钟的资源策略读成允许目标 limit 的关系（`clock_resource_relHopAt_iff`）。在对所有源结果都满足前向正确性时，确定的目标给出反向方向（`forward_determinate_backward`、`execModel_forward_backward`、`relHopCorrect_backward_actual`），所需假设也分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`、`success_only_forward_insufficient`）。运行时结果把值、具名拒绝与资源上限区分开（`runtimeRefines_trans`、`runtime_refusal_preserved`、`allowed_limit_not_value`、`runtime_limit_chain`），并以具名诊断的实例固定各种缺席形态（`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察按由粗到细排序并商成信息类的格（`quotient_order`、`coarser_iff_quotient_factor`、`join_lub`、`meet_glb`）；hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`、`relHopOn_observation_seq`），对带仪表的运行读数按预期比较，而堆计数与步数互不可比（`value_coarsenings`、`heap_steps_incomparable`、`exposing_heap_needs_counts`），且每个观察器都提升到完整运行时结果上并保持拒绝与上限标记（`liftRuntime_agreement`、`runtime_value_coarsenings`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has a relational form (`MSTNFRelationalHopMWE`): `RelHopAt` witnesses the actual sigma-selected representative, the actual translated raw, the target's admission and a relation between the two evaluations; it composes (`relHopAt_seq`, `relHopOn_seq`), coincides with the Boolean check (`relHopCorrect_total_bool_iff`) and recovers `hop_seq_correct` (`hop_seq_correct_relational`). Forward correctness over every source outcome, with a determinate target, yields the backward direction (`forward_determinate_backward`, `relHopCorrect_backward_actual`), and both determinism and source nonemptiness are necessary (`target_determinism_needed`, `source_nonempty_needed`). `MSTNFRuntimeRefinementMWE` keeps values, refusal reasons and resource-limit labels as distinct outcomes (`RuntimeOutcome`, `RuntimeRefines`): a permitted limit is never a value (`allowed_limit_not_value`), and the example policy's boundaries are witnessed (`success_only_forward_insufficient`, `absent_translation_named`, `target_refusal_named`, `absent_middle_no_final_witness`). An observation on an outcome is a projection to a view (`MSTNFObservationMWE`); ordered coarse-to-fine these quotient to a lattice of information classes (`quotient_order`, `join_lub`, `meet_glb`), hop correctness transports to coarser views (`hopCorrect_coarsen`, `relHopOn_coarsen`), and every observer lifts to full runtime outcomes (`liftRuntime_agreement`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
   }
  ],
  "other_property_sentences": [
