@@ -62,6 +62,12 @@ import MSTNF.algorithms.MSTNFRuntimeRefinementMWE
 import MSTNF.algorithms.MSTNFObservationMWE
 import MSTNF.algorithms.MSTNFObservationHopMWE
 import MSTNF.algorithms.MSTNFObservationRuntimeMWE
+import MSTNF.algorithms.MSTNFIndexedRunMWE
+import MSTNF.algorithms.MSTNFNamedPassageMWE
+import MSTNF.algorithms.MSTNFIndexedRelationalHopMWE
+import MSTNF.algorithms.MSTNFModelRunPassageMWE
+import MSTNF.algorithms.MSTNFIndexedStepShapeMWE
+import MSTNF.algorithms.MSTNFIndexedLegacyMWE
 import Lean
 open Lean Meta
 
@@ -151,7 +157,7 @@ def shippedModules : List Name := [`MSTNF.algorithms.MSTMinimalityRoleBasisMWE, 
   `MSTNF.r2.PreKey, `MSTNF.r2.Reason, `MSTNF.r2.CedarDedup, `MSTNF.r2.CedarBridge,
   `MSTNF.algorithms.MSTNFCompositionBasicMWE, `MSTNF.algorithms.MSTNFCompositionSumMWE, `MSTNF.algorithms.MSTNFCompositionSeqMWE, `MSTNF.algorithms.MSTNFCompositionProdMWE, `MSTNF.algorithms.MSTNFCompositionAtMostOneMWE,
   `MSTNF.algorithms.MSTNFHopMWE, `MSTNF.algorithms.MSTNFHopComposeMWE, `MSTNF.algorithms.MSTNFHopWitnessMWE, `MSTNF.algorithms.MSTNFRecComposeMWE, `MSTNF.algorithms.MSTNFResourceAdequateMWE,
-  `MSTNF.algorithms.MSTNFRelationalHopMWE, `MSTNF.algorithms.MSTNFForwardBackwardMWE, `MSTNF.algorithms.MSTNFRuntimeRefinementMWE, `MSTNF.algorithms.MSTNFObservationMWE, `MSTNF.algorithms.MSTNFObservationHopMWE, `MSTNF.algorithms.MSTNFObservationRuntimeMWE]
+  `MSTNF.algorithms.MSTNFRelationalHopMWE, `MSTNF.algorithms.MSTNFForwardBackwardMWE, `MSTNF.algorithms.MSTNFRuntimeRefinementMWE, `MSTNF.algorithms.MSTNFObservationMWE, `MSTNF.algorithms.MSTNFObservationHopMWE, `MSTNF.algorithms.MSTNFObservationRuntimeMWE, `MSTNF.algorithms.MSTNFIndexedRunMWE, `MSTNF.algorithms.MSTNFNamedPassageMWE, `MSTNF.algorithms.MSTNFIndexedRelationalHopMWE, `MSTNF.algorithms.MSTNFModelRunPassageMWE, `MSTNF.algorithms.MSTNFIndexedStepShapeMWE, `MSTNF.algorithms.MSTNFIndexedLegacyMWE]
 
 def axiomsOf (n : Name) : CoreM (List String) := do
   let (_, s) := ((CollectAxioms.collect n).run (← getEnv)).run {}

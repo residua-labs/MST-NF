@@ -43,6 +43,12 @@ import MSTNF.algorithms.MSTNFRuntimeRefinementMWE
 import MSTNF.algorithms.MSTNFObservationMWE
 import MSTNF.algorithms.MSTNFObservationHopMWE
 import MSTNF.algorithms.MSTNFObservationRuntimeMWE
+import MSTNF.algorithms.MSTNFIndexedRunMWE
+import MSTNF.algorithms.MSTNFNamedPassageMWE
+import MSTNF.algorithms.MSTNFIndexedRelationalHopMWE
+import MSTNF.algorithms.MSTNFModelRunPassageMWE
+import MSTNF.algorithms.MSTNFIndexedStepShapeMWE
+import MSTNF.algorithms.MSTNFIndexedLegacyMWE
 
 #print axioms MSTNFObject.exact_iff_empty_residues
 #print axioms MSTNFObject.exact_iff_sound_and_complete
@@ -405,3 +411,60 @@ import MSTNF.algorithms.MSTNFObservationRuntimeMWE
 #print axioms NfCompose.Observation.liftRuntime_agreement
 #print axioms NfCompose.Observation.liftRuntime_mono
 #print axioms NfCompose.Observation.runtime_value_coarsenings
+#print axioms NfCompose.Indexed.FuelBound.id_apply
+#print axioms NfCompose.Indexed.FuelBound.comp_apply
+#print axioms NfCompose.Indexed.FuelBound.diagonal_apply
+#print axioms NfCompose.Indexed.RunRefines.at_bound
+#print axioms NfCompose.Indexed.RunRefines.seq
+#print axioms NfCompose.Indexed.RunRefines.relation_mono
+#print axioms NfCompose.Indexed.RunRefines.names_mono
+#print axioms NfCompose.Indexed.RunRefines.bound_mono
+#print axioms NfCompose.Indexed.RunRefines.source_transport
+#print axioms NfCompose.Indexed.RunRefines.target_transport
+#print axioms NfCompose.Indexed.RunRefines.safe
+#print axioms NfCompose.Indexed.RunRefines.constant_iff
+#print axioms NfCompose.Indexed.RunRefines.ofOption_ofExcept_iff
+#print axioms NfCompose.Indexed.namedSeq_error_left
+#print axioms NfCompose.Indexed.namedSeq_error_right
+#print axioms NfCompose.Indexed.namedSeq_ok
+#print axioms NfCompose.Indexed.namedSeq_ok_iff
+#print axioms NfCompose.Indexed.namedSeq_error_left_iff
+#print axioms NfCompose.Indexed.namedSeq_error_right_iff
+#print axioms NfCompose.Indexed.namedSeq_forgetError
+#print axioms NfCompose.Indexed.NameMap.comp_map
+#print axioms NfCompose.Indexed.NameMap.comp_preserves
+#print axioms NfCompose.Indexed.NameMap.renameError_error
+#print axioms NfCompose.Indexed.NameMap.renameError_ok
+#print axioms NfCompose.Indexed.selectRaw_ok
+#print axioms NfCompose.Indexed.selectRaw_targetRejected
+#print axioms NfCompose.Indexed.selectRaw_representativeMissing
+#print axioms NfCompose.Indexed.selectRaw_raw
+#print axioms NfCompose.Indexed.selectRaw_selected
+#print axioms NfCompose.Indexed.selectRaw_admitted
+#print axioms NfCompose.Indexed.selectRaw_forget_rep
+#print axioms NfCompose.Indexed.selectRaw_exists
+#print axioms NfCompose.Indexed.Selection.active
+#print axioms NfCompose.Indexed.Selection.raw_class
+#print axioms NfCompose.Indexed.selectRaw_raw_class
+#print axioms NfCompose.Indexed.selectWithName_forgetError
+#print axioms NfCompose.Indexed.selectWithName_ok_iff
+#print axioms NfCompose.Indexed.selectWithName_error_iff
+#print axioms NfCompose.Indexed.indexedRelHopAt_mono
+#print axioms NfCompose.Indexed.indexedRelHopOn_mono
+#print axioms NfCompose.Indexed.indexedRelHopAt_seq
+#print axioms NfCompose.Indexed.indexedRelHopOn_seq
+#print axioms NfCompose.Indexed.indexedRelHopOn_comp
+#print axioms NfCompose.Indexed.DeclaredPassage.comp_laws
+#print axioms NfCompose.Indexed.report_runtime_refusal
+#print axioms NfCompose.Indexed.refusalTransport_seq
+#print axioms NfCompose.Indexed.family_raw_class_value
+#print axioms NfCompose.Indexed.family_raw_class_refusal
+#print axioms NfCompose.Indexed.rawPassage_select
+#print axioms NfCompose.Indexed.raw_rep_arrow_ok_iff
+#print axioms NfCompose.Indexed.stepShape_iff_runRefines
+#print axioms NfCompose.Indexed.legacyNamedOption_ok_iff
+#print axioms NfCompose.Indexed.legacyBind_some_iff
+#print axioms NfCompose.Indexed.indexedRelHopAt_constant_iff
+#print axioms NfCompose.Indexed.relHopAt_indexed_iff
+#print axioms NfCompose.Indexed.relHopCorrect_indexed_raw
+#print axioms NfCompose.relHopOn_seq_indexed

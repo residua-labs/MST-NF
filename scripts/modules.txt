@@ -52,3 +52,9 @@ MSTNF.algorithms.MSTNFRuntimeRefinementMWE
 MSTNF.algorithms.MSTNFObservationMWE
 MSTNF.algorithms.MSTNFObservationHopMWE
 MSTNF.algorithms.MSTNFObservationRuntimeMWE
+MSTNF.algorithms.MSTNFIndexedRunMWE
+MSTNF.algorithms.MSTNFNamedPassageMWE
+MSTNF.algorithms.MSTNFIndexedRelationalHopMWE
+MSTNF.algorithms.MSTNFModelRunPassageMWE
+MSTNF.algorithms.MSTNFIndexedStepShapeMWE
+MSTNF.algorithms.MSTNFIndexedLegacyMWE
