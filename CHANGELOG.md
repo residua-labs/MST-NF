@@ -2,6 +2,16 @@
 
 Every publication of this repository, newest first. Dates are UTC; each entry names its commits on `main`. Claims refer to `evidence/CLAIMS.json`.
 
+## 2026-11-26: indexed relational hops, named passages, the step-indexed shape
+Commits `9ec3d06`, `3e3a312`. New modules in `MSTNF/algorithms/`: `MSTNFIndexedRunMWE`, `MSTNFNamedPassageMWE`, `MSTNFIndexedRelationalHopMWE`, `MSTNFModelRunPassageMWE`, `MSTNFIndexedStepShapeMWE`, `MSTNFIndexedLegacyMWE`.
+- C56 Indexed runs with declared monotone fuel bounds: the RunRefines contract and its laws.
+- C57 Named partial arrows keep stage-tagged refusals; canonical raw selection uses only the model's own sigma and admission.
+- C58 Indexed relational hops carry a monotone bound per success and compose; declared carrier passages compose like compiler stages.
+- C59 Carrier passages anchored to the model family: raw and class views agree by the quotient law.
+- C60 The native fuel-and-step adequacy shape coincides with run refinement.
+- C61 The unindexed relational-hop laws are recovered from indexed composition.
+57 theorems; the original sequential composition law is re-proved from indexed composition alone. No new `Classical.choice`.
+
 ## 2026-11-26: relational hops, observation order, runtime outcomes
 Commits `a0500ee`, `e40d3f1`. New modules in `MSTNF/algorithms/`: `MSTNFRelationalHopMWE`, `MSTNFForwardBackwardMWE`, `MSTNFRuntimeRefinementMWE`, `MSTNFObservationMWE`, `MSTNFObservationHopMWE`, `MSTNFObservationRuntimeMWE`.
 - C50 Relational hops over ExecModel: correctness as an outcome relation, composition, the Boolean bridge.
