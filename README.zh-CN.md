@@ -117,3 +117,7 @@ sha256sum -c MANIFEST.sha256      # 内容寻址清单
 ```
 
 （在某些 macOS 版本上，编译好的 `lake exe cache get` / `lean4checker` 二进制会在 `dyld` 中中止；可以解释执行，例如 `lake env lean --run lean4checker/Main.lean <模块>`。）
+
+## 更新日志
+
+每一次发布都记录在 `CHANGELOG.zh-CN.md`（英文：`CHANGELOG.md`），按时间倒序，注明提交和声明。最近一次，2026-11-26：关系型 hop、前向与后向正确性、运行时结果和观察序（声明 C50 至 C55，58 条定理）。

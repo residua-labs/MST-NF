@@ -208,6 +208,10 @@ sha256sum -c MANIFEST.sha256      # content-addressed manifest
 
 (On some macOS versions the compiled `lake exe cache get` / `lean4checker` binaries abort in `dyld`; run them interpreted, e.g. `lake env lean --run lean4checker/Main.lean <module>`.)
 
+## Changelog
+
+Every publication is listed in `CHANGELOG.md` (Chinese: `CHANGELOG.zh-CN.md`), newest first, with its commits and claims. Latest, 2026-11-26: relational hops, forward and backward correctness, runtime outcomes and the observation order (claims C50 to C55, 58 theorems).
+
 ## Provenance
 
 Sources are the development repository at the commits recorded in `provenance/SOURCE.md`, with the blob of every source file. Published files equal their sources byte for byte except for rewritten `import` lines (`import X` becomes `import MSTNF.X`). Nothing is edited at publication time: comment scrubs and the `native_decide` to `decide` change were made in the development repository before publication. The composition, hop and recursion modules (`MSTNFComposition*`, `MSTNFHop*`, `MSTNFRecComposeMWE`) are the exception: their statements and proofs are unchanged from the development source (`evidence/SOURCE_PIN.md`), while module names, imports and doc comments were adapted here, and the witnesses of `MSTNFHopWitnessMWE` were split out of the hop-composition source into their own module. `MSTNFResourceAdequateMWE` was written for this repository and has no development-source counterpart. The relational-hop, forward/backward, runtime-refinement and observation-order modules (`MSTNFRelationalHopMWE`, `MSTNFForwardBackwardMWE`, `MSTNFRuntimeRefinementMWE`, `MSTNFObservationMWE`, `MSTNFObservationHopMWE`, `MSTNFObservationRuntimeMWE`) are handled like the composition modules: statements and proofs unchanged from the development source (`evidence/SOURCE_PIN.md`); module names, imports and doc comments were adapted, and their inline check markers moved to `scripts/PrintAxioms.lean`.
