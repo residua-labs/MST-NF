@@ -46,3 +46,9 @@ MSTNF.algorithms.MSTNFHopComposeMWE
 MSTNF.algorithms.MSTNFHopWitnessMWE
 MSTNF.algorithms.MSTNFRecComposeMWE
 MSTNF.algorithms.MSTNFResourceAdequateMWE
+MSTNF.algorithms.MSTNFRelationalHopMWE
+MSTNF.algorithms.MSTNFForwardBackwardMWE
+MSTNF.algorithms.MSTNFRuntimeRefinementMWE
+MSTNF.algorithms.MSTNFObservationMWE
+MSTNF.algorithms.MSTNFObservationHopMWE
+MSTNF.algorithms.MSTNFObservationRuntimeMWE

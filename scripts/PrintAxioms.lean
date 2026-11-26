@@ -37,6 +37,12 @@ import MSTNF.algorithms.MSTNFHopComposeMWE
 import MSTNF.algorithms.MSTNFHopWitnessMWE
 import MSTNF.algorithms.MSTNFRecComposeMWE
 import MSTNF.algorithms.MSTNFResourceAdequateMWE
+import MSTNF.algorithms.MSTNFRelationalHopMWE
+import MSTNF.algorithms.MSTNFForwardBackwardMWE
+import MSTNF.algorithms.MSTNFRuntimeRefinementMWE
+import MSTNF.algorithms.MSTNFObservationMWE
+import MSTNF.algorithms.MSTNFObservationHopMWE
+import MSTNF.algorithms.MSTNFObservationRuntimeMWE
 
 #print axioms MSTNFObject.exact_iff_empty_residues
 #print axioms MSTNFObject.exact_iff_sound_and_complete
@@ -341,3 +347,61 @@ import MSTNF.algorithms.MSTNFResourceAdequateMWE
 #print axioms NfCompose.AdequateWitness.clock_correct_but_not_adequate
 #print axioms NfCompose.AdequateWitness.vacuous_adequate_example
 #print axioms NfCompose.AdequateWitness.image_needed
+#print axioms NfCompose.relHopAt_mono
+#print axioms NfCompose.relHopOn_mono
+#print axioms NfCompose.relHopAt_seq
+#print axioms NfCompose.relHopOn_seq
+#print axioms NfCompose.relHopOn_comp
+#print axioms NfCompose.relHopOn_observed_seq
+#print axioms NfCompose.relHopCorrect_actual
+#print axioms NfCompose.relHopRho_none_iff
+#print axioms NfCompose.relHopAt_total_bool_iff
+#print axioms NfCompose.relHopCorrect_total_bool_iff
+#print axioms NfCompose.relHopCorrect_equality_iff
+#print axioms NfCompose.relHopAt_hopSeq_iff
+#print axioms NfCompose.hop_seq_correct_relational
+#print axioms NfCompose.clock_resource_relHopAt_iff
+#print axioms NfCompose.forward_determinate_pointwise
+#print axioms NfCompose.forward_determinate_backward
+#print axioms NfCompose.execModel_forward_backward
+#print axioms NfCompose.evalRaw_determinate
+#print axioms NfCompose.relHopCorrect_backward_actual
+#print axioms NfCompose.target_determinism_needed
+#print axioms NfCompose.source_nonempty_needed
+#print axioms NfCompose.runtimeRefines_refl
+#print axioms NfCompose.runtimeRefines_trans
+#print axioms NfCompose.mapRuntimeValue_mono
+#print axioms NfCompose.runtime_success_noWrong
+#print axioms NfCompose.runtime_refusal_preserved
+#print axioms NfCompose.allowed_limit_not_value
+#print axioms NfCompose.runtimePoint_profile
+#print axioms NfCompose.runtime_point_hop
+#print axioms NfCompose.runtime_limit_chain
+#print axioms NfCompose.success_only_forward_insufficient
+#print axioms NfCompose.absent_translation_named
+#print axioms NfCompose.refusalPoint_profile
+#print axioms NfCompose.target_refusal_named
+#print axioms NfCompose.absent_middle_no_final_witness
+#print axioms NfCompose.Observation.preorder_laws
+#print axioms NfCompose.Observation.coarser_of_factor
+#print axioms NfCompose.Observation.quotient_order
+#print axioms NfCompose.Observation.coarser_iff_quotient_factor
+#print axioms NfCompose.Observation.agrees_ofSetoid
+#print axioms NfCompose.Observation.join_lub
+#print axioms NfCompose.Observation.meet_glb
+#print axioms NfCompose.Observation.pull_mono
+#print axioms NfCompose.Observation.compatible_comp
+#print axioms NfCompose.Observation.hopCorrect_coarsen
+#print axioms NfCompose.Observation.hop_seq_correct_compatible
+#print axioms NfCompose.Observation.value_coarsenings
+#print axioms NfCompose.Observation.heap_steps_incomparable
+#print axioms NfCompose.Observation.exposing_heap_needs_counts
+#print axioms NfCompose.Observation.relHopOn_coarsen
+#print axioms NfCompose.Observation.infoCompatible_classOf
+#print axioms NfCompose.Observation.infoCompatible_variance
+#print axioms NfCompose.Observation.infoCompatible_comp
+#print axioms NfCompose.Observation.relHopOn_observation_seq
+#print axioms NfCompose.Observation.postcompose_coarser
+#print axioms NfCompose.Observation.liftRuntime_agreement
+#print axioms NfCompose.Observation.liftRuntime_mono
+#print axioms NfCompose.Observation.runtime_value_coarsenings
