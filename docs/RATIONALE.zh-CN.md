@@ -125,6 +125,8 @@ structure GodelFramework where
 
 正确性还有一种关系形式（`MSTNFRelationalHopMWE`）：`RelHopAt` 见证实际由 sigma 选出的代表元、实际翻译出的 raw、目标的准入以及两边求值之间的关系；它可复合（`relHopAt_seq`、`relHopOn_seq`），与 Boolean 检查一致（`relHopCorrect_total_bool_iff`），并恢复 `hop_seq_correct`（`hop_seq_correct_relational`）。对所有源结果的前向正确性加上确定的目标给出反向方向（`forward_determinate_backward`、`relHopCorrect_backward_actual`），而确定性与源非空性分别被证明是必要的（`target_determinism_needed`、`source_nonempty_needed`）。`MSTNFRuntimeRefinementMWE` 把值、具名拒绝与资源上限保持为不同的结果（`RuntimeOutcome`、`RuntimeRefines`）：被允许的 limit 永远不是值（`allowed_limit_not_value`），示例策略的边界也有见证（`success_only_forward_insufficient`、`absent_translation_named`、`target_refusal_named`、`absent_middle_no_final_witness`）。对结果的观察是到一个视图的投影（`MSTNFObservationMWE`）；按由粗到细排序后商成信息类的格（`quotient_order`、`join_lub`、`meet_glb`），hop 正确性可向更粗的视图迁移（`hopCorrect_coarsen`、`relHopOn_coarsen`），且每个观察器都提升到完整运行时结果上（`liftRuntime_agreement`）。
 
+正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。
+
 下表只是示意；本仓库只形式化了抽象理论。
 
 | 系统 | q：同一个东西 | a：允许进入 | σ：规范形式 | ρ：具名的拒绝 |

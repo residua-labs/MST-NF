@@ -1,4 +1,4 @@
-AUDIT modules=54 theorems=1601 defs=1475
+AUDIT modules=60 theorems=1712 defs=1557
 AUDIT classical_choice_theorems=47 [MSTNF.algorithms.MSTNFExecutionNoFifthRoleMWE::MSTNFExecutionNoFifthRoleMWE.Generic.roleRepresentation_iff_noDiagnostic,
  MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.cedar_bridge_bridged,
  MSTNF.r2.CedarBridge::MSTNFR2.CedarBridge.canonicalize_equiv,
@@ -50,9 +50,9 @@ AUDIT user_axioms=0 []
 AUDIT sorry_theorems=0 []
 AUDIT native_decide_theorems=0 []
 AUDIT axset [Classical.choice,Quot.sound,propext] : 44
-AUDIT axset [propext] : 299
-AUDIT axset [Quot.sound,propext] : 142
+AUDIT axset [propext] : 332
+AUDIT axset [Quot.sound,propext] : 148
 AUDIT axset [Classical.choice] : 2
 AUDIT axset [Quot.sound] : 19
-AUDIT axset [] : 1094
+AUDIT axset [] : 1166
 AUDIT axset [Classical.choice,Quot.sound] : 1

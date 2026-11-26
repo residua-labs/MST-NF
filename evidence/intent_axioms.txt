@@ -365,3 +365,60 @@
 'NfCompose.Observation.liftRuntime_agreement' depends on axioms: [propext]
 'NfCompose.Observation.liftRuntime_mono' depends on axioms: [propext]
 'NfCompose.Observation.runtime_value_coarsenings' depends on axioms: [propext]
+'NfCompose.Indexed.FuelBound.id_apply' does not depend on any axioms
+'NfCompose.Indexed.FuelBound.comp_apply' does not depend on any axioms
+'NfCompose.Indexed.FuelBound.diagonal_apply' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.at_bound' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.seq' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.relation_mono' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.names_mono' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.bound_mono' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.source_transport' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.target_transport' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.safe' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.constant_iff' does not depend on any axioms
+'NfCompose.Indexed.RunRefines.ofOption_ofExcept_iff' does not depend on any axioms
+'NfCompose.Indexed.namedSeq_error_left' depends on axioms: [propext]
+'NfCompose.Indexed.namedSeq_error_right' depends on axioms: [propext]
+'NfCompose.Indexed.namedSeq_ok' depends on axioms: [propext]
+'NfCompose.Indexed.namedSeq_ok_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Indexed.namedSeq_error_left_iff' depends on axioms: [propext]
+'NfCompose.Indexed.namedSeq_error_right_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Indexed.namedSeq_forgetError' depends on axioms: [propext]
+'NfCompose.Indexed.NameMap.comp_map' does not depend on any axioms
+'NfCompose.Indexed.NameMap.comp_preserves' does not depend on any axioms
+'NfCompose.Indexed.NameMap.renameError_error' does not depend on any axioms
+'NfCompose.Indexed.NameMap.renameError_ok' does not depend on any axioms
+'NfCompose.Indexed.selectRaw_ok' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_targetRejected' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_representativeMissing' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_raw' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_selected' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_admitted' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_forget_rep' depends on axioms: [propext]
+'NfCompose.Indexed.selectRaw_exists' depends on axioms: [propext]
+'NfCompose.Indexed.Selection.active' does not depend on any axioms
+'NfCompose.Indexed.Selection.raw_class' does not depend on any axioms
+'NfCompose.Indexed.selectRaw_raw_class' depends on axioms: [propext]
+'NfCompose.Indexed.selectWithName_forgetError' depends on axioms: [propext]
+'NfCompose.Indexed.selectWithName_ok_iff' depends on axioms: [propext]
+'NfCompose.Indexed.selectWithName_error_iff' depends on axioms: [propext]
+'NfCompose.Indexed.indexedRelHopAt_mono' does not depend on any axioms
+'NfCompose.Indexed.indexedRelHopOn_mono' does not depend on any axioms
+'NfCompose.Indexed.indexedRelHopAt_seq' depends on axioms: [propext]
+'NfCompose.Indexed.indexedRelHopOn_seq' depends on axioms: [propext]
+'NfCompose.Indexed.indexedRelHopOn_comp' depends on axioms: [propext]
+'NfCompose.Indexed.DeclaredPassage.comp_laws' depends on axioms: [propext]
+'NfCompose.Indexed.report_runtime_refusal' does not depend on any axioms
+'NfCompose.Indexed.refusalTransport_seq' does not depend on any axioms
+'NfCompose.Indexed.family_raw_class_value' does not depend on any axioms
+'NfCompose.Indexed.family_raw_class_refusal' does not depend on any axioms
+'NfCompose.Indexed.rawPassage_select' depends on axioms: [propext]
+'NfCompose.Indexed.raw_rep_arrow_ok_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Indexed.stepShape_iff_runRefines' does not depend on any axioms
+'NfCompose.Indexed.legacyNamedOption_ok_iff' depends on axioms: [propext]
+'NfCompose.Indexed.legacyBind_some_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Indexed.indexedRelHopAt_constant_iff' does not depend on any axioms
+'NfCompose.Indexed.relHopAt_indexed_iff' depends on axioms: [propext, Quot.sound]
+'NfCompose.Indexed.relHopCorrect_indexed_raw' depends on axioms: [propext]
+'NfCompose.relHopOn_seq_indexed' depends on axioms: [propext, Quot.sound]

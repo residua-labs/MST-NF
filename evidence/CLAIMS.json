@@ -5704,6 +5704,726 @@
     "docs/RATIONALE.md",
     "docs/RATIONALE.zh-CN.md"
    ]
+  },
+  {
+   "id": "C56",
+   "kind": "theorem",
+   "title": "Indexed runs with declared monotone fuel bounds: the RunRefines contract and its laws",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.FuelBound.id_apply",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "1f719c566473b29670dd9f8cba921a52",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.FuelBound.comp_apply",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "ca89fec4a8cca1069b45bfce113250c9",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.FuelBound.diagonal_apply",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "a992289ef9ba3b47ab0d18157fcfa980",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.at_bound",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "58d13200f93b3222c267702cc64aa565",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.seq",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "3a8e289dabe3c905c238d7bbb7793b71",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.relation_mono",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "b2973305e6bfe9d3ca3b61e50d9c6c88",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.names_mono",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "c38f1b18bf787021d48378170a9f58e3",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.bound_mono",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "9aa6b7667ec82664d7eda9b2fd2b1eef",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.source_transport",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "b2cd27127a48164765104689005cc827",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.target_transport",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "60ba21f420f06108b1d7e546c0c547d1",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.safe",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "70c2264b96a718261c702903e4797386",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.constant_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "bb99dcd196fb177f78d456d520df64b9",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.RunRefines.ofOption_ofExcept_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedRunMWE",
+     "statement_hash": "15bd53dd6d1813bb6832eeacdf9d02eb",
+     "axioms": []
+    }
+   ],
+   "scope_note": "bounds are maps declared per pair of budget orders and compose pointwise; adequacy, backward soundness and named refusals are quantified at every target index",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `RunRefines.seq`, `RunRefines.bound_mono`, `RunRefines.source_transport`, `RunRefines.target_transport`, `RunRefines.safe`, `RunRefines.ofOption_ofExcept_iff` — declared budget orders and monotone fuel bounds; run refinement composes sequentially, transports along declared view changes, and is exactly the adequacy-plus-safety pair for native Option/Except interpreters | `MSTNF/algorithms/MSTNFIndexedRunMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C57",
+   "kind": "theorem",
+   "title": "Named partial arrows keep stage-tagged refusals; canonical raw selection uses only the model's own sigma and admission",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.namedSeq_error_left",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "69a0a6afd339d4495b18c56993d42bff",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_error_right",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "ef1b934813607746a46a825eccf9e61b",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_ok",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "ddc184484c67fbd784232c981be5e601",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_ok_iff",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "a119411df1c590ebb4ef307008b090f4",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_error_left_iff",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "377d3989656323685d51958186ff9cf7",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_error_right_iff",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "4077866eb283b4fe848a46399f0e52e5",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.namedSeq_forgetError",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "66e94069096e3be858d8495e59373fd4",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.NameMap.comp_map",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "28139c6fc70e3ae91ef64ad2ae695618",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.NameMap.comp_preserves",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "e7a5fb793361c0528fcdea3fb43ca676",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.NameMap.renameError_error",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "b49796e0732f90d15df88351cfbba1ba",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.NameMap.renameError_ok",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "25391fd8c7746ddc2adc39393fedcd9d",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_ok",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "d37156aaca92df1d0d7996ca27774bfb",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_targetRejected",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "ad332a34545ab3e5c9da2b041bf32c7d",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_representativeMissing",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "2bf3cb226753507f51312b23e5ea15a9",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_raw",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "33af2d5bc33fe51d60b862e8cc2b7ab2",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_selected",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "4fdff04339c0caa09d6347b25672bfb0",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_admitted",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "f77ad4faa4bc65afde6bfea8d255298c",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_forget_rep",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "110dcc02c3cee22accec63bfa75f982a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_exists",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "4b63fb505e04d7f40fa92272021a667a",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.Selection.active",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "02f2bd24106b452fca5f41fd7c1a7677",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.Selection.raw_class",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "a285042e6814a7395e60a961db6aac09",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.selectRaw_raw_class",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "1e80d72c0f426752cdd587c20e4191ff",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectWithName_forgetError",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "baa3faec928ac85fc20d6c2e3c88d2a8",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectWithName_ok_iff",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "d14401dc0ba9d47cb683ebe6da6d1ab2",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.selectWithName_error_iff",
+     "module": "MSTNF.algorithms.MSTNFNamedPassageMWE",
+     "statement_hash": "43943e19caf27b1ead2306698a951fea",
+     "axioms": [
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "namedSeq retains the failing stage in a sum of error carriers; selectRaw names target rejection and missing representatives without any alternative selection operation",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`, `selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_forget_rep`, `selectRaw_exists` — error-named arrows compose keeping stage tags in a sum, and an admitted raw is selected canonically through the model's own sigma with named refusals for rejection and missing representatives | `MSTNF/algorithms/MSTNFNamedPassageMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C58",
+   "kind": "theorem",
+   "title": "Indexed relational hops carry a monotone bound per success and compose; declared carrier passages compose like compiler stages",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.indexedRelHopAt_mono",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "b090fc0b342da35f9f415dae3c372271",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.indexedRelHopOn_mono",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "32e589c3a9e085e27cde1cdb1bb3de62",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.indexedRelHopAt_seq",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "5be410a8eec5473ebc51d9437c60bd40",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.indexedRelHopOn_seq",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "ba6a97ec621ccdc5766643fde21bb974",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.indexedRelHopOn_comp",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "cb4df429b15864a9994cb861ef5c68cc",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.DeclaredPassage.comp_laws",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "81ee16ff48626545cfe25643a4119495",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.report_runtime_refusal",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "11bb20c7caf335b17b3441fd7774fb47",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.refusalTransport_seq",
+     "module": "MSTNF.algorithms.MSTNFIndexedRelationalHopMWE",
+     "statement_hash": "1d37ea2eeda64092414cd131078cf6a0",
+     "axioms": []
+    }
+   ],
+   "scope_note": "every success carries its own FuelBound; translation failures keep stage tags and runtime refusals the final endpoint's policy; a DeclaredPassage is a map packaged with its laws",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`, `DeclaredPassage.comp_laws`, `refusalTransport_seq` — an indexed relational hop witnesses its own monotone fuel bound and composes through namedSeq; a declared passage pairs a carrier map with its laws; refusal transport composes by name-map composition | `MSTNF/algorithms/MSTNFIndexedRelationalHopMWE.lean` | propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C59",
+   "kind": "theorem",
+   "title": "Carrier passages anchored to the model family: raw and class views agree by the quotient law",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.family_raw_class_value",
+     "module": "MSTNF.algorithms.MSTNFModelRunPassageMWE",
+     "statement_hash": "3d11621e719ccf41b7a4421ba1d9807d",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.family_raw_class_refusal",
+     "module": "MSTNF.algorithms.MSTNFModelRunPassageMWE",
+     "statement_hash": "468dbba7fd762abac6857d6d65b27111",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.rawPassage_select",
+     "module": "MSTNF.algorithms.MSTNFModelRunPassageMWE",
+     "statement_hash": "20b1e409563580d56780b332ddcaa3ec",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.raw_rep_arrow_ok_iff",
+     "module": "MSTNF.algorithms.MSTNFModelRunPassageMWE",
+     "statement_hash": "434946f8a0bc0443be3500b24e7fc4e4",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "familyRawView/familyClassView decode the family's own outcomes; canonical selection and the quotient law lift a raw passage to a representative passage; no new evalRep is introduced",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff` — raw and class views of a model family agree by the quotient law; canonical selection lifts a raw run passage to a representative passage; the downstream arrow consumes the actual representative | `MSTNF/algorithms/MSTNFModelRunPassageMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C60",
+   "kind": "theorem",
+   "title": "The native fuel-and-step adequacy shape coincides with run refinement",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.stepShape_iff_runRefines",
+     "module": "MSTNF.algorithms.MSTNFIndexedStepShapeMWE",
+     "statement_hash": "20f08fa44b4b1b38eb5b785c2561b9b6",
+     "axioms": []
+    }
+   ],
+   "scope_note": "an exact quantifier adapter: an existential monotone bound plus pointwise success-or-named-refusal safety is exactly RunRefines over independent Nat budgets",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `stepShape_iff_runRefines` — the two-coordinate fuel-and-step adequacy-and-named-safety shape is exactly a RunRefines over independent Nat budgets, with a singleton-value payload relation | `MSTNF/algorithms/MSTNFIndexedStepShapeMWE.lean` | none |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "What this does NOT claim",
+     "text": "* **The indexed-hop and passage laws are contracts, not a compiler instance.** No concrete program, fuel bound or budget family is shown to satisfy them; `stepBound`, `singletonRelation`, `selectRaw` and the family views are adapters over the declared interfaces, and `stepShape_iff_runRefines` is an exact quantifier adapter, not a proof about a specific compiler."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "本仓库不宣称什么",
+     "text": "* **索引 hop 与通路定律是契约，不是某个编译器实例。**没有证明任何具体程序、fuel 上界或预算族满足它们；`stepBound`、`singletonRelation`、`selectRaw` 与族视图是声明接口上的适配器，`stepShape_iff_runRefines` 是精确的量词适配器，不是关于某个具体编译器的证明。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
+  },
+  {
+   "id": "C61",
+   "kind": "theorem",
+   "title": "The unindexed relational-hop laws are recovered from indexed composition",
+   "theorems": [
+    {
+     "name": "NfCompose.Indexed.legacyNamedOption_ok_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "aa3ac7d6725965c297e4a9be61dc74e5",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.legacyBind_some_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "3aecb171b050c02816dc63e8d068218e",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.indexedRelHopAt_constant_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "510b99a26874db7ba6ca2702e92a871d",
+     "axioms": []
+    },
+    {
+     "name": "NfCompose.Indexed.relHopAt_indexed_iff",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "09af0ee858d60167ad34ec351e88bcf9",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.Indexed.relHopCorrect_indexed_raw",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "d12f43c4c5c774b3f5ed1b35127f0cec",
+     "axioms": [
+      "propext"
+     ]
+    },
+    {
+     "name": "NfCompose.relHopOn_seq_indexed",
+     "module": "MSTNF.algorithms.MSTNFIndexedLegacyMWE",
+     "statement_hash": "c5e6c586f99eea6818df71e47113fcd1",
+     "axioms": [
+      "Quot.sound",
+      "propext"
+     ]
+    }
+   ],
+   "scope_note": "constant runs use the identity bound; relHopOn_seq is re-proved from indexed composition alone, keeping the arbitrary source predicate and adding no source admission",
+   "anchors": [
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "Intents",
+     "text": "| `indexedRelHopAt_constant_iff`, `relHopAt_indexed_iff`, `relHopCorrect_indexed_raw`, `relHopOn_seq_indexed` — on constant runs the indexed pointwise assertion is exactly the original one, and the original sequential composition law is re-proved from indexed composition alone | `MSTNF/algorithms/MSTNFIndexedLegacyMWE.lean` | Quot.sound, propext |"
+    },
+    {
+     "file": "README.md",
+     "lang": "en",
+     "section": "The theory in one paragraph",
+     "text": "Hop correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`): budget orders are declared (`BudgetOrder`), target-resource bounds are monotone maps of the source index (`FuelBound`, composed by `FuelBound.comp`), and `RunRefines` demands adequacy above the bound, backward value soundness and named refusals at every target index; it composes sequentially (`RunRefines.seq`), transports along declared view changes (`source_transport`, `target_transport`) and is exactly the adequacy-plus-safety pair for native Option/Except interpreters (`ofOption_ofExcept_iff`), with the two-coordinate fuel-and-step shape recovered as that instance (`stepShape_iff_runRefines`). Named partial arrows keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_error_left_iff`, `namedSeq_forgetError`), and an admitted raw is selected canonically through the model's own sigma, with named refusals for rejection and for a missing representative (`selectRaw_ok`, `selectRaw_targetRejected`, `selectRaw_representativeMissing`, `selectRaw_exists`). An indexed relational hop carries its own monotone bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_seq`, `indexedRelHopOn_comp`); a carrier map packaged with its laws is a declared passage (`DeclaredPassage.comp_laws`); passages anchor to a model family, where raw and class views agree by the quotient law (`family_raw_class_value`, `family_raw_class_refusal`, `rawPassage_select`, `raw_rep_arrow_ok_iff`); refusal reporting transports by declared name maps (`report_runtime_refusal`, `refusalTransport_seq`); and the original sequential law is recovered as a special case (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "README.zh-CN.md",
+     "lang": "zh",
+     "section": "一段话说明理论",
+     "text": "hop 的正确性还有索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）：预算序是显式声明的（`BudgetOrder`），目标资源的上界是关于源索引的单调映射（`FuelBound`，由 `FuelBound.comp` 复合），`RunRefines` 要求在上界之上的充分性、反向的值可靠性和每个目标索引处的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图变换迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好就是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中两坐标的 fuel-步数形状作为该实例恢复（`stepShape_iff_runRefines`）。具名部分箭头把失败的阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_error_left_iff`、`namedSeq_forgetError`），已准入的 raw 通过模型自身的 sigma 被规范地选出，并对拒绝和缺失代表元给出具名拒绝（`selectRaw_ok`、`selectRaw_targetRejected`、`selectRaw_representativeMissing`、`selectRaw_exists`）。索引关系 hop 对每个成功携带自己的单调上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_seq`、`indexedRelHopOn_comp`）；载体映射与其定律打包即为声明的通路（`DeclaredPassage.comp_laws`）；通路锚定到模型族，其中 raw 视图与类视图由商律一致（`family_raw_class_value`、`family_raw_class_refusal`、`rawPassage_select`、`raw_rep_arrow_ok_iff`）；拒绝上报经声明的名字映射迁移（`report_runtime_refusal`、`refusalTransport_seq`）；原顺序复合律作为特例恢复（`relHopOn_seq_indexed`）。"
+    },
+    {
+     "file": "docs/RATIONALE.md",
+     "lang": "en",
+     "section": "Using it",
+     "text": "Correctness also has an indexed form (`MSTNFIndexedRunMWE`, `MSTNFIndexedRelationalHopMWE`). A `BudgetOrder` declares the order on runtime budgets; a `FuelBound` is a monotone map from the source index to the target budget, composed pointwise (`FuelBound.comp`). `RunRefines` then packages adequacy above the bound, backward value soundness and pointwise named refusals; it composes sequentially (`RunRefines.seq`), transports along declared view equivalences (`source_transport`, `target_transport`) and, for native Option/Except interpreters, is exactly the adequacy-plus-safety pair (`ofOption_ofExcept_iff`), of which the fuel-and-step quantifier shape is the two-coordinate instance (`stepShape_iff_runRefines`). Named partial arrows (`MSTNFNamedPassageMWE`) keep the failing stage in a sum of error carriers (`namedSeq_ok_iff`, `namedSeq_forgetError`), and `selectRaw` selects an admitted raw through the model's own sigma, naming target rejection and a missing representative. An indexed relational hop (`IndexedRelHopAt`, `IndexedRelHopOn`) carries its own bound per success and composes through `namedSeq` (`indexedRelHopAt_seq`, `indexedRelHopOn_comp`); a carrier map with its laws is a `DeclaredPassage`, and passages anchored to a model family agree on raw and class views by the quotient law (`rawPassage_select`, `raw_rep_arrow_ok_iff`). The unindexed sequential law is recovered from indexed composition alone (`relHopOn_seq_indexed`)."
+    },
+    {
+     "file": "docs/RATIONALE.zh-CN.md",
+     "lang": "zh",
+     "section": "如何使用",
+     "text": "正确性还有一种索引形式（`MSTNFIndexedRunMWE`、`MSTNFIndexedRelationalHopMWE`）。`BudgetOrder` 声明运行时预算上的序；`FuelBound` 是从源索引到目标预算的单调映射，逐点复合（`FuelBound.comp`）。`RunRefines` 打包了上界之上的充分性、反向值可靠性和逐点的具名拒绝；它可顺序复合（`RunRefines.seq`），沿声明的视图等价迁移（`source_transport`、`target_transport`），且对原生 Option/Except 解释器恰好是充分性加安全性这一对条件（`ofOption_ofExcept_iff`），其中 fuel-步数量词形状是其二坐标实例（`stepShape_iff_runRefines`）。具名部分箭头（`MSTNFNamedPassageMWE`）把失败阶段保留在错误载体的和上（`namedSeq_ok_iff`、`namedSeq_forgetError`），`selectRaw` 经模型自身的 sigma 选出已准入的 raw，并对目标拒绝与缺失代表元给出名字。索引关系 hop（`IndexedRelHopAt`、`IndexedRelHopOn`）对每个成功携带自己的上界，并经 `namedSeq` 复合（`indexedRelHopAt_seq`、`indexedRelHopOn_comp`）；载体映射连同其定律是 `DeclaredPassage`，锚定到模型族的通路经商律使 raw 视图与类视图一致（`rawPassage_select`、`raw_rep_arrow_ok_iff`）。未索引的顺序复合律仅由索引复合恢复（`relHopOn_seq_indexed`）。"
+    }
+   ],
+   "langs": [
+    "en",
+    "zh"
+   ],
+   "files": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/RATIONALE.md",
+    "docs/RATIONALE.zh-CN.md"
+   ]
   }
  ],
  "other_property_sentences": [

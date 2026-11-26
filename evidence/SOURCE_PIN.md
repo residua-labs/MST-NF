@@ -37,3 +37,17 @@ The modules below were ported from the development repository at commit `a613098
 | `2a2cb0e9633fe5a336b4ef54850a0157d37043e6` | `MSTNF/algorithms/MSTNFObservationRuntimeMWE.lean` |
 
 The source repository's audit list of the same theorem roots (`29f91da0f428d22dfabe407e71d532c689e3e11e`) became the `#print axioms` block at the end of `scripts/PrintAxioms.lean`.
+## Indexed-run, named-passage, indexed-hop, model-passage, step-shape and legacy modules
+
+The modules below were ported from the development repository at commit `7fc343d24b`. Statements and proofs are unchanged; module names, `import` lines and doc comments were adapted, and the inline check markers moved to `scripts/PrintAxioms.lean`. One source module carried an internal task label; its published module, bound and adapter theorem use neutral names instead: `MSTNFIndexedStepShapeMWE`, `stepBound`, `stepShape_iff_runRefines` (the source blob below records its original file). Git blob of each source file:
+
+| source blob | published path |
+|---|---|
+| `9d0353c014f9e0bf22c738e0ae0af88edf229ccf` | `MSTNF/algorithms/MSTNFIndexedRunMWE.lean` |
+| `97e28e174bfd89ec7ab815a96e3d922b316b5794` | `MSTNF/algorithms/MSTNFNamedPassageMWE.lean` |
+| `3dcae291a11d9941caf367681b5caf385ec16b80` | `MSTNF/algorithms/MSTNFIndexedRelationalHopMWE.lean` |
+| `d953ef1e0f42b45095c87bbd4dd50ccc0dd2985e` | `MSTNF/algorithms/MSTNFModelRunPassageMWE.lean` |
+| `962b06a1672612600cc8ff912991437a0fff2691` | `MSTNF/algorithms/MSTNFIndexedStepShapeMWE.lean` |
+| `dc805cb7edf930982a164e0949fc8c5521b819a2` | `MSTNF/algorithms/MSTNFIndexedLegacyMWE.lean` |
+
+The source repository's audit list of the same theorem roots (`175e65a19ca46faa8a1659c609527c731d7ee106`) became the `#print axioms` block at the end of `scripts/PrintAxioms.lean`.

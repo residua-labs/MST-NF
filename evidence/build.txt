@@ -1,6 +1,6 @@
-# module compilation (all 54 modules of scripts/modules.txt); Lean 4.14.0; Mathlib v4.14.0 package oleans built from source in this clone
+# module compilation (all 60 modules of scripts/modules.txt); Lean 4.14.0; Mathlib v4.14.0 package oleans built from source in this clone
 # raw exit: exit=0 for every module
-# started 2026-11-26T08:56:37Z  ended 2026-11-26T08:59:03Z (each module compiled by the Lean elaborator/kernel with lean -o against the locally built Mathlib v4.14.0 oleans; a full `lake build` at this head also completed with exit 0 — build log retained in the clone; the repo scripts ClaimsCheck, PrintAxioms and AxiomAudit then ran over the same environment — see claims_check.txt, intent_axioms.txt, axiom_audit.txt)
+# the six indexed-run modules were compiled with `lake env lean -o` at this head 2026-11-26T10:30:53Z; the other 54 modules are unchanged from the previous publication's per-module run (2026-11-26T08:56:37Z..08:59:03Z); a full `lake build` at this head also completed with exit 0 (build log retained in the clone); the repo scripts ClaimsCheck, PrintAxioms and AxiomAudit then ran over the same environment — see claims_check.txt, intent_axioms.txt, axiom_audit.txt
 MSTNF.algorithms.MSTMinimalityRoleBasisMWE  exit=0
 MSTNF.algorithms.MSTNF3Form4FormEquivMWE  exit=0
 MSTNF.algorithms.MSTNF3FormMWE  exit=0
@@ -55,3 +55,9 @@ MSTNF.algorithms.MSTNFRuntimeRefinementMWE  exit=0
 MSTNF.algorithms.MSTNFObservationMWE  exit=0
 MSTNF.algorithms.MSTNFObservationHopMWE  exit=0
 MSTNF.algorithms.MSTNFObservationRuntimeMWE  exit=0
+MSTNF.algorithms.MSTNFIndexedRunMWE  exit=0
+MSTNF.algorithms.MSTNFNamedPassageMWE  exit=0
+MSTNF.algorithms.MSTNFIndexedRelationalHopMWE  exit=0
+MSTNF.algorithms.MSTNFModelRunPassageMWE  exit=0
+MSTNF.algorithms.MSTNFIndexedStepShapeMWE  exit=0
+MSTNF.algorithms.MSTNFIndexedLegacyMWE  exit=0
